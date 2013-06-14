@@ -101,7 +101,7 @@
 	<AVP_Def name="Cause-Code" code="861" type="Integer32" vendorId="10415" mandatoryFlag="true"/>
 	<!-- End of 3GPP  -->
 
-	<!--   <AVP_Def name="BWAS-Radius-Encoding-Version" code="0" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>    Code is zero-->
+	<AVP_Def name="BWAS-Radius-Encoding-Version" code="0" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Record-id" code="1" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Service-provider" code="2" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Type" code="3" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
@@ -322,6 +322,134 @@
 	<AVP_Def name="BWAS-Body-Content-Disposition" code="218" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Body-Originator" code="219" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-SIP-Error-Code" code="220" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-otherInfoInPCV" code="221" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Received-Calling-Number" code="222" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CustomRingback-Media-Selection" code="223" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Type" code="224" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Charge" code="225" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Currency" code="226" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Time" code="227" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Sum" code="228" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Activation-Time" code="229" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AOC-Result" code="230" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-AS-Call-Type" code="231" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scf-Act-Invoke-Time" code="232" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scf-Act-Fac-Result" code="233" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scf-Deact-Invoke-Time" code="234" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scf-Deact-Fac-Result" code="235" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfa-Inter-Invoke-Time" code="236" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfa-Inter-Fac-Result" code="237" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfna-Inter-Invoke-Time" code="238" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfna-Inter-Fac-Result" code="239" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfb-Inter-Invoke-Time" code="240" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfb-Inter-Fac-Result" code="241" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CBF-Auth-Code" code="242" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Bridge-Result" code="243" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Return-Call-Number-Deletion-Invoke-Time" code="244" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Return-Call-Number-Deletion-Fac-Result" code="245" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Prepaid-Status" code="246" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Configurable-CLID" code="247" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Night-Service-Act-Result" code="248" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Night-Service-Deact-Result" code="249" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Forced-Forwarding-Act-Result" code="250" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Forced-Forwarding-Deact-Result" code="251" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Outgoing-Call-FAC-Result" code="252" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Outgoing-Personal-Call-FAC-Result" code="253" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Outgoing-Phone-Number" code="254" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Intercept-User-Routing-Number" code="255" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Intercept-Group-Routing-Number" code="256" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Activation-Invoke-Time" code="257" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Activation-Fac-Result" code="258" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Deactivation-Invoke-Time" code="259" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Deactivation-Fac-Result" code="260" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Query-Invoke-Time" code="261" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CB-Query-Fac-Result" code="262" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfnrc-Inter-Invoke-Time" code="263" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Cfnrc-Inter-Fac-Result" code="264" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-VMR-Dialing-Invoke-Time" code="265" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-VMR-Dialing-Fac-result" code="266" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-VP-Dialing-Invoke-Time" code="267" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-VP-Dialing-Fac-result" code="268" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Camel-Loc-Info" code="269" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Camel-Msc-Address" code="270" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Camel-CellId-Or-LAI" code="271" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-NAME-Permitted" code="272" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-User-Id" code="273" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Center-Outgoing-Group-Phone-Number" code="274" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-VON-Type" code="275" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-PreAlertingAnncmtDuration" code="276" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Disp-Code-Tagging-Invoke-Time" code="277" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Disp-Code-Tagging-Result" code="278" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Escalated-Call-Invoke-Time" code="279" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Escalated-Call-FAC-Result" code="280" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Monitoring-BI-Invoke-Time" code="281" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Monitoring-BI-FAC-Result" code="282" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Mid-Call-Cot-Invoke-Time" code="283" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Office-Zone" code="284" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Primary-Zone" code="285" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Roaming-MSC-Address" code="286" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CC-Emergency-Call-Invoke-Time" code="287" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Monitoring-Next-Call-Invoke-Time" code="288" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Monitoring-Next-Call-FAC-Result" code="289" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Legacy-Acb-Act-Invoke-Time" code="290" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Legacy-Acb-Act-Fac-Result" code="291" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Legacy-Acb-Deact-Invoke-Time" code="292" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Legacy-Acb-Deact-Fac-Result" code="293" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Custom-Schema-Version" code="294" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Group-Paging-Invoke-Time" code="295" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Group-Paging-Related-CallId" code="296" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-DCLID" code="297" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-InvokeTime" code="298" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Me-Now-Type" code="299" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Me-Now-Transaction-Id" code="300" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Me-Now-Related-Call-Id" code="301" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-ConferenceId" code="302" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-Role" code="303" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-Bridge" code="304" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-Owner" code="305" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-OwnerDn" code="306" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-Title" code="307" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-ProjectCode" code="308" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MeetMeConferencing-RecordDuration" code="309" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MobilityNumber" code="310" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-MobilityRoutingNumber" code="311" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Location" code="312" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Location-Type" code="313" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Location-Usage" code="314" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Recording-Invocation-Time" code="315" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Recording-FAC-Result" code="316" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Recording-Trigger" code="317" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Recording-Destination" code="318" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Call-Recording-Result" code="319" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Calling-Pres-Number" code="320" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Calling-Pres-Number-Context" code="321" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Calling-Asserted-Number" code="322" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Calling-Asserted-Number-Context" code="323" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-SCC-Invocation-Time" code="324" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-SCC-Call-Id" code="325" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-SCC-Number" code="326" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Acr-Inter-Invoke-Time" code="327" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Acr-Inter-Fac-Result" code="328" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CW-Inter-Invoke-Time" code="329" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-CW-Inter-Fac-Result" code="330" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Clid-Blocking-Inter-Invoke-Time" code="331" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Clid-Blocking-Inter-Fac-Result" code="332" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Colr-Inter-Invoke-Time" code="333" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Colr-Inter-Fac-Result" code="334" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scr-Inter-Invoke-Time" code="335" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Scr-Inter-Fac-Result" code="336" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-337" code="337" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-338" code="338" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-339" code="339" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-340" code="340" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-341" code="341" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-342" code="342" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-343" code="343" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-344" code="344" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-345" code="345" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-User-Agent" code="346" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-FMFM-Call-Push-Invocation-Time" code="347" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-FMFM-Call-Push-FAC-Result" code="348" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 
 	<Request name="ACR" ignoreMandatoryFlag="true">
 		<Condition key="Command-Code" value="271"/>
