@@ -564,17 +564,6 @@
 		<AVP name="BWAS-Local-Callid"/>
 		<AVP name="BWAS-Remote-Callid"/>
 		<AVP name="BWAS-Calling-Party-Category"/>
-		<AVP name="BWAS-Conference-Invoke-Time"/>
-		<AVP name="BWAS-Conference-Callid"/>
-		<AVP name="BWAS-Conference-To"/>
-		<AVP name="BWAS-Conference-From"/>
-		<AVP name="BWAS-Conference-Id"/>
-		<AVP name="BWAS-Conference-Role"/>
-		<AVP name="BWAS-Conference-Bridge"/>
-		<AVP name="BWAS-Conference-Owner"/>
-		<AVP name="BWAS-Conference-Owner-Dn"/>
-		<AVP name="BWAS-Conference-Title"/>
-		<AVP name="BWAS-Conference-Project-Code"/>
 		<AVP name="BWAS-Charging-Vector-Key"/>
 		<AVP name="BWAS-Charging-Vector-Creator"/>
 		<AVP name="BWAS-Charging-Vector-Orig"/>
@@ -652,7 +641,6 @@
 		<AVP name="BWAS-Diversion-Inhibitor-Invoke-time"/>
 		<AVP name="BWAS-Diversion-Inhibitor-Fac-Result"/>
 		<AVP name="BWAS-Trunk-Group-Name"/>
-		<AVP name="BWAS-Conference-Recording-Duration"/>
 		<AVP name="BWAS-InstantGroupCall-Invoke-Time"/>
 		<AVP name="BWAS-InstantGroupCall-PushToTalk"/>
 		<AVP name="BWAS-InstantGroupCall-Related-Callid"/>
