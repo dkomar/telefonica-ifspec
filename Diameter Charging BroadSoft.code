@@ -1,40 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-      File : DiameterChargingBroadSoft.xml
-      No.  :
-      Date : 2009-11-25
-      Rev  : A
- Copyright (c) 2009 Ericsson AB - All rights reserved.
- The Copyright to the computer program(s) herein is the property of
- Ericsson AB.
- The program(s) may be used and/or copied with the written permission
- from Ericsson AB or in accordance with the terms and conditions
- stipulated in the agreement/contract under which the program(s) have
- been supplied.
- The contents of this document are subject to revision without notice due
- to continued progress in methodology, design and manufacturing.ogw
- thule
- Ericsson AB shall have no liability for any errors or damage of any kind
- resulting from the use of modified versions of this document.
- DESCRIPTION:
-  This is the Ericsson Multi Mediation specification for
-  Diameter Rf accounting application 1.0 output.
- REVISION HISTORY:
- Rev   Date            Author         Action
- A     2009-11-25	   eroschi		  First Final Revision
- DEVIATIONS:
- NOTE:
- A couple of AVPs will be needed in the request. These are not necessarily specified in this file.
- The Following AVP codes are required.
-    DiameterBase Request:	Session-Id, Origin-Host, Origin-Realm, Destination-Realm, Destination-Host,
-                                Accounting-Record-Type, Accounting-Record-Number, Acct-Application-Id,
-                                Auth-Application-Id, Origin-State-Id, Acct-Interim-Interval.
-    DiameterBase Response:	Session-Id, Result-Code, Origin-Host, Origin-Realm, Origin-State-Id.
- SOURCE DOCUMENT:
-   No. : Rf Interface Specification Release 15 BroadWorks
-   Rev : 1
-   No. : 05-BD5038-00
--->
 <Protocol id="Diameter customer, country" spec="RFC3588"
           name="Diameter" version="1.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -61,7 +25,6 @@
 	<AVP_Def name="Origin-State-Id" code="278" type="Unsigned32" mandatoryFlag="true"/>
 	<AVP_Def name="Event-Timestamp" code="55" type="Time" mandatoryFlag="true"/>
 	<AVP_Def name="Result-Code" code="268" type="Unsigned32" mandatoryFlag="true"/>
-	 <!--only uses for responce to AS-->
 	<AVP_Def name="Acct-Interim-Interval" code="85" type="Unsigned32" mandatoryFlag="true"/>
 	 <!--only used for responce to AS-->
 	<!-- End of Diameter Base Protocol RFC3588 -->
@@ -351,8 +314,6 @@
 	<AVP_Def name="BWAS-Body-Content-Disposition" code="218" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Body-Originator" code="219" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-SIP-Error-Code" code="220" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<!--The default request declaration -->
-	<!--<Request name="ACR">-->
 	<Request name="ACR" ignoreMandatoryFlag="true">
 		<Condition key="Command-Code" value="271"/>
 		<AVP name="Session-Id"/>
@@ -371,12 +332,10 @@
 				<AVP name="Subscription-Id-Type"/>
 				<AVP name="Subscription-Id-Data"/>
 			</AVP>
-			 <!--end subscription id-->
 			<AVP name="IMS-Information">
 				<AVP name="Event-Type">
 					<AVP name="SIP-Method"/>
 				</AVP>
-				 <!--end Event type -->
 				<AVP name="Node-Functionality"/>
 				<AVP name="Role-of-node"/>
 				<AVP name="User-Session-Id"/>
@@ -387,12 +346,10 @@
 					<AVP name="SIP-Request-Timestamp" alias="SIP-Request-Timestamp"/>
 					<AVP name="SIP-Response-Timestamp" alias="SIP-Response-Timestamp"/>
 				</AVP>
-				 <!--end Time-stamps-->
 				<AVP name="Inter-Operator-Identifier">
 					<AVP name="Originating-IOI"/>
 					<AVP name="Terminating-IOI"/>
 				</AVP>
-				 <!--Inter-Operator-Identifier-->
 				<AVP name="IMS-Charging-Identifier"/>
 				<AVP name="Early-Media-Description" mapping="list" listSep="&#248;" alias="Early-Media-Description">
 					<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;" alias="SDP-Media-Component">
@@ -400,35 +357,28 @@
 						<AVP name="SDP-Media-Description" alias="SDP-Media-Description" mapping="list" listSep="&#254;"/>
 						<AVP name="Media-Initiator-Flag"/>
 					</AVP>
-					 <!--end SDP media component -->
 					<AVP name="SDP-TimeStamps">
 						<AVP name="SDP-Offer-Timestamp"/>
 						<AVP name="SDP-Answer-Timestamp"/>
 					</AVP>
-					 <!--end SDP timestaps-->
 					<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;" alias="SDP-Session-Description"/>
 				</AVP>
-				 <!--END Early-Media-Description-->
 				<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;" alias="SDP-Session-Description"/>
 				<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;" alias="SDP-Media-Component">
 					<AVP name="SDP-Media-Name"/>
 					<AVP name="SDP-Media-Description" alias="SDP-Media-Description" mapping="list" listSep="&#254;"/>
 					<AVP name="Media-Initiator-Flag"/>
 				</AVP>
-				 <!--end SDP media component -->
 				<AVP name="Message-Bodies" mapping="list" listSep="&#248;" alias="Message-Bodies mapping">
 					<AVP name="Content-Type"/>
 					<AVP name="Content-Length"/>
 					<AVP name="Content-Disposition"/>
 					<AVP name="Originator"/>
 				</AVP>
-				 <!--end message bodies-->
 				<AVP name="Access-Network-Information"/>
 				<AVP name="Cause-Code"/>
 			</AVP>
-			 <!--end IMS-Info group   -->
 		</AVP>
-		 <!--end Service Information-->
 		<!--  <AVP name="BWAS-Radius-Encoding-Version"/> -->
 		<AVP name="BWAS-Record-id"/>
 		<AVP name="BWAS-Service-provider"/>
@@ -654,29 +604,13 @@
 	<!--<Response name="DefaultACA" ignoreMandatoryFlag="true" -->
 	<Response name="ACA" ignoreMandatoryFlag="true">
 		<Condition key="Command-Code" value="271"/>
-		<!-- Condition tag(s) could be added here
-        Example: <Condition key="requestName" value="DefaultACR"/>
-     -->
-		<!--
-    <AVP name="Session-Id"/>
-   -->
 		<AVP name="Result-Code"/>
 		<AVP name="Acct-Interim-Interval" alias="accountingInterimInterval"/>
 		<AVP name="Origin-Host"/>
 		<AVP name="Origin-Realm"/>
-		<!-- Additional AVPs used in the solution should be added -->
-		<!-- The Diameter F-E activity will always include the following AVPs first
-         in all Responses sent:
-	         Session-Id
-	         Result-Code ->Removed
-    <AVP name="Acct-Interim-Interval" alias="accountingInterimInterval"/> -> REMOVED
-	         Origin-Host
-	         Origin-Realm
-	         Origin-State-Id
-         If the Session-Id is not set and included the value of the "sessionId"
-         will be used. For the other AVPs there are configured/built-in default
-         values.
-         <AVP name="Event-Timestamp"/>
-      -->
+		<!-- The Diameter F-E activity will always include the following AVPs first in all Responses sent:
+		Session-Id Result-Code Acct-Interim-Interval Origin-Host Origin-Realm Origin-State-Id Event-Timestamp
+		If the Session-Id is not set and included the value of the "sessionId" will be used.
+		For the other AVPs there are configured/built-in default values.  -->
 	</Response>
 </Protocol>
