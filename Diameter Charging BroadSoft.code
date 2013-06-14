@@ -2,12 +2,15 @@
 <Protocol id="Diameter customer, country" spec="RFC3588"
           name="Diameter" version="1.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="file:/$CLASSES/cmg/stdapp/diameter/validation/Diameter_addon_schema.xsd"> <!--change-->
+          xsi:noNamespaceSchemaLocation="file:/$CLASSES/cmg/stdapp/diameter/validation/Diameter_addon_schema.xsd">
+
 	<!-- SupportedVendorId tags should be inserted here -->
 	<SupportedVendorId vendorId="10415" comment="3GPP"/>
 	<SupportedVendorId vendorId="6431" comment="BroadSoft"/>
-	<AVP_Def name="Command-Code" code="999" type="Unsigned32" mandatoryFlag="true"/>
+
+
 	<!-- Diameter Base Protocol RFC3588 -->
+	<AVP_Def name="Command-Code" code="999" type="Unsigned32" mandatoryFlag="true"/>
 	<AVP_Def name="Session-Id" code="263" type="UTF8String" mandatoryFlag="true"/>
 	<AVP_Def name="Origin-Host" code="264" type="OctetString" mandatoryFlag="true"/>
 	<AVP_Def name="Origin-Realm" code="296" type="OctetString" mandatoryFlag="true"/>
@@ -26,11 +29,10 @@
 	<AVP_Def name="Event-Timestamp" code="55" type="Time" mandatoryFlag="true"/>
 	<AVP_Def name="Result-Code" code="268" type="Unsigned32" mandatoryFlag="true"/>
 	<AVP_Def name="Acct-Interim-Interval" code="85" type="Unsigned32" mandatoryFlag="true"/>
-	 <!--only used for responce to AS-->
 	<!-- End of Diameter Base Protocol RFC3588 -->
+
 	<!-- 3GPP  -->
 	<AVP_Def name="Service-Context-Id" code="461" type="UTF8String" mandatoryFlag="true"/>
-	<AVP_Def name="Service-Information" code="873" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Subscription-Id" code="443" type="Grouped" mandatoryFlag="true"/>
 	<AVP_Def name="Subscription-Id-Type" code="450" type="Enumerated" mandatoryFlag="true">
 		<EnumValue value="0" comment="END_USER_E164"/>
@@ -40,7 +42,11 @@
 		<EnumValue value="4" comment="END_USER_PRIVATE"/>
 	</AVP_Def>
 	<AVP_Def name="Subscription-Id-Data" code="444" type="UTF8String" mandatoryFlag="true"/>
+	<!-- End of Diameter Base Protocol RFC3588 -->
+
+	<!-- 3GPP  -->
 	<AVP_Def name="IMS-Information" code="876" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Service-Information" code="873" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Event-Type" code="823" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="SIP-Method" code="824" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Node-Functionality" code="862" type="Enumerated" vendorId="10415" mandatoryFlag="true">
@@ -93,6 +99,7 @@
 	<AVP_Def name="Access-Network-Information" code="1263" type="OctetString" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Cause-Code" code="861" type="Integer32" vendorId="10415" mandatoryFlag="true"/>
 	<!-- End of 3GPP  -->
+
 	<!--   <AVP_Def name="BWAS-Radius-Encoding-Version" code="0" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>    Code is zero-->
 	<AVP_Def name="BWAS-Record-id" code="1" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Service-provider" code="2" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
@@ -314,6 +321,7 @@
 	<AVP_Def name="BWAS-Body-Content-Disposition" code="218" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Body-Originator" code="219" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-SIP-Error-Code" code="220" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+
 	<Request name="ACR" ignoreMandatoryFlag="true">
 		<Condition key="Command-Code" value="271"/>
 		<AVP name="Session-Id"/>
@@ -603,7 +611,7 @@
 	</Request>
 	<!--<Response name="DefaultACA" ignoreMandatoryFlag="true" -->
 	<Response name="ACA" ignoreMandatoryFlag="true">
-		<Condition key="Command-Code" value="271"/>
+		<AVP name="Session-Id"/>
 		<AVP name="Result-Code"/>
 		<AVP name="Acct-Interim-Interval" alias="accountingInterimInterval"/>
 		<AVP name="Origin-Host"/>
