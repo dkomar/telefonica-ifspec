@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- created based on Rf/Ro Interface Specification Release 18.0 Document Version 1 (05-BD5038-00 (c)2011 BROADSOFT, INC -->
 <Protocol id="Diameter customer, country" spec="RFC3588"
           name="Diameter" version="1.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -15,7 +16,7 @@
 	<AVP_Def name="Origin-Host" code="264" type="OctetString" mandatoryFlag="true"/>
 	<AVP_Def name="Origin-Realm" code="296" type="OctetString" mandatoryFlag="true"/>
 	<AVP_Def name="Destination-Realm" code="283" type="OctetString" mandatoryFlag="true"/>
-	<!--  <AVP_Def name="Destination-Host" code="293" type="OctetString" mandatoryFlag="false"/> -->
+	<AVP_Def name="Destination-Host" code="293" type="DiameterIdentity" mandatoryFlag="true"/>
 	<AVP_Def name="Accounting-Record-Type" code="480" type="Enumerated" mandatoryFlag="true">
 		<EnumValue value="1" comment="EVENT_RECORD"/>
 		<EnumValue value="2" comment="START_RECORD"/>
@@ -64,7 +65,7 @@
 		<EnumValue value="2" comment="PROXY-ROLE"/>
 		<EnumValue value="3" comment="B2BUA-ROLE"/>
 	</AVP_Def>
-	<AVP_Def name="User-Session-Id" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="User-Session-Id" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Calling-Party-Address" code="831" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Called-Party-Address" code="832" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Called-Asserted-Identity" code="1250" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
@@ -84,14 +85,14 @@
 		<EnumValue value="1" comment="calling party"/>
 		<EnumValue value="2" comment="unknown"/>
 	</AVP_Def>
-	<AVP_Def name="SDP-TimeStamps" code="1273" type="Grouped" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="SDP-Offer-Timestamp" code="1274" type="Time" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="SDP-Answer-Timestamp" code="1275" type="Time" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="Message-Bodies" code="889" type="Grouped" mandatoryFlag="false"/>
-	<AVP_Def name="Content-Type" code="826" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="Content-Length" code="827" type="Unsigned32" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="Content-Disposition" code="828" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
-	<AVP_Def name="Originator" code="864" type="Enumerated" vendorId="10415" mandatoryFlag="false">
+	<AVP_Def name="SDP-TimeStamps" code="1273" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Offer-Timestamp" code="1274" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Answer-Timestamp" code="1275" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Message-Bodies" code="889" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Type" code="826" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Length" code="827" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Disposition" code="828" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Originator" code="864" type="Enumerated" vendorId="10415" mandatoryFlag="true">
 		<EnumValue value="0" comment="calling party"/>
 		<EnumValue value="1" comment="called party"/>
 	</AVP_Def>
@@ -360,14 +361,14 @@
 				</AVP>
 				<AVP name="IMS-Charging-Identifier"/>
 				<AVP name="Early-Media-Description" mapping="list" listSep="&#248;" alias="Early-Media-Description">
+					<AVP name="SDP-TimeStamps">
+						<AVP name="SDP-Offer-Timestamp"/>
+						<AVP name="SDP-Answer-Timestamp"/>
+					</AVP>
 					<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;" alias="SDP-Media-Component">
 						<AVP name="SDP-Media-Name"/>
 						<AVP name="SDP-Media-Description" alias="SDP-Media-Description" mapping="list" listSep="&#254;"/>
 						<AVP name="Media-Initiator-Flag"/>
-					</AVP>
-					<AVP name="SDP-TimeStamps">
-						<AVP name="SDP-Offer-Timestamp"/>
-						<AVP name="SDP-Answer-Timestamp"/>
 					</AVP>
 					<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;" alias="SDP-Session-Description"/>
 				</AVP>
