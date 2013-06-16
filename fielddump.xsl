@@ -16,9 +16,16 @@
 <xsl:template name="printpath">
 	<xsl:for-each select="ancestor-or-self::*">
 		<xsl:sort select="count(ancestor::*)" order="ascending"/>
+		<xsl:variable name="AVPName" select="@name"/>
 		<xsl:choose>
 			<xsl:when test="name() = 'AVP'">
-				<xsl:value-of select="concat('/', @name)"/>
+				<xsl:value-of select="concat(
+					'/', $AVPName, '(',
+					/Protocol/AVP_Def[@name = $AVPName]/@mandatoryFlag, ',',
+					/Protocol/AVP_Def[@name = $AVPName]/@code, ',',
+					/Protocol/AVP_Def[@name = $AVPName]/@vendorId, ',',
+					/Protocol/AVP_Def[@name = $AVPName]/@type, ')'
+					)"/>
 			</xsl:when>
 			<xsl:when test="name() = 'Request'">
 				<xsl:value-of select="concat(@name, ':')"/>
