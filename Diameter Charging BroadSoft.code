@@ -451,7 +451,7 @@
 	<AVP_Def name="BWAS-FMFM-Call-Push-Invocation-Time" code="347" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-FMFM-Call-Push-FAC-Result" code="348" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 
-	<Request name="ACR" ignoreMandatoryFlag="true">
+	<Request name="ACR">
 		<Condition key="Command-Code" value="271"/>
 		<AVP name="Session-Id"/>
 		<AVP name="Origin-Host"/>
