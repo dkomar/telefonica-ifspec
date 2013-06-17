@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  
+
   <!-- callcase contains a one or more <CDR> elements and a @name -->
   <xs:element name="callcase">
     <xs:complexType>
@@ -10,7 +10,7 @@
       <xs:attribute name="name" type="xs:string"/>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- the <CDR> element -->
   <xs:complexType name="XMLCDRType">
     <xs:sequence>
@@ -18,7 +18,7 @@
     </xs:sequence>
     <xs:attribute name="callpartid" type="NonEmptyString-Type" use="required"/>
   </xs:complexType>
-  
+
   <xs:complexType name="XMLLayerType">
     <xs:sequence>
       <xs:element name="mMTelServiceRecord" type="MMTelServiceRecord" minOccurs="1" maxOccurs="1"/>
@@ -35,13 +35,13 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  
+
   <xs:complexType name="MMTelServiceRecord">
     <xs:sequence>
       <xs:element name="mMTelRecord" type="MMTelRecord" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="MMTelRecord">
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="recordType" type="recordType-Type"/>
@@ -87,16 +87,16 @@
       <xs:element name="causeForRecordClosing">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
              <!-- serviceDeliveryEndSuccessfully -->
-            <xs:enumeration value="1"/>
+            <xs:enumeration value="0"/>
              <!-- unSuccessfulServiceDelivery -->
-            <xs:enumeration value="3"/>
+            <xs:enumeration value="1"/>
              <!-- timeLimit -->
-            <xs:enumeration value="4"/>
+            <xs:enumeration value="3"/>
              <!-- serviceChange -->
-            <xs:enumeration value="5"/>
+            <xs:enumeration value="4"/>
              <!-- managementIntervention -->
+            <xs:enumeration value="5"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -184,15 +184,15 @@
       <xs:element minOccurs="1" maxOccurs="1" name="mMTelInformation" type="mMTelInformation-Type"/>
     </xs:sequence>
   </xs:complexType>
-  
-  
-  
+
+
+
   <xs:complexType name="list-Of-SDP-Media-Components-Type">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="media-Components-List" type="media-Components-List-Type"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="media-Components-List-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element name="sIP-Request-Timestamp" type="TimeStamp"/>
@@ -225,14 +225,14 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="sDP-Media-Components-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element name="sDP-Media-Name" type="xs:string"/>
       <xs:element name="sDP-Media-Description" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="recordExtensions-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element name="bW-service-provider" type="xs:string"/>
@@ -258,7 +258,7 @@
       <xs:element name="listOfSupplServices" type="listOfSupplServices-Type"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="listOfSupplServices-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element name="serviceType">
@@ -370,20 +370,21 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="recordType-Type">
     <xs:restriction base="xs:integer">
       <xs:enumeration value="83"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="TimeStamp">
     <xs:restriction base="xs:string">
       <!-- YYMMDDhhmmssShhmm where S is a sign (+/-) -->
       <xs:pattern value="[0-9]{12}[+-][0-9]{4}"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
+<!-- IMSChargingDataTypes -->
   <xs:complexType name="InvolvedParty-Type">
     <xs:choice minOccurs="1" maxOccurs="1">
       <xs:element name="sip">
@@ -404,18 +405,18 @@
       <xs:element name="e164" type="xs:string"/>
     </xs:choice>
   </xs:complexType>
-  
+
   <xs:simpleType name="MilliSecondsType">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="0"/>
       <xs:maxInclusive value="999"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="NonEmptyString-Type">
     <xs:restriction base="xs:string">
       <xs:pattern value="..*"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
 </xs:schema>

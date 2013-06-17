@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Usage:
 - indentation required! 2 spaces, no tab characters!
@@ -32,7 +32,7 @@ Usage:
               <tel>tel:+49123123123</tel>
             </involvedParty>
           </called-Party-Address>
-          
+
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
           <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
           <serviceDeliveryStartTimeStamp>031231235959+0000</serviceDeliveryStartTimeStamp>
