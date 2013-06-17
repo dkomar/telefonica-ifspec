@@ -12,10 +12,10 @@
 
 	<!-- Diameter Base Protocol RFC3588 -->
 	<AVP_Def name="Session-Id" code="263" type="UTF8String" mandatoryFlag="true"/>
-	<AVP_Def name="Origin-Host" code="264" type="OctetString" mandatoryFlag="true"/>
-	<AVP_Def name="Origin-Realm" code="296" type="OctetString" mandatoryFlag="true"/>
-	<AVP_Def name="Destination-Realm" code="283" type="OctetString" mandatoryFlag="true"/>
+	<AVP_Def name="Origin-Host" code="264" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Origin-Realm" code="296" type="DiameterIdentity" mandatoryFlag="true"/>
 	<AVP_Def name="Destination-Host" code="293" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Destination-Realm" code="283" type="DiameterIdentity" mandatoryFlag="true"/>
 	<AVP_Def name="Accounting-Record-Type" code="480" type="Enumerated" mandatoryFlag="true">
 		<EnumValue value="1" comment="EVENT_RECORD"/>
 		<EnumValue value="2" comment="START_RECORD"/>
@@ -58,7 +58,7 @@
 		<EnumValue value="5" comment="BGCF"/>
 		<EnumValue value="6" comment="AS"/>
 	</AVP_Def>
-	<AVP_Def name="Role-of-node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="false">
+	<AVP_Def name="Role-of-Node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="true">
 		<EnumValue value="0" comment="ORIGINATING_ROLE"/>
 		<EnumValue value="1" comment="TERMINATING_ROLE"/>
 		<EnumValue value="2" comment="PROXY-ROLE"/>
@@ -68,7 +68,7 @@
 	<AVP_Def name="Calling-Party-Address" code="831" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Called-Party-Address" code="832" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Called-Asserted-Identity" code="1250" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
-	<AVP_Def name="Time-stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Time-Stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="SIP-Request-Timestamp" code="834" type="Time" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="SIP-Response-Timestamp" code="835" type="Time" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Inter-Operator-Identifier" code="838" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
@@ -474,12 +474,12 @@
 					<AVP name="SIP-Method"/>
 				</AVP>
 				<AVP name="Node-Functionality"/>
-				<AVP name="Role-of-node"/>
+				<AVP name="Role-of-Node"/>
 				<AVP name="User-Session-Id"/>
 				<AVP name="Calling-Party-Address"/>
 				<AVP name="Called-Party-Address"/>
 				<AVP name="Called-Asserted-Identity"/>
-				<AVP name="Time-stamps">
+				<AVP name="Time-Stamps">
 					<AVP name="SIP-Request-Timestamp" alias="SIP-Request-Timestamp"/>
 					<AVP name="SIP-Response-Timestamp" alias="SIP-Response-Timestamp"/>
 				</AVP>
@@ -506,7 +506,7 @@
 					<AVP name="SDP-Media-Description" alias="SDP-Media-Description" mapping="list" listSep="&#254;"/>
 					<AVP name="Media-Initiator-Flag"/>
 				</AVP>
-				<AVP name="Message-Bodies" mapping="list" listSep="&#248;" alias="Message-Bodies mapping">
+				<AVP name="Message-Bodies" mapping="list" listSep="&#248;">
 					<AVP name="Content-Type"/>
 					<AVP name="Content-Length"/>
 					<AVP name="Content-Disposition"/>
