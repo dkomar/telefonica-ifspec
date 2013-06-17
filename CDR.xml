@@ -87,12 +87,14 @@ Usage:
           <Access-Network-Information></Access-Network-Information>
           <serviceContextID>11.32275@3gpp.org</serviceContextID>
           <list-of-subscription-ID>
-            <subscriptionIDType>0</subscriptionIDType>
-            <subscriptionIDData>+491525222343234</subscriptionIDData>
-          </list-of-subscription-ID>
-          <list-of-subscription-ID>
-            <subscriptionIDType>2</subscriptionIDType>
-            <subscriptionIDData>sip:user@domain.com</subscriptionIDData>
+            <subscriptionID>
+              <subscriptionIDType>0</subscriptionIDType>
+              <subscriptionIDData>+491525222343234</subscriptionIDData>
+            </subscriptionID>
+            <subscriptionID>
+              <subscriptionIDType>2</subscriptionIDType>
+              <subscriptionIDData>sip:user@domain.com</subscriptionIDData>
+            </subscriptionID>
           </list-of-subscription-ID>
           <iMSCommunicationServiceIdentifier></iMSCommunicationServiceIdentifier>
           <numberPortabilityRouting></numberPortabilityRouting>

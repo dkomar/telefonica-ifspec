@@ -125,31 +125,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:sequence minOccurs="1" maxOccurs="unbounded">
-        <xs:element name="list-of-subscription-ID">
-          <xs:complexType>
-            <xs:sequence minOccurs="1" maxOccurs="1">
-              <xs:element name="subscriptionIDType">
-                <xs:simpleType>
-                  <xs:restriction base="xs:integer">
-                    <xs:enumeration value="0"/>
-                     <!-- END_USER_E164 -->
-                    <xs:enumeration value="1"/>
-                     <!-- END_USER_IMSI -->
-                    <xs:enumeration value="2"/>
-                     <!-- END_USER_SIP_URI -->
-                    <xs:enumeration value="3"/>
-                     <!-- END_USER_NAI -->
-                    <xs:enumeration value="4"/>
-                     <!-- END_USER_PRIVATE -->
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="subscriptionIDData" type="xs:string"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="list-of-subscription-ID">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="subscriptionID" type="SubscriptionID-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="iMSCommunicationServiceIdentifier" type="xs:string"/>
       <xs:element name="numberPortabilityRouting" type="xs:string"/>
       <xs:element name="transit-IOI-List" type="xs:string"/>
@@ -422,6 +404,29 @@
       <xs:element name="urn" type="xs:string"/>
       <xs:element name="e164" type="xs:string"/>
     </xs:choice>
+  </xs:complexType>
+
+<!-- GenericChargingDataTypes -->
+  <xs:complexType name="SubscriptionID-Type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="subscriptionIDType">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- END_USER_E164 -->
+            <xs:enumeration value="1"/>
+             <!-- END_USER_IMSI -->
+            <xs:enumeration value="2"/>
+             <!-- END_USER_SIP_URI -->
+            <xs:enumeration value="3"/>
+             <!-- END_USER_NAI -->
+            <xs:enumeration value="4"/>
+             <!-- END_USER_PRIVATE -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="subscriptionIDData" type="xs:string"/>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:simpleType name="MilliSecondsType">
