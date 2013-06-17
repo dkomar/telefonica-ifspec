@@ -62,22 +62,22 @@ Usage:
           </list-Of-SDP-Media-Components>
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
           <recordExtensions>
-            <BW-service-provider></BW-service-provider>
-            <BW-user-Number></BW-user-Number>
-            <BW-dialed-Digits></BW-dialed-Digits>
-            <BW-call-Category></BW-call-Category>
-            <BW-network-Translated-Number></BW-network-Translated-Number>
-            <BW-codec></BW-codec>
-            <BW-access-Callid></BW-access-Callid>
-            <BW-group></BW-group>
-            <BW-original-Called-Number></BW-original-Called-Number>
-            <BW-redirecting-Number></BW-redirecting-Number>
-            <BW-userId></BW-userId>
-            <BW-other-Party-Name></BW-other-Party-Name>
-            <EMM-on-net-flag></EMM-on-net-flag>
-            <EMM-on-platform-flag></EMM-on-platform-flag>
-            <EMM-faxmail-flag></EMM-faxmail-flag>
-            <EMM-voicemail-flag></EMM-voicemail-flag>
+            <bW-service-provider>est</bW-service-provider>
+            <bW-user-Number>test</bW-user-Number>
+            <bW-dialed-Digits>test</bW-dialed-Digits>
+            <bW-call-Category>test</bW-call-Category>
+            <bW-network-Translated-Number>test</bW-network-Translated-Number>
+            <bW-codec>test</bW-codec>
+            <bW-access-Callid>test</bW-access-Callid>
+            <bW-group>test</bW-group>
+            <bW-original-Called-Number>est</bW-original-Called-Number>
+            <bW-redirecting-Number>test</bW-redirecting-Number>
+            <bW-userId>test</bW-userId>
+            <bW-other-Party-Name>test</bW-other-Party-Name>
+            <eMM-on-net-flag>test</eMM-on-net-flag>
+            <eMM-on-platform-flag>test</eMM-on-platform-flag>
+            <eMM-faxmail-flag>test</eMM-faxmail-flag>
+            <eMM-voicemail-flag>test</eMM-voicemail-flag>
           </recordExtensions>
           <Access-Network-Information></Access-Network-Information>
           <serviceContextID>11.32275@3gpp.org</serviceContextID>

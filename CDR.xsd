@@ -211,22 +211,22 @@
   
   <xs:complexType name="recordExtensions-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element name="BW-service-provider" type="xs:string"/>
-      <xs:element name="BW-user-Number" type="xs:string"/>
-      <xs:element name="BW-dialed-Digits" type="xs:string"/>
-      <xs:element name="BW-call-Category" type="xs:string"/>
-      <xs:element name="BW-network-Translated-Number" type="xs:string"/>
-      <xs:element name="BW-codec" type="xs:string"/>
-      <xs:element name="BW-access-Callid" type="xs:string"/>
-      <xs:element name="BW-group" type="xs:string"/>
-      <xs:element name="BW-original-Called-Number" type="xs:string"/>
-      <xs:element name="BW-redirecting-Number" type="xs:string"/>
-      <xs:element name="BW-userId" type="xs:string"/>
-      <xs:element name="BW-other-Party-Name" type="xs:string"/>
-      <xs:element name="EMM-on-net-flag" type="xs:string"/>
-      <xs:element name="EMM-on-platform-flag" type="xs:string"/>
-      <xs:element name="EMM-faxmail-flag" type="xs:string"/>
-      <xs:element name="EMM-voicemail-flag" type="xs:string"/>
+      <xs:element name="bW-service-provider" type="xs:string"/>
+      <xs:element name="bW-user-Number" type="xs:string"/>
+      <xs:element name="bW-dialed-Digits" type="xs:string"/>
+      <xs:element name="bW-call-Category" type="xs:string"/>
+      <xs:element name="bW-network-Translated-Number" type="xs:string"/>
+      <xs:element name="bW-codec" type="xs:string"/>
+      <xs:element name="bW-access-Callid" type="xs:string"/>
+      <xs:element name="bW-group" type="xs:string"/>
+      <xs:element name="bW-original-Called-Number" type="xs:string"/>
+      <xs:element name="bW-redirecting-Number" type="xs:string"/>
+      <xs:element name="bW-userId" type="xs:string"/>
+      <xs:element name="bW-other-Party-Name" type="xs:string"/>
+      <xs:element name="eMM-on-net-flag" type="xs:string"/>
+      <xs:element name="eMM-on-platform-flag" type="xs:string"/>
+      <xs:element name="eMM-faxmail-flag" type="xs:string"/>
+      <xs:element name="eMM-voicemail-flag" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="mMTelInformation-Type">
