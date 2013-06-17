@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- callcase contains a one or more <CDR> elements and a @name -->
+  <xs:element name="callcase">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="CDR" type="XMLCDRType"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- the <CDR> element -->
+  <xs:complexType name="XMLCDRType">
+    <xs:sequence>
+      <xs:element name="layer" type="XMLLayerType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="callpartid" type="NonEmptyString-Type" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="XMLLayerType">
+    <xs:sequence>
+      <xs:element name="mMTelServiceRecord" type="MMTelServiceRecord" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="from" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MTAS"/>
+          <xs:enumeration value="BWAS"/>
+          <xs:enumeration value="S-CSCF"/>
+          <xs:enumeration value="E-CSCF"/>
+          <xs:enumeration value="ngIN-AS"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="MMTelServiceRecord">
+    <xs:sequence>
+      <xs:element name="mMTelRecord" type="MMTelRecord" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MMTelRecord">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="recordType" type="recordType-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="role-of-Node">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- originating -->
+            <xs:enumeration value="1"/>
+             <!-- terminating -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="session-Id" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="list-Of-Calling-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="called-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceRequestTimeStamp" type="TimeStamp"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceRequestTimeStampFraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryStartTimeStamp" type="TimeStamp"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryStartTimeStampFraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStamp" type="TimeStamp"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStampFraction" type="MilliSecondsType"/>
+      <xs:element name="interOperatorIdentifierslist">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="InterOperatorIdentifiers">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="1">
+                  <xs:element name="originatingIOI" type="xs:string"/>
+                  <xs:element name="terminatingIOI" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="causeForRecordClosing">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+             <!-- serviceDeliveryEndSuccessfully -->
+            <xs:enumeration value="0"/>
+             <!-- unSuccessfulServiceDelivery -->
+            <xs:enumeration value="1"/>
+             <!-- timeLimit -->
+            <xs:enumeration value="3"/>
+             <!-- serviceChange -->
+            <xs:enumeration value="4"/>
+             <!-- managementIntervention -->
+            <xs:enumeration value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="incomplete-CDR-Indication">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="iMS-Charging-Identifier" type="xs:string"/>
+      <xs:element name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
+      <xs:element name="serviceReasonReturnCode" type="xs:integer"/>
+      <xs:element name="recordExtensions" type="recordExtensions-Type"/>
+      <xs:element name="Access-Network-Information" type="xs:string"/>
+      <xs:element name="serviceContextID">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]+.)?[0-9]+@3gpp.org"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="list-of-subscription-ID">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="subscriptionID" type="SubscriptionID-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="iMSCommunicationServiceIdentifier" type="xs:string"/>
+      <xs:element name="numberPortabilityRouting" type="xs:string"/>
+      <xs:element name="transit-IOI-List" type="xs:string"/>
+      <!--
+      <xs:element name="userLocationInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LCS-Client-ID" type="xs:string"/>
+            <xs:element name="Location-Type" type="xs:string"/>
+            <xs:element name="Location-Estimate" type="xs:string"/>
+            <xs:element name="Positioning-Data" type="xs:string"/>
+            <xs:element name="IMSI" type="xs:string"/>
+            <xs:element name="MSISDN" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      -->
+      <xs:element name="mSTimeZone" type="xs:string"/>
+       <!-- check -->
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="serviceSpecificInfo">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+              <xs:element name="serviceSpecificType" type="xs:integer"/>
+              <xs:element name="serviceSpecificData" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="requested-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="list-Of-Called-Asserted-Identity">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="mMTelInformation" type="mMTelInformation-Type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="list-Of-SDP-Media-Components-Type">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="media-Components-List" type="media-Components-List-Type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="media-Components-List-Type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="sIP-Request-Timestamp" type="TimeStamp"/>
+      <xs:element name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
+      <xs:element name="sIP-Response-Timestamp" type="TimeStamp"/>
+      <xs:element name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
+      <xs:element name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
+      <xs:element name="mediaInitiatorFlag">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- called party has requested the session modification -->
+            <xs:enumeration value="1"/>
+             <!-- calling party has requested the session modification -->
+            <xs:enumeration value="2"/>
+             <!-- unknown participiant has requested the session modification -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="sDP-Session-Description" type="xs:string"/>
+      <xs:element name="sDP-Type">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- SDP Offer -->
+            <xs:enumeration value="1"/>
+             <!-- SDP Answer -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SDP-Media-Components-Type">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="sDP-Media-Component">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="sDP-Media-Name" type="xs:string"/>
+            <xs:element name="sDP-Media-Description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recordExtensions-Type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="bW-service-provider" type="xs:string"/>
+      <xs:element name="bW-user-Number" type="xs:string"/>
+      <xs:element name="bW-dialed-Digits" type="xs:string"/>
+      <xs:element name="bW-call-Category" type="xs:string"/>
+      <xs:element name="bW-network-Translated-Number" type="xs:string"/>
+      <xs:element name="bW-codec" type="xs:string"/>
+      <xs:element name="bW-access-Callid" type="xs:string"/>
+      <xs:element name="bW-group" type="xs:string"/>
+      <xs:element name="bW-original-Called-Number" type="xs:string"/>
+      <xs:element name="bW-redirecting-Number" type="xs:string"/>
+      <xs:element name="bW-userId" type="xs:string"/>
+      <xs:element name="bW-other-Party-Name" type="xs:string"/>
+      <xs:element name="eMM-on-net-flag" type="xs:string"/>
+      <xs:element name="eMM-on-platform-flag" type="xs:string"/>
+      <xs:element name="eMM-faxmail-flag" type="xs:string"/>
+      <xs:element name="eMM-voicemail-flag" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mMTelInformation-Type">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="listOfSupplServices" type="listOfSupplServices-Type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listOfSupplServices-Type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="serviceType">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- Originating Identification Presentation (OIP) -->
+            <xs:enumeration value="1"/>
+             <!-- Originating Identification Restriction (OIR) -->
+            <xs:enumeration value="2"/>
+             <!-- Terminating Identification Presentation (TIP) -->
+            <xs:enumeration value="3"/>
+             <!-- Terminating Identification Restriction (TIR) -->
+            <xs:enumeration value="4"/>
+             <!-- Communication HOLD (HOLD) -->
+            <xs:enumeration value="5"/>
+             <!-- Communications Barring (CB) -->
+            <xs:enumeration value="6"/>
+             <!-- Communication Diversion (CDIV) -->
+            <xs:enumeration value="7"/>
+             <!-- Communication Diversion Notification (CDIVN) -->
+            <xs:enumeration value="8"/>
+             <!-- Communication Waiting (CW) -->
+            <xs:enumeration value="9"/>
+             <!-- Message Waiting Indication (MWI) -->
+            <xs:enumeration value="10"/>
+             <!-- Conference (CONF) -->
+            <xs:enumeration value="11"/>
+             <!-- Flexible Alerting (FA) -->
+            <xs:enumeration value="12"/>
+             <!-- Completion of Communication to Busy Subscriber (CCBS) -->
+            <xs:enumeration value="13"/>
+             <!-- Completion of Communications on No Reply (CCNR) -->
+            <xs:enumeration value="14"/>
+             <!-- Malicious Communication Identification (MCID) -->
+            <xs:enumeration value="15"/>
+             <!-- Customized Alerting Tone (CAT)  -->
+            <xs:enumeration value="16"/>
+             <!-- Closed User Group (CUG) -->
+            <xs:enumeration value="17"/>
+             <!-- Personal Network management -->
+            <xs:enumeration value="18"/>
+             <!-- Customized Ringing Signal -->
+            <xs:enumeration value="19"/>
+             <!-- Advice of Charge (AoC) -->
+            <xs:enumeration value="26221"/>
+             <!-- Communication Diversion Fixed To Mobile -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="serviceMode">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- Communication Forwarding Unconditional (CFU) -->
+            <xs:enumeration value="1"/>
+             <!-- Communication Forwarding Busy (CFB) -->
+            <xs:enumeration value="2"/>
+             <!-- Communication Forwarding No Reply (CRNR) -->
+            <xs:enumeration value="3"/>
+             <!-- Communication Forwarding on Not Logged-In (CFNL) -->
+            <xs:enumeration value="4"/>
+             <!-- Communication Deflection (CD) -->
+            <xs:enumeration value="5"/>
+             <!-- Communication Forwarding on Subscriber Not Reachable (CFNRc) -->
+            <xs:enumeration value="6"/>
+             <!-- Incoming Call Barring (ICB) -->
+            <xs:enumeration value="7"/>
+             <!-- Outgoing Call Barring (OCB) -->
+            <xs:enumeration value="8"/>
+             <!-- Anonymous Communication Rejection (ACR) -->
+            <xs:enumeration value="9"/>
+             <!-- Blind Transfer -->
+            <xs:enumeration value="10"/>
+             <!-- Consultative Transfer -->
+            <xs:enumeration value="11"/>
+             <!-- Three-Party (3PTY) -->
+            <xs:enumeration value="12"/>
+             <!-- Advice of Charge -S (AoC-S) -->
+            <xs:enumeration value="13"/>
+             <!-- Advice of Charge -D (AoC-D) -->
+            <xs:enumeration value="14"/>
+             <!-- Advice of Charge -E (AoC-E) -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="associated-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="serviceId" type="xs:string"/>
+      <xs:element name="changeTime" type="TimeStamp"/>
+      <xs:element name="participantActionType">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- CREATE_CONF -->
+            <xs:enumeration value="1"/>
+             <!-- JOIN_CONF -->
+            <xs:enumeration value="2"/>
+             <!-- INVITE_INTO_CONF -->
+            <xs:enumeration value="3"/>
+             <!-- QUIT_CONF -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="recordType-Type">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="83"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TimeStamp">
+    <xs:restriction base="xs:string">
+      <!-- YYMMDDhhmmssShhmm where S is a sign (+/-) -->
+      <xs:pattern value="[0-9]{12}[+-][0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+<!-- IMSChargingDataTypes -->
+  <xs:complexType name="InvolvedParty-Type">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element name="sip">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(sip:[^@]*@.*|unknown)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="tel">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="tel:\+?[0-9]*"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="urn" type="xs:string"/>
+      <xs:element name="e164" type="xs:string"/>
+    </xs:choice>
+  </xs:complexType>
+
+<!-- GenericChargingDataTypes -->
+  <xs:complexType name="SubscriptionID-Type">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="subscriptionIDType">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+             <!-- END_USER_E164 -->
+            <xs:enumeration value="1"/>
+             <!-- END_USER_IMSI -->
+            <xs:enumeration value="2"/>
+             <!-- END_USER_SIP_URI -->
+            <xs:enumeration value="3"/>
+             <!-- END_USER_NAI -->
+            <xs:enumeration value="4"/>
+             <!-- END_USER_PRIVATE -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="subscriptionIDData" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="MilliSecondsType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonEmptyString-Type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="..*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

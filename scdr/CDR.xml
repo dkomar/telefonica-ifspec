@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Usage:
+- indentation required! 2 spaces, no tab characters!
+-->
+<callcase name="whatever" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CDR.xsd">
+  <CDR callpartid="1">
+    <layer from="S-CSCF">
+      <mMTelServiceRecord>
+        <mMTelRecord>
+
+          <!-- always 83 -->
+          <recordType>83</recordType>
+
+          <!-- 0 for originating, 1 for terminating -->
+          <role-of-Node>0</role-of-Node>
+
+          <!-- some fake sessionid -->
+          <session-Id></session-Id>
+
+          <!-- TEL or SIP URI, multiple occurences allowed -->
+          <list-Of-Calling-Party-Address>
+            <involvedParty>
+              <tel>tel:+4912312312341234</tel>
+            </involvedParty>
+            <involvedParty>
+              <sip>sip:blablabla@domain.de</sip>
+            </involvedParty>
+          </list-Of-Calling-Party-Address>
+          <called-Party-Address>
+            <involvedParty>
+              <tel>tel:+49123123123</tel>
+            </involvedParty>
+          </called-Party-Address>
+
+          <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
+          <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
+          <serviceDeliveryStartTimeStamp>031231235959+0000</serviceDeliveryStartTimeStamp>
+          <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
+          <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
+          <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
+          <interOperatorIdentifierslist>
+            <InterOperatorIdentifiers>
+              <originatingIOI></originatingIOI>
+              <terminatingIOI></terminatingIOI>
+            </InterOperatorIdentifiers>
+          </interOperatorIdentifierslist>
+          <causeForRecordClosing>0</causeForRecordClosing>
+          <incomplete-CDR-Indication></incomplete-CDR-Indication>
+          <iMS-Charging-Identifier></iMS-Charging-Identifier>
+          <list-Of-SDP-Media-Components>
+            <media-Components-List>
+              <sIP-Request-Timestamp>031231235959+0000</sIP-Request-Timestamp>
+              <sIP-Request-Timestamp-Fraction>234</sIP-Request-Timestamp-Fraction>
+              <sIP-Response-Timestamp>031231235959+0000</sIP-Response-Timestamp>
+              <sIP-Response-Timestamp-Fraction>575</sIP-Response-Timestamp-Fraction>
+              <sDP-Media-Components>
+                <sDP-Media-Component>
+                  <sDP-Media-Name></sDP-Media-Name>
+                  <sDP-Media-Description></sDP-Media-Description>
+                </sDP-Media-Component>
+              </sDP-Media-Components>
+              <mediaInitiatorFlag>0</mediaInitiatorFlag>
+              <sDP-Session-Description></sDP-Session-Description>
+              <sDP-Type>0</sDP-Type>
+            </media-Components-List>
+          </list-Of-SDP-Media-Components>
+          <serviceReasonReturnCode>0</serviceReasonReturnCode>
+          <recordExtensions>
+            <bW-service-provider>est</bW-service-provider>
+            <bW-user-Number>test</bW-user-Number>
+            <bW-dialed-Digits>test</bW-dialed-Digits>
+            <bW-call-Category>test</bW-call-Category>
+            <bW-network-Translated-Number>test</bW-network-Translated-Number>
+            <bW-codec>test</bW-codec>
+            <bW-access-Callid>test</bW-access-Callid>
+            <bW-group>test</bW-group>
+            <bW-original-Called-Number>est</bW-original-Called-Number>
+            <bW-redirecting-Number>test</bW-redirecting-Number>
+            <bW-userId>test</bW-userId>
+            <bW-other-Party-Name>test</bW-other-Party-Name>
+            <eMM-on-net-flag>test</eMM-on-net-flag>
+            <eMM-on-platform-flag>test</eMM-on-platform-flag>
+            <eMM-faxmail-flag>test</eMM-faxmail-flag>
+            <eMM-voicemail-flag>test</eMM-voicemail-flag>
+          </recordExtensions>
+          <Access-Network-Information></Access-Network-Information>
+          <serviceContextID>11.32275@3gpp.org</serviceContextID>
+          <list-of-subscription-ID>
+            <subscriptionID>
+              <subscriptionIDType>0</subscriptionIDType>
+              <subscriptionIDData>+491525222343234</subscriptionIDData>
+            </subscriptionID>
+            <subscriptionID>
+              <subscriptionIDType>2</subscriptionIDType>
+              <subscriptionIDData>sip:user@domain.com</subscriptionIDData>
+            </subscriptionID>
+          </list-of-subscription-ID>
+          <iMSCommunicationServiceIdentifier></iMSCommunicationServiceIdentifier>
+          <numberPortabilityRouting></numberPortabilityRouting>
+          <transit-IOI-List></transit-IOI-List>
+          <mSTimeZone></mSTimeZone>
+          <serviceSpecificInfo>
+            <serviceSpecificType>0</serviceSpecificType>
+            <serviceSpecificData>test-0</serviceSpecificData>
+          </serviceSpecificInfo>
+          <serviceSpecificInfo>
+            <serviceSpecificType>1</serviceSpecificType>
+            <serviceSpecificData>test-1</serviceSpecificData>
+          </serviceSpecificInfo>
+          <requested-Party-Address>
+            <involvedParty>
+              <sip>sip:requesteduser@requesteddomain.com</sip>
+            </involvedParty>
+          </requested-Party-Address>
+          <list-Of-Called-Asserted-Identity>
+            <involvedParty>
+              <sip>sip:unknown@unknown</sip>
+            </involvedParty>
+          </list-Of-Called-Asserted-Identity>
+          <mMTelInformation>
+            <listOfSupplServices>
+              <serviceType>0</serviceType>
+              <serviceMode>0</serviceMode>
+              <associated-Party-Address>
+                <involvedParty>
+                  <sip>sip:other.party@domain.com</sip>
+                </involvedParty>
+              </associated-Party-Address>
+              <serviceId>0</serviceId>
+              <changeTime>031231235959+0000</changeTime>
+              <participantActionType>0</participantActionType>
+            </listOfSupplServices>
+          </mMTelInformation>
+        </mMTelRecord>
+      </mMTelServiceRecord>
+    </layer>
+  </CDR>
+</callcase>
