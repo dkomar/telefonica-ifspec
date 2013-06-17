@@ -76,11 +76,17 @@
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryStartTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStamp" type="TimeStamp"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStampFraction" type="MilliSecondsType"/>
-      <xs:element name="interOperatorIdentifiers">
+      <xs:element name="interOperatorIdentifierslist">
         <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="1">
-            <xs:element name="originatingIOI" type="xs:string"/>
-            <xs:element name="terminatingIOI" type="xs:string"/>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="InterOperatorIdentifiers">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="1">
+                  <xs:element name="originatingIOI" type="xs:string"/>
+                  <xs:element name="terminatingIOI" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>

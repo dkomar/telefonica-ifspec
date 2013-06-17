@@ -39,10 +39,12 @@ Usage:
           <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
           <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
           <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
-          <interOperatorIdentifiers>
-            <originatingIOI></originatingIOI>
-            <terminatingIOI></terminatingIOI>
-          </interOperatorIdentifiers>
+          <interOperatorIdentifierslist>
+            <InterOperatorIdentifiers>
+              <originatingIOI></originatingIOI>
+              <terminatingIOI></terminatingIOI>
+            </InterOperatorIdentifiers>
+          </interOperatorIdentifierslist>
           <causeForRecordClosing>0</causeForRecordClosing>
           <incomplete-CDR-Indication/>
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
