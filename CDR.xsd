@@ -56,8 +56,20 @@
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="session-Id" type="xs:string"/>
-      <xs:element minOccurs="1" maxOccurs="unbounded" name="list-Of-Calling-Party-Address" type="InvolvedParty-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="called-Party-Address" type="InvolvedParty-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="list-Of-Calling-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="called-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceRequestTimeStamp" type="TimeStamp"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceRequestTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryStartTimeStamp" type="TimeStamp"/>
@@ -155,8 +167,20 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="requested-Party-Address" type="InvolvedParty-Type"/>
-      <xs:element minOccurs="1" maxOccurs="unbounded" name="list-Of-Called-Asserted-Identity" type="InvolvedParty-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="requested-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="list-Of-Called-Asserted-Identity">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="mMTelInformation" type="mMTelInformation-Type"/>
     </xs:sequence>
   </xs:complexType>
@@ -321,7 +345,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="associated-Party-Address" type="InvolvedParty-Type"/>
+      <xs:element name="associated-Party-Address">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="involvedParty" type="InvolvedParty-Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="serviceId" type="xs:string"/>
       <xs:element name="changeTime" type="TimeStamp"/>
       <xs:element name="participantActionType">

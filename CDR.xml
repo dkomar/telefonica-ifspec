@@ -20,16 +20,17 @@ Usage:
 
           <!-- TEL or SIP URI, multiple occurences allowed -->
           <list-Of-Calling-Party-Address>
-            <tel>tel:1234</tel>
-          </list-Of-Calling-Party-Address>
-          <list-Of-Calling-Party-Address>
-            <tel>tel:+4912312312341234</tel>
-          </list-Of-Calling-Party-Address>
-          <list-Of-Calling-Party-Address>
-            <sip>sip:blablabla@domain.de</sip>
+            <involvedParty>
+              <tel>tel:+4912312312341234</tel>
+            </involvedParty>
+            <involvedParty>
+              <sip>sip:blablabla@domain.de</sip>
+            </involvedParty>
           </list-Of-Calling-Party-Address>
           <called-Party-Address>
-            <tel>tel:+49123123123</tel>
+            <involvedParty>
+              <tel>tel:+49123123123</tel>
+            </involvedParty>
           </called-Party-Address>
           
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
@@ -102,17 +103,23 @@ Usage:
             <serviceSpecificData>test-1</serviceSpecificData>
           </serviceSpecificInfo>
           <requested-Party-Address>
-            <sip>sip:requesteduser@requesteddomain.com</sip>
+            <involvedParty>
+              <sip>sip:requesteduser@requesteddomain.com</sip>
+            </involvedParty>
           </requested-Party-Address>
           <list-Of-Called-Asserted-Identity>
-            <sip>sip:unknown@unknown</sip>
+            <involvedParty>
+              <sip>sip:unknown@unknown</sip>
+            </involvedParty>
           </list-Of-Called-Asserted-Identity>
           <mMTelInformation>
             <listOfSupplServices>
               <serviceType>0</serviceType>
               <serviceMode>0</serviceMode>
               <associated-Party-Address>
-                <sip>sip:other.party@domain.com</sip>
+                <involvedParty>
+                  <sip>sip:other.party@domain.com</sip>
+                </involvedParty>
               </associated-Party-Address>
               <serviceId>0</serviceId>
               <changeTime>031231235959+0000</changeTime>
