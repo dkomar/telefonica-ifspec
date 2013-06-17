@@ -46,7 +46,7 @@ Usage:
             </InterOperatorIdentifiers>
           </interOperatorIdentifierslist>
           <causeForRecordClosing>0</causeForRecordClosing>
-          <incomplete-CDR-Indication/>
+          <incomplete-CDR-Indication></incomplete-CDR-Indication>
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
           <list-Of-SDP-Media-Components>
             <media-Components-List>

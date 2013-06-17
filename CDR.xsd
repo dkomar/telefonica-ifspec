@@ -106,7 +106,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="incomplete-CDR-Indication" type="xs:string"/>
+      <xs:element name="incomplete-CDR-Indication">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="iMS-Charging-Identifier" type="xs:string"/>
       <xs:element name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
       <xs:element name="serviceReasonReturnCode" type="xs:integer"/>
