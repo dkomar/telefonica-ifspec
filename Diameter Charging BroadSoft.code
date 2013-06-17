@@ -545,9 +545,7 @@
 		<AVP name="BWAS-Codec"/>
 		<AVP name="BWAS-Access-Device-Address"/>
 		<AVP name="BWAS-Access-Callid"/>
-		<AVP name="BWAS-Spare-29"/>
 		<AVP name="BWAS-Failover-Correlation-Id"/>
-		<AVP name="BWAS-Spare-31"/>
 		<AVP name="BWAS-Group"/>
 		<AVP name="BWAS-Department"/>
 		<AVP name="BWAS-Account-Code"/>
@@ -841,15 +839,6 @@
 		<AVP name="BWAS-Colr-Inter-Fac-Result"/>
 		<AVP name="BWAS-Scr-Inter-Invoke-Time"/>
 		<AVP name="BWAS-Scr-Inter-Fac-Result"/>
-		<AVP name="BWAS-Spare-337"/>
-		<AVP name="BWAS-Spare-338"/>
-		<AVP name="BWAS-Spare-339"/>
-		<AVP name="BWAS-Spare-340"/>
-		<AVP name="BWAS-Spare-341"/>
-		<AVP name="BWAS-Spare-342"/>
-		<AVP name="BWAS-Spare-343"/>
-		<AVP name="BWAS-Spare-344"/>
-		<AVP name="BWAS-Spare-345"/>
 		<AVP name="BWAS-User-Agent"/>
 		<AVP name="BWAS-FMFM-Call-Push-Invocation-Time"/>
 		<AVP name="BWAS-FMFM-Call-Push-FAC-Result"/>
