@@ -149,17 +149,17 @@
 	<AVP_Def name="BWAS-Local-Callid" code="45" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Remote-Callid" code="46" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Calling-Party-Category" code="47" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Invoke-Time" code="48" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Callid" code="49" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-To" code="50" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-From" code="51" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Id" code="52" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Role" code="53" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Bridge" code="54" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Owner" code="55" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Owner-Dn" code="56" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Title" code="57" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Project-Code" code="58" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-48" code="48" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-49" code="49" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-50" code="50" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-51" code="51" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-52" code="52" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-53" code="53" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-54" code="54" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-55" code="55" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-56" code="56" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-57" code="57" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-58" code="58" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Charging-Vector-Key" code="59" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Charging-Vector-Creator" code="60" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Charging-Vector-Orig" code="61" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
@@ -237,7 +237,7 @@
 	<AVP_Def name="BWAS-Diversion-Inhibitor-Invoke-time" code="133" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Diversion-Inhibitor-Fac-Result" code="134" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-Trunk-Group-Name" code="135" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
-	<AVP_Def name="BWAS-Conference-Recording-Duration" code="136" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
+	<AVP_Def name="BWAS-Spare-136" code="136" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-InstantGroupCall-Invoke-Time" code="137" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-InstantGroupCall-PushToTalk" code="138" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
 	<AVP_Def name="BWAS-InstantGroupCall-Related-Callid" code="139" type="UTF8String" vendorId="6431" mandatoryFlag="false"/>
