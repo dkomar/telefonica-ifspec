@@ -11,7 +11,6 @@
 
 
 	<!-- Diameter Base Protocol RFC3588 -->
-	<AVP_Def name="Command-Code" code="999" type="Unsigned32" mandatoryFlag="true"/>
 	<AVP_Def name="Session-Id" code="263" type="UTF8String" mandatoryFlag="true"/>
 	<AVP_Def name="Origin-Host" code="264" type="OctetString" mandatoryFlag="true"/>
 	<AVP_Def name="Origin-Realm" code="296" type="OctetString" mandatoryFlag="true"/>
@@ -457,6 +456,7 @@
 		<AVP name="Origin-Host"/>
 		<AVP name="Origin-Realm"/>
 		<AVP name="Destination-Realm"/>
+		<AVP name="Destination-Host"/>
 		<AVP name="Accounting-Record-Type"/>
 		<AVP name="Accounting-Record-Number"/>
 		<AVP name="Acct-Application-Id"/>
@@ -516,7 +516,7 @@
 				<AVP name="Cause-Code"/>
 			</AVP>
 		</AVP>
-		<!--  <AVP name="BWAS-Radius-Encoding-Version"/> -->
+		<AVP name="BWAS-Radius-Encoding-Version"/>
 		<AVP name="BWAS-Record-id"/>
 		<AVP name="BWAS-Service-provider"/>
 		<AVP name="BWAS-Type"/>
