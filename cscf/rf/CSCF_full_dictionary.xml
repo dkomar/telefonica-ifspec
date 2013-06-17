@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CSCF Rf interface as defined in INTERWORK DESCRIPTION 1/155 19-CRA 119 1306 Uen D -->
+<Protocol id="Diameter customer, country" spec="RFC3588" 
+          name="Diameter" version="1.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:noNamespaceSchemaLocation="file:/$CLASSES/cmg/stdapp/diameter/validation/Diameter_addon_schema.xsd">
+	<!---->           
+	
+	<!-- Supported Vendor Identities -->
+	<SupportedVendorId vendorId="10415" comment="3GPP"/>
+	<SupportedVendorId vendorId="193" comment="Ericsson"/>
+	<!---->
+
+	<!-- Diameter Base Protocol RFC3588 -->
+	<AVP_Def name="Session-Id" code="263" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="Result-Code" code="268" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Origin-Host" code="264" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Origin-Realm" code="296" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Destination-Realm" code="283" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Destination-Host" code="293" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Accounting-Record-Type" code="480" type="Enumerated" mandatoryFlag="true">
+		<EnumValue value="1" comment="EVENT_RECORD"/>
+		<EnumValue value="2" comment="START_RECORD"/>
+		<EnumValue value="3" comment="INTERIM_RECORD"/>
+		<EnumValue value="4" comment="STOP_RECORD"/>
+	</AVP_Def>
+	<AVP_Def name="Accounting-Record-Number" code="485" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Acct-Application-Id" code="259" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="User-Name" code="1" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="Event-Timestamp" code="55" type="Time" mandatoryFlag="true"/>
+	<AVP_Def name="Subscription-Id" code="443" type="Grouped" mandatoryFlag="true"/>
+	<AVP_Def name="Subscription-Id-Type" code="450" type="Enumerated" mandatoryFlag="true">
+		<EnumValue value="0" comment="END_USER_E164"/>
+		<EnumValue value="1" comment="NOT USED"/>
+		<EnumValue value="2" comment="END_USER_SIP_URI"/>
+		<EnumValue value="3" comment="NOT USED"/>
+		<EnumValue value="4" comment="NOT USED"/>
+	</AVP_Def>
+	<AVP_Def name="Subscription-Id-Data" code="444" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="Acct-Interim-Interval" code="85" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Experimental-Result" code="297" type="Grouped" mandatoryFlag="true"/>
+	<AVP_Def name="Vendor-Id" code="266" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Experimental-Result-Code" code="298" type="Unsigned32" mandatoryFlag="true"/>
+	<!-- End of Diameter Base Protocol RFC3588 -->
+
+	<!-- 3GPP TS 32.299 v6.3.0 -->
+	<AVP_Def name="Event-Type" code="823" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Method" code="824" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Event" code="825" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Type" code="826" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Length" code="827" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Disposition" code="828" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Role-of-node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="ORIGINATING_ROLE"/>
+		<EnumValue value="1" comment="TERMINATING_ROLE"/>
+	</AVP_Def>
+	<AVP_Def name="User-Session-ID" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Calling-Party-Address" code="831" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Called-Party-Address" code="832" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Time-stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Request-Timestamp" code="834" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Response-Timestamp" code="835" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Inter-Operator-Identifier" code="838" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Originating-IOI" code="839" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Terminating-IOI" code="840" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="IMS-Charging-Identifier" code="841" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Session-Description" code="842" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Media-Component" code="843" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Media-Name" code="844" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Media-Description" code="845" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Service-Information" code="873" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="PS-Information" code="874" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="3GPP-SGSN-MCC-MNC" code="18" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Served-Party-IP-Address" code="848" type="Address" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Cause" code="860" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Cause-Code" code="861" type="Integer32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Node-Functionality" code="862" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="S-CSCF"/>
+		<EnumValue min="1" max="6" comment="Reserved"/>
+		<EnumValue value="7" comment="E-CSCF"/>
+	</AVP_Def>
+	<AVP_Def name="Access-Network-Information" code="1263" type="OctetString" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Request-Timestamp-Fraction" code="2301" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Response-Timestamp-Fraction" code="2302" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Carrier-Select-Routing-Information" code="2023" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Number-Portability-Routing-Information" code="2024" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<!-- End of3GPP TS 32.299 v6.3.0 -->
+
+	<!-- Vendor specific AVPs -->
+	<AVP_Def name="Ericsson-Service-Information" code="285" type="Grouped" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="IMS-Service-Identification" code="284" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Called-Party-Original-Address" code="286" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Reason" code="335" type="Grouped" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Reason-Cause" code="336" type="Unsigned32" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Reason-Text" code="337" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="GPRS-Roaming-Status" code="333" type="Enumerated" vendorId="193" mandatoryFlag="true">
+		<EnumValue value="0" comment="HOME"/>
+		<EnumValue value="1" comment="VISITED"/>
+	</AVP_Def>
+	<AVP_Def name="SIP-Ringing-Timestamp" code="338" type="Time" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Event-NTP-Timestamp" code="340" type="OctetString" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Dial-Around-Indicator" code="1160" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Authentication-Method" code="1261" type="Enumerated" vendorId="193" mandatoryFlag="true">
+		<EnumValue value="0" comment="NOAUTHENTICATION"/>
+		<EnumValue value="1" comment="AKAAUTHENTICATION"/>
+		<EnumValue value="2" comment="NASSBUNDLEDAUTHENTICATION"/>
+		<EnumValue value="3" comment="DIGESTAUTHENTICATION"/>
+		<EnumValue value="4" comment="SsoAuthentication"/>
+	</AVP_Def>
+	<AVP_Def name="Transaction-Info" code="1264" type="Grouped" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Transaction-Type" code="1265" type="Enumerated" vendorId="193" mandatoryFlag="true">
+		<EnumValue value="0" comment="SIP_REQUEST"/>
+		<EnumValue value="1" comment="SIP_RESPONSE"/>
+	</AVP_Def>
+	<AVP_Def name="Transaction-Data-Name" code="1266" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Transaction-Data-Value" code="1267" type="UTF8String" vendorId="193" mandatoryFlag="true"/>
+	<AVP_Def name="Disconnect-Direction" code="1305" type="Enumerated" vendorId="193" mandatoryFlag="true">
+		<EnumValue value="0" comment="ORIGINATING_SIDE"/>
+		<EnumValue value="1" comment="TERMINATING_SIDE"/>
+		<EnumValue value="2" comment="NETWORK"/>
+	</AVP_Def>
+	<!-- End Vendor specific AVPs -->
+
+	<!-- ACR declaration: Start -->
+	<Request name="Start">
+		<Condition key="Accounting-Record-Type" value="2"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="User-Name"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Subscription-Id">
+			<AVP name="Subscription-Id-Type"/>
+			<AVP name="Subscription-Id-Data"/>
+		</AVP>
+		<AVP name="Event-Type">
+			<AVP name="SIP-Method"/>
+			<AVP name="Content-Type"/>
+			<AVP name="Content-Length"/>
+			<AVP name="Content-Disposition"/>
+		</AVP>
+		<AVP name="Role-of-node"/>
+		<AVP name="User-Session-ID"/>
+		<AVP name="Calling-Party-Address"/>
+		<AVP name="Called-Party-Address"/>
+		<AVP name="Time-stamps">
+			<AVP name="SIP-Request-Timestamp"/>
+			<AVP name="SIP-Response-Timestamp"/>
+		</AVP>
+		<AVP name="Inter-Operator-Identifier">
+			<AVP name="Originating-IOI"/>
+			<AVP name="Terminating-IOI"/>
+		</AVP>
+		<AVP name="IMS-Charging-Identifier"/>
+		<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;"/>
+		<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;">
+			<AVP name="SDP-Media-Name"/>
+			<AVP name="SDP-Media-Description" mapping="list" listSep="&#254;"/>
+		</AVP>
+		<AVP name="Service-Information">
+			<AVP name="PS-Information">
+				<AVP name="3GPP-SGSN-MCC-MNC"/>
+			</AVP>
+		</AVP>
+		<AVP name="Served-Party-IP-Address"/>
+		<AVP name="Access-Network-Information"/>
+		<AVP name="Carrier-Select-Routing-Information"/>
+		<AVP name="Number-Portability-Routing-Information"/>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="Called-Party-Original-Address"/>
+			<AVP name="Dial-Around-Indicator"/>
+			<AVP name="Authentication-Method"/>
+			<AVP name="SIP-Request-Timestamp-Fraction"/>
+			<AVP name="SIP-Response-Timestamp-Fraction"/>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type" alias="Type"/>
+				<AVP name="Transaction-Data-Name" alias="Name"/>
+				<AVP name="Transaction-Data-Value" mapping="list" listSep="&#254;" alias="Value"/>
+			</AVP>
+		</AVP>
+		<AVP name="GPRS-Roaming-Status"/>
+		<AVP name="SIP-Ringing-Timestamp"/>
+		<AVP name="Event-NTP-Timestamp"/>
+	</Request>
+	<!---->
+	
+	<!-- ACR declaration: Interim -->
+	<Request name="Interim">
+		<Condition key="Accounting-Record-Type" value="3"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Destination-Host"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="User-Name"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Subscription-Id">
+			<AVP name="Subscription-Id-Type"/>
+			<AVP name="Subscription-Id-Data"/>
+		</AVP>
+		<AVP name="Event-Type">
+			<AVP name="SIP-Method"/>
+			<AVP name="Content-Type"/>
+			<AVP name="Content-Length"/>
+			<AVP name="Content-Disposition"/>
+		</AVP>
+		<AVP name="Role-of-node"/>
+		<AVP name="User-Session-ID"/>
+		<AVP name="Calling-Party-Address"/>
+		<AVP name="Called-Party-Address"/>
+		<AVP name="Time-stamps">
+			<AVP name="SIP-Request-Timestamp"/>
+			<AVP name="SIP-Response-Timestamp"/>
+		</AVP>
+		<AVP name="Inter-Operator-Identifier">
+			<AVP name="Originating-IOI"/>
+			<AVP name="Terminating-IOI"/>
+		</AVP>
+		<AVP name="IMS-Charging-Identifier"/>
+		<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;"/>
+		<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;">
+			<AVP name="SDP-Media-Name"/>
+			<AVP name="SDP-Media-Description" mapping="list" listSep="&#254;"/>
+		</AVP>
+		<AVP name="Service-Information">
+			<AVP name="PS-Information">
+				<AVP name="3GPP-SGSN-MCC-MNC"/>
+			</AVP>
+		</AVP>
+		<AVP name="Served-Party-IP-Address"/>
+		<AVP name="Access-Network-Information"/>
+		<AVP name="Carrier-Select-Routing-Information"/>
+		<AVP name="Number-Portability-Routing-Information"/>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="Called-Party-Original-Address"/>
+			<AVP name="Dial-Around-Indicator"/>
+			<AVP name="Authentication-Method"/>
+			<AVP name="SIP-Request-Timestamp-Fraction"/>
+			<AVP name="SIP-Response-Timestamp-Fraction"/>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type" alias="Type"/>
+				<AVP name="Transaction-Data-Name" alias="Name"/>
+				<AVP name="Transaction-Data-Value" mapping="list" listSep="&#254;" alias="Value"/>
+			</AVP>
+		</AVP>
+		<AVP name="GPRS-Roaming-Status"/>
+		<AVP name="SIP-Ringing-Timestamp"/>
+		<AVP name="Event-NTP-Timestamp"/>
+	</Request>
+	<!---->
+	
+	<!-- ACR declaration: Stop -->
+	<Request name="Stop">
+		<Condition key="Accounting-Record-Type" value="4"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Destination-Host"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="User-Name"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Subscription-Id">
+			<AVP name="Subscription-Id-Type"/>
+			<AVP name="Subscription-Id-Data"/>
+		</AVP>
+		<AVP name="Event-Type">
+			<AVP name="SIP-Method"/>
+			<AVP name="Content-Type"/>
+			<AVP name="Content-Length"/>
+			<AVP name="Content-Disposition"/>
+		</AVP>
+		<AVP name="Role-of-node"/>
+		<AVP name="User-Session-ID"/>
+		<AVP name="Calling-Party-Address"/>
+		<AVP name="Called-Party-Address"/>
+		<AVP name="Inter-Operator-Identifier">
+			<AVP name="Originating-IOI"/>
+			<AVP name="Terminating-IOI"/>
+		</AVP>
+		<AVP name="IMS-Charging-Identifier"/>
+		<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;"/>
+		<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;">
+			<AVP name="SDP-Media-Name"/>
+			<AVP name="SDP-Media-Description" mapping="list" listSep="&#254;"/>
+		</AVP>
+		<AVP name="Service-Information">
+			<AVP name="PS-Information">
+				<AVP name="3GPP-SGSN-MCC-MNC"/>
+			</AVP>
+		</AVP>
+		<AVP name="Cause">
+			<AVP name="Cause-Code"/>
+			<AVP name="Node-Functionality"/>
+		</AVP>
+		<AVP name="Served-Party-IP-Address"/>
+		<AVP name="Access-Network-Information"/>
+		<AVP name="Carrier-Select-Routing-Information"/>
+		<AVP name="Number-Portability-Routing-Information"/>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="Called-Party-Original-Address"/>
+			<AVP name="Dial-Around-Indicator"/>
+			<AVP name="Authentication-Method"/>
+			<AVP name="SIP-Request-Timestamp-Fraction"/>
+			<AVP name="SIP-Response-Timestamp-Fraction"/>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type" alias="Type"/>
+				<AVP name="Transaction-Data-Name" alias="Name"/>
+				<AVP name="Transaction-Data-Value" mapping="list" listSep="&#254;" alias="Value"/>
+			</AVP>
+			<AVP name="Disconnect-Direction"/>
+		</AVP>
+		<AVP name="SIP-Reason">
+			<AVP name="SIP-Reason-Cause" alias="SIP-Reason-Cause"/>
+			<AVP name="SIP-Reason-Text" alias="SIP-Reason-Text"/>
+		</AVP>
+		<AVP name="GPRS-Roaming-Status"/>
+		<AVP name="SIP-Ringing-Timestamp"/>
+		<AVP name="Event-NTP-Timestamp"/>
+	</Request>
+	<!---->
+	
+	<!-- ACR declaration. Event -->
+	<Request name="Event">
+		<Condition key="Accounting-Record-Type" value="1"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="User-Name"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Subscription-Id">
+			<AVP name="Subscription-Id-Type"/>
+			<AVP name="Subscription-Id-Data"/>
+		</AVP>
+		<AVP name="Event-Type">
+			<AVP name="SIP-Method"/>
+			<AVP name="Event"/>
+			<AVP name="Content-Type"/>
+			<AVP name="Content-Length"/>
+			<AVP name="Content-Disposition"/>
+		</AVP>
+		<AVP name="Role-of-node"/>
+		<AVP name="User-Session-ID"/>
+		<AVP name="Calling-Party-Address"/>
+		<AVP name="Called-Party-Address"/>
+		<AVP name="Time-stamps">
+			<AVP name="SIP-Request-Timestamp"/>
+			<AVP name="SIP-Response-Timestamp"/>
+		</AVP>
+		<AVP name="Inter-Operator-Identifier">
+			<AVP name="Originating-IOI"/>
+			<AVP name="Terminating-IOI"/>
+		</AVP>
+		<AVP name="IMS-Charging-Identifier"/>
+		<AVP name="Service-Information">
+			<AVP name="PS-Information">
+				<AVP name="3GPP-SGSN-MCC-MNC"/>
+			</AVP>
+		</AVP>
+		<AVP name="Cause">
+			<AVP name="Cause-Code"/>
+			<AVP name="Node-Functionality"/>
+		</AVP>
+		<AVP name="Served-Party-IP-Address"/>
+		<AVP name="Access-Network-Information"/>
+		<AVP name="Carrier-Select-Routing-Information"/>
+		<AVP name="Number-Portability-Routing-Information"/>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="Called-Party-Original-Address"/>
+			<AVP name="Dial-Around-Indicator"/>
+			<AVP name="Authentication-Method"/>
+			<AVP name="SIP-Request-Timestamp-Fraction"/>
+			<AVP name="SIP-Response-Timestamp-Fraction"/>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type" alias="Type"/>
+				<AVP name="Transaction-Data-Name" alias="Name"/>
+				<AVP name="Transaction-Data-Value" mapping="list" listSep="&#254;" alias="Value"/>
+			</AVP>
+		</AVP>
+		<AVP name="SIP-Reason">
+			<AVP name="SIP-Reason-Cause"/>
+			<AVP name="SIP-Reason-Text"/>
+		</AVP>
+		<AVP name="GPRS-Roaming-Status"/>
+		<AVP name="SIP-Ringing-Timestamp"/>
+		<AVP name="Event-NTP-Timestamp"/>
+	</Request>
+	<!---->
+	
+	<!--ACA declaration -->
+	<Response name="Answer">
+		<AVP name="Session-Id"/>
+		<AVP name="Result-Code"/>
+		<AVP name="Experimental-Result">
+			<AVP name="Vendor-Id"/>
+			<AVP name="Experimental-Result-Code"/>
+		</AVP>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Acct-Interim-Interval"/>
+	</Response>
+	<!---->  
+</Protocol>
