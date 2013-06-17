@@ -55,8 +55,10 @@ Usage:
               <sIP-Response-Timestamp>031231235959+0000</sIP-Response-Timestamp>
               <sIP-Response-Timestamp-Fraction>575</sIP-Response-Timestamp-Fraction>
               <sDP-Media-Components>
-                <sDP-Media-Name></sDP-Media-Name>
-                <sDP-Media-Description></sDP-Media-Description>
+                <sDP-Media-Component>
+                  <sDP-Media-Name></sDP-Media-Name>
+                  <sDP-Media-Description></sDP-Media-Description>
+                </sDP-Media-Component>
               </sDP-Media-Components>
               <mediaInitiatorFlag>0</mediaInitiatorFlag>
               <sDP-Session-Description></sDP-Session-Description>

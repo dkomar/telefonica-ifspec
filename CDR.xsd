@@ -211,7 +211,7 @@
       <xs:element name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element name="sIP-Response-Timestamp" type="TimeStamp"/>
       <xs:element name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
-      <xs:element name="sDP-Media-Components" type="sDP-Media-Components-Type"/>
+      <xs:element name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
       <xs:element name="mediaInitiatorFlag">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
@@ -238,10 +238,16 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="sDP-Media-Components-Type">
-    <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element name="sDP-Media-Name" type="xs:string"/>
-      <xs:element name="sDP-Media-Description" type="xs:string"/>
+  <xs:complexType name="SDP-Media-Components-Type">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="sDP-Media-Component">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="sDP-Media-Name" type="xs:string"/>
+            <xs:element name="sDP-Media-Description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
