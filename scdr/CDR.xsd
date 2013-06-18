@@ -176,22 +176,20 @@
       <xs:element name="mSTimeZone" type="xs:string"/>
 -->
        <!-- check -->
-      <xs:sequence minOccurs="0" maxOccurs="1">
-        <xs:element minOccurs="0" maxOccurs="1" name="serviceSpecificInfo">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="value" minOccurs="1" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence minOccurs="1" maxOccurs="1">
-                    <xs:element name="serviceSpecificType" type="xs:integer"/>
-                    <xs:element name="serviceSpecificData" type="xs:string"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="serviceSpecificInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="1">
+                  <xs:element name="serviceSpecificType" type="xs:integer"/>
+                  <xs:element name="serviceSpecificData" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="requested-Party-Address">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
