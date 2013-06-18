@@ -38,7 +38,7 @@
 
   <xs:complexType name="MMTelServiceRecord">
     <xs:sequence>
-      <xs:element name="mMTelRecord" type="MMTelRecord" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="mMTelRecord" type="MMTelRecord" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -189,11 +189,11 @@
 
   <xs:complexType name="media-Components-List-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element name="sIP-Request-Timestamp" type="TimeStamp"/>
-      <xs:element name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
-      <xs:element name="sIP-Response-Timestamp" type="TimeStamp"/>
-      <xs:element name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
-      <xs:element name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="sIP-Request-Timestamp" type="TimeStamp"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="sIP-Response-Timestamp" type="TimeStamp"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
       <xs:element name="mediaInitiatorFlag">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
