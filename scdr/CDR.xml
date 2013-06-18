@@ -5,20 +5,25 @@ Usage:
 -->
 <callcase name="whatever" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CDR.xsd">
   <CDR callpartid="1">
+    <!-- the responsible node for this CDR, values: MTAS, BWAS, S-CSCF, E-CSCF, ngIN-AS -->
     <layer from="S-CSCF">
       <mMTelServiceRecord>
         <mMTelRecord>
 
-          <!-- always 83 -->
+          <!-- success cases: 83 -->
+          <!-- emergency: 83 -->
+          <!-- failures: 83 -->
           <recordType>83</recordType>
 
           <!-- 0 for originating, 1 for terminating -->
           <role-of-Node>0</role-of-Node>
 
-          <!-- some fake sessionid -->
+          <!-- LEAVE EMPTY! -->
+          <!-- If empty, content populated by MM with random string -->
           <session-Id></session-Id>
 
-          <!-- TEL or SIP URI, multiple occurences allowed -->
+          <!-- TEL URI, SIP URI or both of the caller -->
+          <!-- multiple occurences of involvedParty is allowed -->
           <list-Of-Calling-Party-Address>
             <involvedParty>
               <tel>tel:+4912312312341234</tel>
@@ -27,26 +32,42 @@ Usage:
               <sip>sip:blablabla@domain.de</sip>
             </involvedParty>
           </list-Of-Calling-Party-Address>
+
+          <!-- the called party address in international format of E.164 number in sip-URI or tel-URI -->
+          <!-- CHECK -->
           <called-Party-Address>
             <involvedParty>
               <tel>tel:+49123123123</tel>
             </involvedParty>
           </called-Party-Address>
 
+          <!-- time stamp which indicates the time at which the service was requested (Request-Timestamp from Start ACR) -->
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
           <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
+
+          <!-- time stamp which indicates the time at which the service was delivered (Response-Timestamp from start ACR) -->
           <serviceDeliveryStartTimeStamp>031231235959+0000</serviceDeliveryStartTimeStamp>
           <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
+
+          <!-- time stamp which indicates the time at which the service delivery was ended ((Request-Timestamp from Stop ACR) -->
           <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
           <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
+
+          <!-- multiple occurences of value is allowed -->
           <interOperatorIdentifiers>
             <value>
               <originatingIOI></originatingIOI>
               <terminatingIOI></terminatingIOI>
             </value>
           </interOperatorIdentifiers>
+
+
           <causeForRecordClosing>0</causeForRecordClosing>
+
+
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
+
+
           <list-Of-SDP-Media-Components>
             <media-Components-List>
               <sIP-Request-Timestamp>031231235959+0000</sIP-Request-Timestamp>
@@ -65,7 +86,11 @@ Usage:
               <sDP-Type>0</sDP-Type>
             </media-Components-List>
           </list-Of-SDP-Media-Components>
+
+
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
+
+
           <recordExtensions>
             <bW-service-provider>est</bW-service-provider>
             <bW-user-Number>test</bW-user-Number>
@@ -84,41 +109,80 @@ Usage:
             <eMM-faxmail-flag>test</eMM-faxmail-flag>
             <eMM-voicemail-flag>test</eMM-voicemail-flag>
           </recordExtensions>
+
+
           <Access-Network-Information></Access-Network-Information>
+
+          <!-- NO CHANGE -->
+          <!-- ignored by MM and replaced with fixed string: "11.32275@3gpp.org" -->
           <serviceContextID>11.32275@3gpp.org</serviceContextID>
+
+          <!-- the served party -->
+          <!-- in case of originating leg: the calling party, -->
+          <!-- in case of terminating leg: called party -->
           <list-of-subscription-ID>
             <subscriptionID>
               <subscriptionIDType>0</subscriptionIDType>
-              <subscriptionIDData>+491525222343234</subscriptionIDData>
+              <subscriptionIDData><!-- MSISDN (not tel: uri!)--></subscriptionIDData>
             </subscriptionID>
             <subscriptionID>
               <subscriptionIDType>2</subscriptionIDType>
-              <subscriptionIDData>sip:user@domain.com</subscriptionIDData>
+              <subscriptionIDData><!-- SIP URI (sip:.*) --></subscriptionIDData>
             </subscriptionID>
           </list-of-subscription-ID>
-          <iMSCommunicationServiceIdentifier></iMSCommunicationServiceIdentifier>
+
+
+          <!-- NO CHANGE -->
+          <!-- ignored by MM and replaced with fixed string: "urn-7:3gpp-service.ims.icsi.mmtel" -->
+          <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
+
+
           <numberPortabilityRouting></numberPortabilityRouting>
+
+
           <transit-IOI-List></transit-IOI-List>
+
+
+          <!-- multiple occurences of value is allowed -->
+          <!-- Presence: Populated only for mVoLTE call cases, during Fixed calls, entire structure is absent -->
           <serviceSpecificInfo>
             <value>
-              <serviceSpecificType>0</serviceSpecificType>
-              <serviceSpecificData>test-0</serviceSpecificData>
+              <serviceSpecificType>160</serviceSpecificType>
+              <serviceSpecificData><!-- Zoning MOC Result Code--></serviceSpecificData>
             </value>
             <value>
-              <serviceSpecificType>1</serviceSpecificType>
-              <serviceSpecificData>test-1</serviceSpecificData>
+              <serviceSpecificType>192</serviceSpecificType>
+              <serviceSpecificData><!-- VPN MOC Result Code --></serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>193</serviceSpecificType>
+              <serviceSpecificData><!-- VPN MFC Result Code --></serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>194</serviceSpecificType>
+              <serviceSpecificData><!-- PBXLink OC Result Code --></serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>195</serviceSpecificType>
+              <serviceSpecificData><!-- PBXLink FC Result Code --></serviceSpecificData>
             </value>
           </serviceSpecificInfo>
+
+
           <requested-Party-Address>
             <involvedParty>
               <sip>sip:requesteduser@requesteddomain.com</sip>
             </involvedParty>
           </requested-Party-Address>
+
+
           <list-Of-Called-Asserted-Identity>
             <involvedParty>
               <sip>sip:unknown@unknown</sip>
             </involvedParty>
           </list-Of-Called-Asserted-Identity>
+
+
           <mMTelInformation>
             <listOfSupplServices>
               <serviceType>0</serviceType>
