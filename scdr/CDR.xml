@@ -46,7 +46,6 @@ Usage:
             </value>
           </interOperatorIdentifiers>
           <causeForRecordClosing>0</causeForRecordClosing>
-          <incomplete-CDR-Indication></incomplete-CDR-Indication>
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
           <list-Of-SDP-Media-Components>
             <media-Components-List>
@@ -60,7 +59,6 @@ Usage:
                   <sDP-Media-Description></sDP-Media-Description>
                 </sDP-Media-Component>
               </sDP-Media-Components>
-              <mediaInitiatorFlag>0</mediaInitiatorFlag>
               <sDP-Session-Description>
                 <value></value>
               </sDP-Session-Description>
@@ -101,7 +99,6 @@ Usage:
           <iMSCommunicationServiceIdentifier></iMSCommunicationServiceIdentifier>
           <numberPortabilityRouting></numberPortabilityRouting>
           <transit-IOI-List></transit-IOI-List>
-          <mSTimeZone></mSTimeZone>
           <serviceSpecificInfo>
             <value>
               <serviceSpecificType>0</serviceSpecificType>
@@ -126,14 +123,6 @@ Usage:
             <listOfSupplServices>
               <serviceType>0</serviceType>
               <serviceMode>0</serviceMode>
-              <associated-Party-Address>
-                <involvedParty>
-                  <sip>sip:other.party@domain.com</sip>
-                </involvedParty>
-              </associated-Party-Address>
-              <serviceId>0</serviceId>
-              <changeTime>031231235959+0000</changeTime>
-              <participantActionType>0</participantActionType>
             </listOfSupplServices>
           </mMTelInformation>
         </mMTelRecord>

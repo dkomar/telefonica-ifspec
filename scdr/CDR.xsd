@@ -106,6 +106,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="incomplete-CDR-Indication">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -113,6 +114,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+-->
       <xs:element name="iMS-Charging-Identifier" type="xs:string"/>
       <xs:element name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
       <xs:element name="serviceReasonReturnCode" type="xs:integer"/>
@@ -149,7 +151,9 @@
         </xs:complexType>
       </xs:element>
       -->
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="mSTimeZone" type="xs:string"/>
+-->
        <!-- check -->
       <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element name="serviceSpecificInfo">
@@ -200,6 +204,7 @@
       <xs:element minOccurs="1" maxOccurs="1" name="sIP-Response-Timestamp" type="TimeStamp"/>
       <xs:element minOccurs="0" maxOccurs="1" name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="mediaInitiatorFlag">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
@@ -212,6 +217,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+-->
       <xs:element minOccurs="0" maxOccurs="1" name="sDP-Session-Description">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -357,6 +363,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="associated-Party-Address">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
@@ -364,8 +371,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+-->
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="serviceId" type="xs:string"/>
+-->
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="changeTime" type="TimeStamp"/>
+-->
+<!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="participantActionType">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
@@ -380,6 +393,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+-->
     </xs:sequence>
   </xs:complexType>
 
