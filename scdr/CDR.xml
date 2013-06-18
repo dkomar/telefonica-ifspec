@@ -39,12 +39,12 @@ Usage:
           <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
           <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
           <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
-          <interOperatorIdentifierslist>
-            <InterOperatorIdentifiers>
+          <interOperatorIdentifiers>
+            <value>
               <originatingIOI></originatingIOI>
               <terminatingIOI></terminatingIOI>
-            </InterOperatorIdentifiers>
-          </interOperatorIdentifierslist>
+            </value>
+          </interOperatorIdentifiers>
           <causeForRecordClosing>0</causeForRecordClosing>
           <incomplete-CDR-Indication></incomplete-CDR-Indication>
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
@@ -61,7 +61,9 @@ Usage:
                 </sDP-Media-Component>
               </sDP-Media-Components>
               <mediaInitiatorFlag>0</mediaInitiatorFlag>
-              <sDP-Session-Description></sDP-Session-Description>
+              <sDP-Session-Description>
+                <value></value>
+              </sDP-Session-Description>
               <sDP-Type>0</sDP-Type>
             </media-Components-List>
           </list-Of-SDP-Media-Components>
@@ -101,12 +103,14 @@ Usage:
           <transit-IOI-List></transit-IOI-List>
           <mSTimeZone></mSTimeZone>
           <serviceSpecificInfo>
-            <serviceSpecificType>0</serviceSpecificType>
-            <serviceSpecificData>test-0</serviceSpecificData>
-          </serviceSpecificInfo>
-          <serviceSpecificInfo>
-            <serviceSpecificType>1</serviceSpecificType>
-            <serviceSpecificData>test-1</serviceSpecificData>
+            <value>
+              <serviceSpecificType>0</serviceSpecificType>
+              <serviceSpecificData>test-0</serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>1</serviceSpecificType>
+              <serviceSpecificData>test-1</serviceSpecificData>
+            </value>
           </serviceSpecificInfo>
           <requested-Party-Address>
             <involvedParty>

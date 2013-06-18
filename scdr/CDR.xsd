@@ -76,10 +76,10 @@
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryStartTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStamp" type="TimeStamp"/>
       <xs:element minOccurs="1" maxOccurs="1" name="serviceDeliveryEndTimeStampFraction" type="MilliSecondsType"/>
-      <xs:element name="interOperatorIdentifierslist">
+      <xs:element name="interOperatorIdentifiers">
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="InterOperatorIdentifiers">
+            <xs:element name="value">
               <xs:complexType>
                 <xs:sequence minOccurs="0" maxOccurs="1">
                   <xs:element name="originatingIOI" type="xs:string"/>
@@ -151,12 +151,18 @@
       -->
       <xs:element name="mSTimeZone" type="xs:string"/>
        <!-- check -->
-      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element name="serviceSpecificInfo">
           <xs:complexType>
-            <xs:sequence minOccurs="1" maxOccurs="1">
-              <xs:element name="serviceSpecificType" type="xs:integer"/>
-              <xs:element name="serviceSpecificData" type="xs:string"/>
+            <xs:sequence>
+              <xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="serviceSpecificType" type="xs:integer"/>
+                    <xs:element name="serviceSpecificData" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -206,7 +212,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="sDP-Session-Description" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="sDP-Session-Description">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="sDP-Type">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
