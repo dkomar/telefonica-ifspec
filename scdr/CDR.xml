@@ -6,7 +6,7 @@ Usage:
 <callcase name="whatever" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CDR.xsd">
   <CDR callpartid="1">
     <!-- the responsible node for this CDR, values: MTAS, BWAS, S-CSCF, E-CSCF, ngIN-AS -->
-    <layer from="S-CSCF">
+    <layer from="common">
       <mMTelServiceRecord>
         <mMTelRecord>
 
@@ -14,13 +14,6 @@ Usage:
           <!-- emergency: 83 -->
           <!-- failures: 83 -->
           <recordType>83</recordType>
-
-          <!-- 0 for originating, 1 for terminating -->
-          <role-of-Node>0</role-of-Node>
-
-          <!-- LEAVE EMPTY! -->
-          <!-- If empty, content populated by MM with random string -->
-          <session-Id></session-Id>
 
           <!-- TEL URI, SIP URI or both of the caller -->
           <!-- multiple occurences of involvedParty is allowed -->
@@ -62,9 +55,6 @@ Usage:
           </interOperatorIdentifiers>
 
 
-          <causeForRecordClosing>0</causeForRecordClosing>
-
-
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
 
 
@@ -87,10 +77,40 @@ Usage:
             </media-Components-List>
           </list-Of-SDP-Media-Components>
 
-
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
 
 
+          <!-- the served party -->
+          <!-- in case of originating leg: the calling party, -->
+          <!-- in case of terminating leg: called party -->
+          <list-of-subscription-ID>
+            <subscriptionID>
+              <subscriptionIDType>0</subscriptionIDType>
+              <subscriptionIDData><!-- MSISDN (not tel: uri!)--></subscriptionIDData>
+            </subscriptionID>
+            <subscriptionID>
+              <subscriptionIDType>2</subscriptionIDType>
+              <subscriptionIDData><!-- SIP URI (sip:.*) --></subscriptionIDData>
+            </subscriptionID>
+          </list-of-subscription-ID>
+
+          <numberPortabilityRouting></numberPortabilityRouting>
+
+          <list-Of-Called-Asserted-Identity>
+            <involvedParty>
+              <sip>sip:unknown@unknown</sip>
+            </involvedParty>
+          </list-Of-Called-Asserted-Identity>
+
+        </mMTelRecord>
+      </mMTelServiceRecord>
+    </layer>
+
+
+
+    <layer from="BWAS">
+      <mMTelServiceRecord>
+        <mMTelRecord>
           <recordExtensions>
             <bW-service-provider>est</bW-service-provider>
             <bW-user-Number>test</bW-user-Number>
@@ -113,36 +133,56 @@ Usage:
 
           <Access-Network-Information></Access-Network-Information>
 
-          <!-- NO CHANGE -->
-          <!-- ignored by MM and replaced with fixed string: "11.32275@3gpp.org" -->
+        </mMTelRecord>
+      </mMTelServiceRecord>
+    </layer>
+
+    <layer from="MTAS">
+      <mMTelServiceRecord>
+        <mMTelRecord>
+          <Access-Network-Information></Access-Network-Information>
+          <!--
+          This field holds the address of the party (Public User ID or Public Service ID) to whom the SIP
+          transaction was originally posted. The Requested Party Address shall be populated with the SIP URI
+          or TEL URI (according to RFC 3261 [401] and RFC 3966 [402] respectively) contained in the
+          incoming Request-URI of the request. This field is only present if different from the Called Party
+          Address parameter.
+          -->
+          <requested-Party-Address>
+            <involvedParty>
+              <sip>sip:requesteduser@requesteddomain.com</sip>
+            </involvedParty>
+          </requested-Party-Address>
+
+          <mMTelInformation>
+            <listOfSupplServices>
+              <serviceType>0</serviceType>
+              <serviceMode>0</serviceMode>
+            </listOfSupplServices>
+          </mMTelInformation>
+        </mMTelRecord>
+      </mMTelServiceRecord>
+    </layer>
+
+    <!-- NO CHANGE -->
+    <layer from="fixed">
+      <mMTelServiceRecord>
+        <mMTelRecord>
+          <!-- 0 for originating, 1 for terminating -->
+          <role-of-Node>0</role-of-Node>
+          <!-- If empty, content populated by MM with random string -->
+          <session-Id></session-Id>
+          <causeForRecordClosing>0</causeForRecordClosing>
           <serviceContextID>11.32275@3gpp.org</serviceContextID>
-
-          <!-- the served party -->
-          <!-- in case of originating leg: the calling party, -->
-          <!-- in case of terminating leg: called party -->
-          <list-of-subscription-ID>
-            <subscriptionID>
-              <subscriptionIDType>0</subscriptionIDType>
-              <subscriptionIDData><!-- MSISDN (not tel: uri!)--></subscriptionIDData>
-            </subscriptionID>
-            <subscriptionID>
-              <subscriptionIDType>2</subscriptionIDType>
-              <subscriptionIDData><!-- SIP URI (sip:.*) --></subscriptionIDData>
-            </subscriptionID>
-          </list-of-subscription-ID>
-
-
-          <!-- NO CHANGE -->
-          <!-- ignored by MM and replaced with fixed string: "urn-7:3gpp-service.ims.icsi.mmtel" -->
           <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
-
-
-          <numberPortabilityRouting></numberPortabilityRouting>
-
-
           <transit-IOI-List></transit-IOI-List>
+        </mMTelRecord>
+      </mMTelServiceRecord>
+    </layer>
 
-
+    <layer from="ngIN">
+      <mMTelServiceRecord>
+        <mMTelRecord>
           <!-- multiple occurences of value is allowed -->
           <!-- Presence: Populated only for mVoLTE call cases, during Fixed calls, entire structure is absent -->
           <serviceSpecificInfo>
@@ -167,28 +207,6 @@ Usage:
               <serviceSpecificData><!-- PBXLink FC Result Code --></serviceSpecificData>
             </value>
           </serviceSpecificInfo>
-
-
-          <requested-Party-Address>
-            <involvedParty>
-              <sip>sip:requesteduser@requesteddomain.com</sip>
-            </involvedParty>
-          </requested-Party-Address>
-
-
-          <list-Of-Called-Asserted-Identity>
-            <involvedParty>
-              <sip>sip:unknown@unknown</sip>
-            </involvedParty>
-          </list-Of-Called-Asserted-Identity>
-
-
-          <mMTelInformation>
-            <listOfSupplServices>
-              <serviceType>0</serviceType>
-              <serviceMode>0</serviceMode>
-            </listOfSupplServices>
-          </mMTelInformation>
         </mMTelRecord>
       </mMTelServiceRecord>
     </layer>

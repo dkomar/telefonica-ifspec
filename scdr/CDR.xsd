@@ -30,7 +30,9 @@
           <xs:enumeration value="BWAS"/>
           <xs:enumeration value="S-CSCF"/>
           <xs:enumeration value="E-CSCF"/>
-          <xs:enumeration value="ngIN-AS"/>
+          <xs:enumeration value="ngIN"/>
+          <xs:enumeration value="common"/>
+          <xs:enumeration value="fixed"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
