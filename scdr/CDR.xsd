@@ -48,10 +48,16 @@
       <xs:element minOccurs="1" maxOccurs="1" name="role-of-Node">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- originating -->
-            <xs:enumeration value="1"/>
-             <!-- terminating -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>originating</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>terminating</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -93,16 +99,31 @@
       <xs:element name="causeForRecordClosing">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-             <!-- serviceDeliveryEndSuccessfully -->
-            <xs:enumeration value="0"/>
-             <!-- unSuccessfulServiceDelivery -->
-            <xs:enumeration value="1"/>
-             <!-- timeLimit -->
-            <xs:enumeration value="3"/>
-             <!-- serviceChange -->
-            <xs:enumeration value="4"/>
-             <!-- managementIntervention -->
-            <xs:enumeration value="5"/>
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>serviceDeliveryEndSuccessfully</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>unSuccessfulServiceDelivery</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+              <xs:annotation>
+                <xs:documentation>timeLimit</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+              <xs:annotation>
+                <xs:documentation>serviceChange</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+              <xs:annotation>
+                <xs:documentation>managementIntervention</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -208,12 +229,18 @@
       <xs:element name="mediaInitiatorFlag">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- called party has requested the session modification -->
-            <xs:enumeration value="1"/>
-             <!-- calling party has requested the session modification -->
-            <xs:enumeration value="2"/>
-             <!-- unknown participiant has requested the session modification -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>called party has requested the session modification</xs:documentation>
+              </xs:annotation>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>calling party has requested the session modification</xs:documentation>
+              </xs:annotation>
+            <xs:enumeration value="2">
+              <xs:annotation>
+                <xs:documentation>unknown participiant has requested the session modification</xs:documentation>
+              </xs:annotation>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -228,10 +255,16 @@
       <xs:element name="sDP-Type">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- SDP Offer -->
-            <xs:enumeration value="1"/>
-             <!-- SDP Answer -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>SDP Offer</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>SDP Answer</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -282,84 +315,192 @@
       <xs:element name="serviceType">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- Originating Identification Presentation (OIP) -->
-            <xs:enumeration value="1"/>
-             <!-- Originating Identification Restriction (OIR) -->
-            <xs:enumeration value="2"/>
-             <!-- Terminating Identification Presentation (TIP) -->
-            <xs:enumeration value="3"/>
-             <!-- Terminating Identification Restriction (TIR) -->
-            <xs:enumeration value="4"/>
-             <!-- Communication HOLD (HOLD) -->
-            <xs:enumeration value="5"/>
-             <!-- Communications Barring (CB) -->
-            <xs:enumeration value="6"/>
-             <!-- Communication Diversion (CDIV) -->
-            <xs:enumeration value="7"/>
-             <!-- Communication Diversion Notification (CDIVN) -->
-            <xs:enumeration value="8"/>
-             <!-- Communication Waiting (CW) -->
-            <xs:enumeration value="9"/>
-             <!-- Message Waiting Indication (MWI) -->
-            <xs:enumeration value="10"/>
-             <!-- Conference (CONF) -->
-            <xs:enumeration value="11"/>
-             <!-- Flexible Alerting (FA) -->
-            <xs:enumeration value="12"/>
-             <!-- Completion of Communication to Busy Subscriber (CCBS) -->
-            <xs:enumeration value="13"/>
-             <!-- Completion of Communications on No Reply (CCNR) -->
-            <xs:enumeration value="14"/>
-             <!-- Malicious Communication Identification (MCID) -->
-            <xs:enumeration value="15"/>
-             <!-- Customized Alerting Tone (CAT)  -->
-            <xs:enumeration value="16"/>
-             <!-- Closed User Group (CUG) -->
-            <xs:enumeration value="17"/>
-             <!-- Personal Network management -->
-            <xs:enumeration value="18"/>
-             <!-- Customized Ringing Signal -->
-            <xs:enumeration value="19"/>
-             <!-- Advice of Charge (AoC) -->
-            <xs:enumeration value="26221"/>
-             <!-- Communication Diversion Fixed To Mobile -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>Originating Identification Presentation (OIP)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>Originating Identification Restriction (OIR)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+              <xs:annotation>
+                <xs:documentation>Terminating Identification Presentation (TIP)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+              <xs:annotation>
+                <xs:documentation>Terminating Identification Restriction (TIR)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+              <xs:annotation>
+                <xs:documentation>Communication HOLD (HOLD)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+              <xs:annotation>
+                <xs:documentation>Communications Barring (CB)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="6">
+              <xs:annotation>
+                <xs:documentation>Communication Diversion (CDIV)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="7">
+              <xs:annotation>
+                <xs:documentation>Communication Diversion Notification (CDIVN)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="8">
+              <xs:annotation>
+                <xs:documentation>Communication Waiting (CW)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="9">
+              <xs:annotation>
+                <xs:documentation>Message Waiting Indication (MWI)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10">
+              <xs:annotation>
+                <xs:documentation>Conference (CONF)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="11">
+              <xs:annotation>
+                <xs:documentation>Flexible Alerting (FA)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+              <xs:annotation>
+                <xs:documentation>Completion of Communication to Busy Subscriber (CCBS)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="13">
+              <xs:annotation>
+                <xs:documentation>Completion of Communications on No Reply (CCNR)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="14">
+              <xs:annotation>
+                <xs:documentation>Malicious Communication Identification (MCID)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="15">
+              <xs:annotation>
+                <xs:documentation>Customized Alerting Tone (CAT)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="16">
+              <xs:annotation>
+                <xs:documentation>Closed User Group (CUG)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="17">
+              <xs:annotation>
+                <xs:documentation>Personal Network management</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="18">
+              <xs:annotation>
+                <xs:documentation>Customized Ringing Signal</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="19">
+              <xs:annotation>
+                <xs:documentation>Advice of Charge (AoC)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="26221">
+              <xs:annotation>
+                <xs:documentation>Communication Diversion Fixed To Mobile</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="serviceMode">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- Communication Forwarding Unconditional (CFU) -->
-            <xs:enumeration value="1"/>
-             <!-- Communication Forwarding Busy (CFB) -->
-            <xs:enumeration value="2"/>
-             <!-- Communication Forwarding No Reply (CRNR) -->
-            <xs:enumeration value="3"/>
-             <!-- Communication Forwarding on Not Logged-In (CFNL) -->
-            <xs:enumeration value="4"/>
-             <!-- Communication Deflection (CD) -->
-            <xs:enumeration value="5"/>
-             <!-- Communication Forwarding on Subscriber Not Reachable (CFNRc) -->
-            <xs:enumeration value="6"/>
-             <!-- Incoming Call Barring (ICB) -->
-            <xs:enumeration value="7"/>
-             <!-- Outgoing Call Barring (OCB) -->
-            <xs:enumeration value="8"/>
-             <!-- Anonymous Communication Rejection (ACR) -->
-            <xs:enumeration value="9"/>
-             <!-- Blind Transfer -->
-            <xs:enumeration value="10"/>
-             <!-- Consultative Transfer -->
-            <xs:enumeration value="11"/>
-             <!-- Three-Party (3PTY) -->
-            <xs:enumeration value="12"/>
-             <!-- Advice of Charge -S (AoC-S) -->
-            <xs:enumeration value="13"/>
-             <!-- Advice of Charge -D (AoC-D) -->
-            <xs:enumeration value="14"/>
-             <!-- Advice of Charge -E (AoC-E) -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>Communication Forwarding Unconditional (CFU)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>Communication Forwarding Busy (CFB)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+              <xs:annotation>
+                <xs:documentation>Communication Forwarding No Reply (CRNR)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+              <xs:annotation>
+                <xs:documentation>Communication Forwarding on Not Logged-In (CFNL)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+              <xs:annotation>
+                <xs:documentation>Communication Deflection (CD)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+              <xs:annotation>
+                <xs:documentation>Communication Forwarding on Subscriber Not Reachable (CFNRc)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="6">
+              <xs:annotation>
+                <xs:documentation>Incoming Call Barring (ICB)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="7">
+              <xs:annotation>
+                <xs:documentation>Outgoing Call Barring (OCB)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="8">
+              <xs:annotation>
+                <xs:documentation>Anonymous Communication Rejection (ACR)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="9">
+              <xs:annotation>
+                <xs:documentation>Blind Transfer</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10">
+              <xs:annotation>
+                <xs:documentation>Consultative Transfer</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="11">
+              <xs:annotation>
+                <xs:documentation>Three-Party (3PTY)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+              <xs:annotation>
+                <xs:documentation>Advice of Charge -S (AoC-S)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="13">
+              <xs:annotation>
+                <xs:documentation>Advice of Charge -D (AoC-D)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="14">
+              <xs:annotation>
+                <xs:documentation>Advice of Charge -E (AoC-E)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -382,14 +523,26 @@
       <xs:element name="participantActionType">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- CREATE_CONF -->
-            <xs:enumeration value="1"/>
-             <!-- JOIN_CONF -->
-            <xs:enumeration value="2"/>
-             <!-- INVITE_INTO_CONF -->
-            <xs:enumeration value="3"/>
-             <!-- QUIT_CONF -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>CREATE_CONF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>JOIN_CONF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+              <xs:annotation>
+                <xs:documentation>INVITE_INTO_CONF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+              <xs:annotation>
+                <xs:documentation>QUIT_CONF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -438,16 +591,31 @@
       <xs:element name="subscriptionIDType">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:enumeration value="0"/>
-             <!-- END_USER_E164 -->
-            <xs:enumeration value="1"/>
-             <!-- END_USER_IMSI -->
-            <xs:enumeration value="2"/>
-             <!-- END_USER_SIP_URI -->
-            <xs:enumeration value="3"/>
-             <!-- END_USER_NAI -->
-            <xs:enumeration value="4"/>
-             <!-- END_USER_PRIVATE -->
+            <xs:enumeration value="0">
+              <xs:annotation>
+                <xs:documentation>END_USER_E164</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+              <xs:annotation>
+                <xs:documentation>END_USER_IMSI</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+              <xs:annotation>
+                <xs:documentation>END_USER_SIP_URI</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+              <xs:annotation>
+                <xs:documentation>END_USER_NAI</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+              <xs:annotation>
+                <xs:documentation>END_USER_PRIVATE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
