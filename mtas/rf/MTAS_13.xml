@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      File : MtasRf_ver2.xml
+      No.  : 5/190 04-CRA 119 2107 Uen
+      Date : 2012-10-25
+      Rev  : B
+
+ Copyright (c) 2011 Ericsson AB - All rights reserved.
+ The Copyright to the computer program(s) herein is the property of
+ Ericsson AB.
+ The program(s) may be used and/or copied with the written permission
+ from Ericsson AB or in accordance with the terms and conditions
+ stipulated in the agreement/contract under which the program(s) have
+ been supplied.
+
+ The contents of this document are subject to revision without notice due
+ to continued progress in methodology, design and manufacturing.
+ Ericsson AB shall have no liability for any errors or damage of any kind
+ resulting from the use of modified versions of this document.
+
+ DESCRIPTION:
+   This is an xml specification of MTAS Rf version 9 (based on 3GPP release 9) as defined in
+   the source document.
+
+ SOURCE DOCUMENT:
+   No. : 2/155 19-CRA 119 2107 Uen
+   Rev : J
+
+ REVISION HISTORY:
+   Rev   Date           Author      Action
+   A     2012-03-09     eptelnr     Approved for 12B: (Initially based on 3/190 04-CRA 119 2107, rev F.)
+                                    Changed mandatoryFlag for all Ericsson AVPs to false.
+                                    Added Message-Body, AcctInterimInterval in ACR and Event-Timestamp in ACA.
+                                    Added ALU specific AVPs.
+                                    Added the AVPs Service-Specific-Info (1249), Service-Specific-Data (863), Service-Specific-Type (1257)
+                                    and Ericsson AVP Party-To-Charge (1357).
+                                    Changed mandatory flag to false for AVPs within a group which has a false value for that flag.
+                                    Added Service-Suppression-Info, Matched-Regular-Expression and Services-To-Suppress AVPs.
+   A1    2012-06-28     etxlogg     SSC for CFBNRVM, added CFNRCVM and CFNLVM and moved Analyzed-Call-Type from Stop to Event
+   B     2012-10-25     estukar     Added Flexible AVPs Transaction-Info, Transaction-Type, Transaction-Data-Name, Transaction-Data-Value.
+                                    New SSI values for the new Call Return Service
+                                    Added Served-User AVP, ORIGINATING_CALLING_NAME_IDENTITY_PRESENTATION Supplementary-Service-Identities, FLEXIBLE_FCD and FLEXIBLE_STOD Supplementary-Service-Identities.
+                                    Added SSI enum values for Hotline service (2700-2703).
+                                    Added 3GPP-MS-TimeZone, PS-Information, User-Equipment-Info, User-Equipment-Info-Type, User-Equipment-Info-Value, User-Name AVPs.
+                                    Added Tenant AVP for Wholesale
+                                    Added CCMP-User-Info AVP (only in ACR-Interim), Supplementary-Service-Action values 402-405 and Supplementary-Service-Identity value 209
+
+ CHANGES:
+   The following has been changed due to new version of the source document:
+
+ DEVIATIONS:
+   The following has been changed, compared to the source document:
+
+-->
+
+<!-- Protocol header -->
+<Protocol id="Diameter customer, country" spec="RFC3588"
+          name="Diameter" version="1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="file:/$CLASSES/cmg/stdapp/diameter/validation/Diameter_addon_schema.xsd">
+	
+	<SupportedVendorId vendorId="10415" comment="3GPP"/>
+	<SupportedVendorId vendorId="193" comment="Ericsson"/>
+	<SupportedVendorId vendorId="1751" comment="Lucent Technologies"/>
+	
+	<AVP_Def name="3GPP-MS-TimeZone" code="23" type="OctetString" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Access-Network-Information" code="1263" type="OctetString" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Accounting-Record-Number" code="485" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Accounting-Record-Type" code="480" type="Enumerated" mandatoryFlag="true">
+		<EnumValue value="1" comment="EVENT_RECORD"/>
+		<EnumValue value="2" comment="START_RECORD"/>
+		<EnumValue value="3" comment="INTERIM_RECORD"/>
+		<EnumValue value="4" comment="STOP_RECORD"/>
+	</AVP_Def>
+	<AVP_Def name="Acct-Application-Id" code="259" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Acct-Interim-Interval" code="85" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Action" code="3" type="Enumerated" vendorId="1751" mandatoryFlag="false">
+		<EnumValue value="1" comment="activation"/>
+		<EnumValue value="2" comment="deactivation"/>
+	</AVP_Def>
+	<AVP_Def name="ALU-Specific-Extension" code="100" type="Grouped" vendorId="1751" mandatoryFlag="false"/>
+	<AVP_Def name="Analyzed-Call-Type" code="1303" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Associated-Number" code="6" type="UTF8String" vendorId="1751" mandatoryFlag="false"/>
+	<AVP_Def name="Call-Direction" code="11" type="Enumerated" vendorId="1751" mandatoryFlag="false">
+		<EnumValue value="0" comment="origination"/>
+		<EnumValue value="1" comment="termination"/>
+	</AVP_Def>
+	<AVP_Def name="Call-Type" code="12" type="Enumerated" vendorId="1751" mandatoryFlag="false">
+		<EnumValue value="32" comment="mobile"/>
+	</AVP_Def>
+	<AVP_Def name="Called-Asserted-Identity" code="1250" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Called-Asserted-Identity-Presentation-Status" code="1142" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="PRESENTATION_ALLOWED"/>
+		<EnumValue value="1" comment="PRESENTATION_RESTRICTED"/>
+	</AVP_Def>
+	<AVP_Def name="Called-Party-Address" code="832" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Calling-Party-Address" code="831" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Calling-Party-Address-Presentation-Status" code="1141" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="PRESENTATION_ALLOWED"/>
+		<EnumValue value="1" comment="PRESENTATION_RESTRICTED"/>
+		<EnumValue value="2" comment="UNKNOWN"/>
+	</AVP_Def>
+	<AVP_Def name="Carrier-Select-Routing-Information" code="2023" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Cause-Code" code="861" type="Integer32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="CCMP-User-Info" code="1384" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Common-Policy-Rule-Identity" code="1308" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Conference-Id" code="1127" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Content-Disposition" code="828" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Length" code="827" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Content-Type" code="826" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Destination-Host" code="293" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Destination-Realm" code="283" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Dial-Around-Indicator" code="1160" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Ericsson-Service-Information" code="285" type="Grouped" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Event-Timestamp" code="55" type="Time" mandatoryFlag="true"/>
+	<AVP_Def name="Event-Type" code="823" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Experimental-Result" code="297" type="Grouped" mandatoryFlag="true"/>
+	<AVP_Def name="Experimental-Result-Code" code="298" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="From-Header" code="1153" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="From-Header-Presentation-Status" code="1262" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="PRESENTATION_ALLOWED"/>
+		<EnumValue value="1" comment="PRESENTATION_RESTRICTED"/>
+		<EnumValue value="2" comment="UNKNOWN"/>
+	</AVP_Def>
+	<AVP_Def name="IMS-Charging-Identifier" code="841" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="IMS-Information" code="876" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="IMS-Service-Identification" code="284" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Inter-Operator-Identifier" code="838" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Matched-Regular-Expression" code="1372" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Media-Initiator-Flag" code="882" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="CALLED_PARTY"/>
+		<EnumValue value="1" comment="CALLING_PARTY"/>
+		<EnumValue value="2" comment="UNKNOWN"/>
+	</AVP_Def>
+	<AVP_Def name="Message-Body" code="889" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="MMT-Information" code="1061" type="Grouped" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="MSISDN" code="701" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Node-Functionality" code="862" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="6" comment="AS"/>
+	</AVP_Def>
+	<AVP_Def name="Number-Portability-Routing-Information" code="2024" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Origin-Host" code="264" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Origin-Realm" code="296" type="DiameterIdentity" mandatoryFlag="true"/>
+	<AVP_Def name="Originating-IOI" code="839" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Originator" code="864" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="Calling Party"/>
+		<EnumValue value="1" comment="Called Party"/>
+	</AVP_Def>
+	<AVP_Def name="Party-To-Charge" code="1357" type="Unsigned32" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="PS-Information" code="874" type="Grouped" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Redirecting-Party-Address" code="1133" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Related-ICID" code="1128" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Requested-Party-Address" code="1251" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Result-Code" code="268" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="Role-of-Node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="ORIGINATING_ROLE"/>
+		<EnumValue value="1" comment="TERMINATING_ROLE"/>
+	</AVP_Def>
+	<AVP_Def name="Routing-Call-Type" code="1302" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="SCC-Service-Identity" code="1314" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="Terminating Access Domain Selection (T-ADS)"/>
+		<EnumValue value="100" comment="Service Domain Selection (SDS)"/>
+		<EnumValue value="200" comment="Single Radio Voice Call Continuity (SRVCC)"/>
+	</AVP_Def>
+	<AVP_Def name="SCC-TADS-Decision" code="1315" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="No selection"/>
+		<EnumValue value="1" comment="No selection and Reject"/>
+		<EnumValue value="2" comment="Terminate on VoLTE UE on PS"/>
+		<EnumValue value="3" comment="Terminate on VoLTE UE on CS"/>
+		<EnumValue value="4" comment="Terminate on VoLTE UE on PS or CS"/>
+	</AVP_Def>
+	<AVP_Def name="SDP-Media-Component" code="843" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Media-Description" code="845" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Media-Name" code="844" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Session-Description" code="842" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SDP-Type" code="2036" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+		<EnumValue value="0" comment="SDP Offer"/>
+		<EnumValue value="1" comment="SDP Answer"/>
+	</AVP_Def>
+	<AVP_Def name="Served-User" code="1330" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Context-Id" code="461" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="Service-ID" code="5" type="UTF8String" vendorId="1751" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Information" code="873" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Service-Mode" code="4" type="Enumerated" vendorId="1751" mandatoryFlag="false">
+		<EnumValue value="1" comment="unCond"/>
+		<EnumValue value="2" comment="busy"/>
+		<EnumValue value="3" comment="noAnswer"/>
+		<EnumValue value="10" comment="nWay"/>
+		<EnumValue value="12" comment="other"/>
+		<EnumValue value="55" comment="callRejected"/>
+		<EnumValue value="58" comment="prefixCall1"/>
+	</AVP_Def>
+	<AVP_Def name="Service-Number-Type" code="1307" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="osn"/>
+		<EnumValue value="1" comment="nsn"/>
+		<EnumValue value="2" comment="non-service-e164"/>
+		<EnumValue value="3" comment="unknown"/>
+	</AVP_Def>
+	<AVP_Def name="Service-Specific-Data" code="863" type="UTF8String" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Specific-Info" code="1249" type="Grouped" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Specific-Type" code="1257" type="Unsigned32"  vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Suppression-Info" code="1371" type="Grouped" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Service-Type" code="2" type="Enumerated" vendorId="1751" mandatoryFlag="false">
+		<EnumValue value="5" comment="callForward"/>
+		<EnumValue value="7" comment="nWayCall"/>
+		<EnumValue value="27" comment="vmsOrig"/>
+		<EnumValue value="32" comment="callingLineIDRestriction"/>
+		<EnumValue value="34" comment="callWaiting"/>
+		<EnumValue value="36" comment="callBarring"/>
+		<EnumValue value="37" comment="outgoingCallBarring"/>
+		<EnumValue value="42" comment="prefixCall"/>
+	</AVP_Def>
+	<AVP_Def name="Services-To-Suppress" code="1373" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Session-Id" code="263" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Method" code="824" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Request-Timestamp" code="834" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Request-Timestamp-Fraction" code="2301" type="Unsigned32" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="SIP-Response-Timestamp" code="835" type="Time" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="SIP-Response-Timestamp-Fraction" code="2302" type="Unsigned32" vendorId="10415" mandatoryFlag="false"/>
+	<AVP_Def name="SIP-Ringing-Timestamp" code="338" type="Time" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="SIP-Ringing-Timestamp-Fraction" code="1256" type="Unsigned32" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Subscription-Id" code="443" type="Grouped" mandatoryFlag="true"/>
+	<AVP_Def name="Subscription-Id-Data" code="444" type="UTF8String" mandatoryFlag="true"/>
+	<AVP_Def name="Subscription-Id-Type" code="450" type="Enumerated" mandatoryFlag="true">
+		<EnumValue value="0" comment="END_USER_E164"/>
+		<EnumValue value="2" comment="END_USER_SIP_URI"/>
+	</AVP_Def>
+	<AVP_Def name="Supplementary-Service-Action" code="1131" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="USE_OF_SERVICE"/>
+		<EnumValue value="100" comment="SSC_ACTIVATION"/>
+		<EnumValue value="101" comment="SSC_DEACTIVATION"/>
+		<EnumValue value="102" comment="SSC_INTERROGATION"/>
+		<EnumValue value="103" comment="SSC_MODIFICATION"/>
+		<EnumValue value="104" comment="SSC_ACTIVATION_REQUEST_WHEN_ALREADY_ACTIVATE"/>
+		<EnumValue value="105" comment="SSC_DEACTIVATION_REQUEST_WHEN_ALREADY_INACTIVATE"/>
+		<EnumValue value="106" comment="SSC_MODIFICATION_REQUEST_WITH_NO_CHARGE"/>
+		<EnumValue value="107" comment="SSC_INVOCATION"/>
+		<EnumValue value="300" comment="UT_ACTIVATION"/>
+		<EnumValue value="301" comment="UT_DEACTIVATION"/>
+		<EnumValue value="302" comment="UT_INTERROGATION"/>
+		<EnumValue value="303" comment="UT_MODIFICATION_OF_ACTIVE_SERVICE_DATA"/>
+		<EnumValue value="306" comment="UT_MODIFICATION_REQUEST_WITH_NO_CHARGE"/>
+		<EnumValue value="400" comment="CCMP_CONFERENCE_CREATION"/>
+		<EnumValue value="401" comment="CCMP_CONFERENCE_DELETION"/>
+		<EnumValue value="402" comment="CCMP_CONFERENCE_UPDATE"/>
+		<EnumValue value="403" comment="CCMP_USER_CREATION"/>
+		<EnumValue value="404" comment="CCMP_USER_DELETION"/>
+		<EnumValue value="405" comment="CCMP_USER_UPDATE"/>
+	</AVP_Def>
+	<AVP_Def name="Supplementary-Service-Identity" code="1130" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="-1" comment="NON_SERVICE_SPECIFIC"/>
+		<EnumValue value="0" comment="FORWARD_UNCONDITIONAL"/>
+		<EnumValue value="1" comment="FORWARD_ON_BUSY"/>
+		<EnumValue value="2" comment="FORWARD_ON_NOT_REPLY"/>
+		<EnumValue value="3" comment="FORWARD_ON_NOT_LOGGED_IN"/>
+		<EnumValue value="4" comment="FORWARD_ON_NOT_REACHABLE"/>
+		<EnumValue value="5" comment="FORWARD_DO_NOT_DISTURB"/>
+		<EnumValue value="10" comment="FORWARD_UNCONDITIONAL_COMPLEX_RULES"/>
+		<EnumValue value="11" comment="FORWARD_ON_BUSY_COMPLEX_RULES"/>
+		<EnumValue value="12" comment="FORWARD_ON_NOT_REPLY_COMPLEX_RULES"/>
+		<EnumValue value="13" comment="FORWARD_ON_NOT_LOGGED_IN_COMPLEX_RULES"/>
+		<EnumValue value="14" comment="FORWARD_ON_NOT_REACHABLE_COMPLEX_RULES"/>
+		<EnumValue value="15" comment="FORWARD_DO_NOT_DISTURB_COMPLEX_RULES"/>
+		<EnumValue value="20" comment="DEFLECTION"/>
+		<EnumValue value="30" comment="COMMUNICATION_DIVERSION"/>
+		<EnumValue value="31" comment="COMMUNICATION_DIVERSION_NO_ANSWER_TIMEOUT"/>
+		<EnumValue value="100" comment="INCOMING_COMMUNICATION_BARRING"/>
+		<EnumValue value="101" comment="OUTGOING_COMMUNICATION_BARRING"/>
+		<EnumValue value="102" comment="ANONYMOUS_COMMUNICATION_REJECTION"/>
+		<EnumValue value="105" comment="INCOMING_COMMUNICATION_ALLOWING"/>
+		<EnumValue value="106" comment="OUTGOING_COMMUNICATION_ALLOWING"/>
+		<EnumValue value="107" comment="DO_NOT_DISTURB_COMMUNICATION_BARRING"/>
+		<EnumValue value="110" comment="ACR"/>
+		<EnumValue value="111" comment="DNDCB_COMPLEX_RULES"/>
+		<EnumValue value="121" comment="OUTGOING_BARRING_PROGRAM_SINGLE"/>
+		<EnumValue value="122" comment="OUTGOING_BARRING_PROGRAM_MULTIPLE"/>
+		<EnumValue value="130" comment="DYNAMIC_BLACK_LIST"/>
+		<EnumValue value="131" comment="MALICIOUS_COMMUNICATION_REJECTION"/>
+		<EnumValue value="140" comment="NATIONAL_TOLL_RESTRICTION"/>
+		<EnumValue value="141" comment="INTERNATIONAL_TOLL_RESTRICTION"/>
+		<EnumValue value="200" comment="CONFERENCE_CREATION"/>
+		<EnumValue value="201" comment="PARTICIPANT_ADDITION"/>
+		<EnumValue value="202" comment="PARTICIPANT_REMOVAL"/>
+		<EnumValue value="203" comment="CONFERENCE_COMPLETION"/>
+		<EnumValue value="204" comment="SCHEDULED_CONFERENCE_ADMINISTRATION"/>
+		<EnumValue value="205" comment="PARTICIPANT_JOIN"/>
+		<EnumValue value="206" comment="PARTICIPANT_LEAVE"/>
+		<EnumValue value="207" comment="CONFERENCE_ACTIVE"/>
+		<EnumValue value="208" comment="CONFERENCE_INACTIVE"/>
+		<EnumValue value="209" comment="PARTICIPANT_UPDATE"/>
+		<EnumValue value="220" comment="EVENT_PACKAGE_SUBSCRIPTION"/>
+		<EnumValue value="400" comment="COMMUNICATION_WAITING"/>
+		<EnumValue value="500" comment="FLEXIBLE_COMMUNICATION_DISTRIBUTION"/>
+		<EnumValue value="501" comment="SERIAL_FCD"/>
+		<EnumValue value="502" comment="PARALLEL_FCD"/>
+		<EnumValue value="503" comment="FLEXIBLE_COMMUNICATION_DIVERT_PRIMARY"/>
+		<EnumValue value="504" comment="FLEXIBLE_FCD"/>
+		<EnumValue value="600" comment="ORIGINATING_IDENTITY_PRESENTATION"/>
+		<EnumValue value="601" comment="ORIGINATING_IDENTITY_RESTRICTION"/>
+		<EnumValue value="602" comment="TERMINATING_IDENTITY_PRESENTATION"/>
+		<EnumValue value="603" comment="TERMINATING_IDENTITY_RESTRICTION"/>
+		<EnumValue value="606" comment="CALLING_NAME_IDENTITY_PRESENTATION"/>
+		<EnumValue value="607" comment="FLEXIBLE_IDENTITY_PRESENTATION"/>
+		<EnumValue value="608" comment="ORIGINATING_CALLING_NAME_IDENTITY_PRESENTATION"/>
+		<EnumValue value="700" comment="SUPPLEMANTARY_SERVICE_CODES"/>
+		<EnumValue value="800" comment="PERMANENT_MCID"/>
+		<EnumValue value="801" comment="TEMPORARY_MCID"/>
+		<EnumValue value="901" comment="FORWARD_UNCONDITIONAL_TO_VM"/>
+		<EnumValue value="902" comment="FORWARD_ON_BUSY_TO_VM"/>
+		<EnumValue value="903" comment="FORWARD_ON_NO_REPLY_TO_VM"/>
+		<EnumValue value="904" comment="FORWARD_ON_NOT_LOGGED_IN_TO_VM"/>
+		<EnumValue value="905" comment="FORWARD_ON_NOT_REACHABLE_TO_VM"/>
+		<EnumValue value="906" comment="FORWARD_UNCONDITIONAL_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="907" comment="FORWARD_ON_BUSY_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="908" comment="FORWARD_ON_NO_REPLY_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="909" comment="FORWARD_ON_NOT_LOGGED_IN_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="910" comment="FORWARD_ON_NOT_REACHABLE_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="911" comment="FORWARD_DO_NOT_DISTURB_TO_VM"/>
+		<EnumValue value="912" comment="FORWARD_DO_NOT_DISTURB_TO_VM_COMPLEX_RULES"/>
+		<EnumValue value="913" comment="FORWARD_ON_BUSY_AND_NO_REPLY_TO_VM_AND_NOT_REACHABLE_AND_NOT_LOGGED_IN"/>
+		<EnumValue value="1000" comment="ABBREVIATED_DIALING"/>
+		<EnumValue value="1100" comment="USER_CALL_ADMISSION_CONTROL"/>
+		<EnumValue value="1101" comment="GROUP_CALL_ADMISSION_CONTROL"/>
+		<EnumValue value="1200" comment="THREE_PARTY_SESSION"/>
+		<EnumValue value="1201" comment="TWO_PARTY_SESSION_TRANSITION_THREE_PARTY"/>
+		<EnumValue value="1202" comment="TWO_PARTY_SESSION_TRANSITION_TWO_PARTY"/>
+		<EnumValue value="1203" comment="TWO_PARTY_SESSION_IN_THREE_PARTY"/>
+		<EnumValue value="1300" comment="CARRIER_SELECT"/>
+		<EnumValue value="1301" comment="CARRIER_PRE_SELECT"/>
+		<EnumValue value="1302" comment="CARRIER_PRE_SELECT_LOCAL"/>
+		<EnumValue value="1303" comment="CARRIER_PRE_SELECT_NON_LOCAL"/>
+		<EnumValue value="1400" comment="COMMUNICATION_COMPLETION_BUSY_SUBSCRIBER_ACTIVATION"/>
+		<EnumValue value="1401" comment="COMMUNICATION_COMPLETION_BUSY_SUBSCRIBER_INVOCATION"/>
+		<EnumValue value="1402" comment="COMMUNICATION_COMPLETION_BUSY_SUBSCRIBER_CALL"/>
+		<EnumValue value="1403" comment="COMMUNICATION_COMPLETION_BUSY_SUBSCRIBER_REVOCATION"/>
+		<EnumValue value="1410" comment="COMMUNICATION_COMPLETION_NO_REPLY_ACTIVATION"/>
+		<EnumValue value="1411" comment="COMMUNICATION_COMPLETION_NO_REPLY_INVOCATION"/>
+		<EnumValue value="1412" comment="COMMUNICATION_COMPLETION_NO_REPLY_CALL"/>
+		<EnumValue value="1413" comment="COMMUNICATION_COMPLETION_NO_REPLY_REVOCATION"/>
+		<EnumValue value="1500" comment="SHORT_NUMBER_DIALING"/>
+		<EnumValue value="1600" comment="REQUESTED_ANNOUNCEMENT"/>
+		<EnumValue value="1700" comment="USER_COMMON_DATA"/>
+		<EnumValue value="1800" comment="LONG_DISTANCE_MOBILE_NUMBER_POLICING"/>
+		<EnumValue value="1900" comment="EXPLICIT_COMMUNICATION_TRANSFER"/>
+		<EnumValue value="2000" comment="CALLING_PARTY_CATEGORY"/>
+		<EnumValue value="2100" comment="PX_CALL_NOTIFICATION"/>
+		<EnumValue value="2101" comment="PX_3PCC_SESSION"/>
+		<EnumValue value="2200" comment="NUMBER_PORTABILITY_OUTGOING"/>
+		<EnumValue value="2201" comment="NUMBER_PORTABILITY_INCOMING"/>
+		<EnumValue value="2300" comment="SESSION_TRANSFER_TO_OWN_DEVICE"/>
+		<EnumValue value="2301" comment="SERIAL_STOD"/>
+		<EnumValue value="2302" comment="PARALLEL_STOD"/>
+		<EnumValue value="2303" comment="FLEXIBLE_STOD"/>
+		<EnumValue value="2400" comment="CUSTOMIZED_ALERTING_TONES"/>
+		<EnumValue value="2600" comment="CALL_RETURN_WITHOUT_ANNOUNCEMENT_PROMPT"/>
+		<EnumValue value="2601" comment="CALL_RETURN_WITH_ANNOUNCEMENT_PROMPT"/>
+		<EnumValue value="2700" comment="HOTLINE_UNCONDITIONAL"/>
+		<EnumValue value="2701" comment="HOTLINE_INSTANT"/>
+		<EnumValue value="2702" comment="HOTLINE_DELAYED"/>
+		<EnumValue value="2703" comment="HOTLINE_DELAYED_VM"/>
+	</AVP_Def>
+	<AVP_Def name="Supplementary-Service-Information" code="1129" type="Grouped" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Supplementary-Service-Information_ALU" code="1" type="Grouped" vendorId="1751" mandatoryFlag="false"/>
+	<AVP_Def name="Tenant" code="1380" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Terminating-IOI" code="840" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Time-Stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="User-Equipment-Info" code="458" type="Grouped" mandatoryFlag="false"/>
+	<AVP_Def name="User-Equipment-Info-Type" code="459" type="Enumerated" mandatoryFlag="false">
+		<EnumValue value="0" comment="IMEISV"/>
+		<EnumValue value="1" comment="MAC"/>
+		<EnumValue value="2" comment="EU164"/>
+		<EnumValue value="3" comment="MODIFIED_EUI64"/>
+		<EnumValue value="4" comment="ESN"/>
+		<EnumValue value="5" comment="MEID"/>
+	</AVP_Def>
+	<AVP_Def name="User-Equipment-Info-Value" code="460" type="OctetString" mandatoryFlag="false"/>
+	<AVP_Def name="User-Name" code="1" type="UTF8String" mandatoryFlag="false"/>
+	<AVP_Def name="User-Session-ID" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Vendor-Id" code="266" type="Unsigned32" mandatoryFlag="true"/>
+	<AVP_Def name="XCON-Id" code="1346" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Transaction-Info" code="1264" type="Grouped" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Transaction-Type" code="1265" type="Enumerated" vendorId="193" mandatoryFlag="false">
+		<EnumValue value="0" comment="SIP Request"/>
+		<EnumValue value="1" comment="SIP Response"/>
+		<EnumValue value="2" comment="Diameter Request"/>
+		<EnumValue value="3" comment="Diameter Answer"/>
+	</AVP_Def>
+	<AVP_Def name="Transaction-Data-Name" code="1266" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	<AVP_Def name="Transaction-Data-Value" code="1267" type="UTF8String" vendorId="193" mandatoryFlag="false"/>
+	
+	<Request name="Start">
+		<Condition key="Accounting-Record-Type" value="2"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Acct-Interim-Interval"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Service-Context-Id"/>
+		<AVP name="Service-Information">
+			<AVP name="Subscription-Id">
+				<AVP name="Subscription-Id-Type"/>
+				<AVP name="Subscription-Id-Data"/>
+			</AVP>
+			<AVP name="IMS-Information">
+				<AVP name="Event-Type">
+					<AVP name="SIP-Method"/>
+				</AVP>
+				<AVP name="Role-of-Node"/>
+				<AVP name="Node-Functionality"/>
+				<AVP name="User-Session-ID"/>
+				<AVP name="Calling-Party-Address" mapping="list" listSep="&#255;"/>
+				<AVP name="Called-Party-Address"/>
+				<AVP name="Called-Asserted-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="Number-Portability-Routing-Information"/>
+				<AVP name="Requested-Party-Address"/>
+				<AVP name="Time-Stamps">
+					<AVP name="SIP-Request-Timestamp"/>
+					<AVP name="SIP-Response-Timestamp"/>
+					<AVP name="SIP-Request-Timestamp-Fraction"/>
+					<AVP name="SIP-Response-Timestamp-Fraction"/>
+				</AVP>
+				<AVP name="Inter-Operator-Identifier">
+					<AVP name="Originating-IOI"/>
+					<AVP name="Terminating-IOI"/>
+				</AVP>
+				<AVP name="IMS-Charging-Identifier"/>
+				<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;"/>
+				<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;">
+					<AVP name="SDP-Media-Name"/>
+					<AVP name="SDP-Media-Description" mapping="list" listSep="&#254;"/>
+					<AVP name="Media-Initiator-Flag"/>
+					<AVP name="SDP-Type"/>
+				</AVP>
+				<AVP name="Message-Body" mapping="list" listSep="&#255;">
+					<AVP name="Content-Type"/>
+					<AVP name="Content-Length"/>
+					<AVP name="Content-Disposition"/>
+					<AVP name="Originator"/>
+				</AVP>
+				<AVP name="Access-Network-Information"/>
+				<AVP name="Service-Specific-Info" mapping="list" listSep="&#255;">
+					<AVP name="Service-Specific-Data"/>
+					<AVP name="Service-Specific-Type"/>
+				</AVP>
+			</AVP>
+			<AVP name="PS-Information">
+				<AVP name="3GPP-MS-TimeZone"/>
+				<AVP name="User-Equipment-Info">
+					<AVP name="User-Equipment-Info-Type"/>
+					<AVP name="User-Equipment-Info-Value"/>
+				</AVP>
+			</AVP>
+		</AVP>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="MMT-Information">
+				<AVP name="Analyzed-Call-Type"/>
+				<AVP name="Called-Asserted-Identity-Presentation-Status"/>
+				<AVP name="Calling-Party-Address-Presentation-Status"/>
+				<AVP name="Carrier-Select-Routing-Information"/>
+				<AVP name="Conference-Id"/>
+				<AVP name="Dial-Around-Indicator"/>
+				<AVP name="From-Header"/>
+				<AVP name="From-Header-Presentation-Status"/>
+				<AVP name="MSISDN"/>
+				<AVP name="Related-ICID"/>
+				<AVP name="Served-User"/>
+				<AVP name="SCC-Service-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="SCC-TADS-Decision"/>
+				<AVP name="Service-Number-Type"/>
+				<AVP name="SIP-Ringing-Timestamp"/>
+				<AVP name="SIP-Ringing-Timestamp-Fraction"/>
+				<AVP name="Supplementary-Service-Information" mapping="list" listSep="&#255;">
+					<AVP name="Supplementary-Service-Identity"/>
+					<AVP name="Supplementary-Service-Action"/>
+					<AVP name="Redirecting-Party-Address"/>
+					<AVP name="Routing-Call-Type"/>
+					<AVP name="Common-Policy-Rule-Identity"/>
+					<AVP name="Service-Suppression-Info">
+						<AVP name="Matched-Regular-Expression"/>
+						<AVP name="Services-To-Suppress"/>
+					</AVP>
+				</AVP>
+				<AVP name="Tenant"/>
+				<AVP name="XCON-Id"/>
+				<AVP name="Party-To-Charge"/>
+			</AVP>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type"/>
+				<AVP name="Transaction-Data-Name"/>
+				<AVP name="Transaction-Data-Value"  listSep="&#254;"/>
+			</AVP>
+		</AVP>
+		<AVP name="ALU-Specific-Extension">
+			<AVP name="Supplementary-Service-Information_ALU" mapping="list" listSep="&#255;">
+				<AVP name="Service-Type"/>
+				<AVP name="Action"/>
+				<AVP name="Service-Mode"/>
+				<AVP name="Service-ID"/>
+				<AVP name="Associated-Number"/>
+			</AVP>
+			<AVP name="Call-Direction"/>
+			<AVP name="Call-Type"/>
+		</AVP>
+		<AVP name="User-Name"/>
+	</Request>
+	
+	<Request name="Interim">
+		<Condition key="Accounting-Record-Type" value="3"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Destination-Host"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Acct-Interim-Interval"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Service-Context-Id"/>
+		<AVP name="Service-Information">
+			<AVP name="Subscription-Id">
+				<AVP name="Subscription-Id-Type"/>
+				<AVP name="Subscription-Id-Data"/>
+			</AVP>
+			<AVP name="IMS-Information">
+				<AVP name="Event-Type">
+					<AVP name="SIP-Method"/>
+				</AVP>
+				<AVP name="Role-of-Node"/>
+				<AVP name="Node-Functionality"/>
+				<AVP name="User-Session-ID"/>
+				<AVP name="Calling-Party-Address" mapping="list" listSep="&#255;"/>
+				<AVP name="Called-Party-Address"/>
+				<AVP name="Time-Stamps">
+					<AVP name="SIP-Request-Timestamp"/>
+					<AVP name="SIP-Response-Timestamp"/>
+					<AVP name="SIP-Request-Timestamp-Fraction"/>
+					<AVP name="SIP-Response-Timestamp-Fraction"/>
+				</AVP>
+				<AVP name="IMS-Charging-Identifier"/>
+				<AVP name="SDP-Session-Description" mapping="list" listSep="&#255;"/>
+				<AVP name="SDP-Media-Component" mapping="list" listSep="&#255;">
+					<AVP name="SDP-Media-Name"/>
+					<AVP name="SDP-Media-Description" mapping="list" listSep="&#254;"/>
+					<AVP name="Media-Initiator-Flag"/>
+					<AVP name="SDP-Type"/>
+				</AVP>
+				<AVP name="Service-Specific-Info" mapping="list" listSep="&#255;">
+					<AVP name="Service-Specific-Data"/>
+					<AVP name="Service-Specific-Type"/>
+				</AVP>
+				<AVP name="Message-Body" mapping="list" listSep="&#255;">
+					<AVP name="Content-Type"/>
+					<AVP name="Content-Length"/>
+					<AVP name="Content-Disposition"/>
+					<AVP name="Originator"/>
+				</AVP>
+			</AVP>
+		</AVP>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="MMT-Information">
+				<AVP name="Calling-Party-Address-Presentation-Status"/>
+				<AVP name="Conference-Id"/>
+				<AVP name="MSISDN"/>
+				<AVP name="Related-ICID"/>
+				<AVP name="SCC-Service-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="SCC-TADS-Decision"/>
+				<AVP name="Service-Number-Type"/>
+				<AVP name="Supplementary-Service-Information" mapping="list" listSep="&#255;">
+					<AVP name="Supplementary-Service-Identity"/>
+					<AVP name="Supplementary-Service-Action"/>
+					<AVP name="CCMP-User-Info"/>
+				</AVP>
+				<AVP name="XCON-Id"/>
+				<AVP name="Party-To-Charge"/>
+			</AVP>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type"/>
+				<AVP name="Transaction-Data-Name"/>
+				<AVP name="Transaction-Data-Value"  listSep="&#254;"/>
+			</AVP>
+		</AVP>
+		<AVP name="ALU-Specific-Extension">
+			<AVP name="Supplementary-Service-Information_ALU" mapping="list" listSep="&#255;">
+				<AVP name="Service-Type"/>
+				<AVP name="Action"/>
+				<AVP name="Service-Mode"/>
+				<AVP name="Service-ID"/>
+				<AVP name="Associated-Number"/>
+			</AVP>
+			<AVP name="Call-Direction"/>
+			<AVP name="Call-Type"/>
+		</AVP>
+	</Request>
+	
+	<Request name="Stop">
+		<Condition key="Accounting-Record-Type" value="4"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Destination-Host"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Service-Context-Id"/>
+		<AVP name="Service-Information">
+			<AVP name="Subscription-Id">
+				<AVP name="Subscription-Id-Type"/>
+				<AVP name="Subscription-Id-Data"/>
+			</AVP>
+			<AVP name="IMS-Information">
+				<AVP name="Event-Type">
+					<AVP name="SIP-Method"/>
+				</AVP>
+				<AVP name="Role-of-Node"/>
+				<AVP name="Node-Functionality"/>
+				<AVP name="User-Session-ID"/>
+				<AVP name="Calling-Party-Address" mapping="list" listSep="&#255;"/>
+				<AVP name="Called-Party-Address"/>
+				<AVP name="Time-Stamps">
+					<AVP name="SIP-Request-Timestamp"/>
+					<AVP name="SIP-Request-Timestamp-Fraction"/>
+				</AVP>
+				<AVP name="IMS-Charging-Identifier"/>
+				<AVP name="Message-Body" mapping="list" listSep="&#255;">
+					<AVP name="Content-Type"/>
+					<AVP name="Content-Length"/>
+					<AVP name="Content-Disposition"/>
+					<AVP name="Originator"/>
+				</AVP>
+				<AVP name="Cause-Code"/>
+				<AVP name="Service-Specific-Info" mapping="list" listSep="&#255;">
+					<AVP name="Service-Specific-Data"/>
+					<AVP name="Service-Specific-Type"/>
+				</AVP>
+			</AVP>
+		</AVP>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="MMT-Information">
+				<AVP name="Calling-Party-Address-Presentation-Status"/>
+				<AVP name="Conference-Id"/>
+				<AVP name="MSISDN"/>
+				<AVP name="Related-ICID"/>
+				<AVP name="SCC-Service-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="SCC-TADS-Decision"/>
+				<AVP name="Service-Number-Type"/>
+				<AVP name="Supplementary-Service-Information" mapping="list" listSep="&#255;">
+					<AVP name="Supplementary-Service-Identity"/>
+					<AVP name="Supplementary-Service-Action"/>
+				</AVP>
+				<AVP name="XCON-Id"/>
+				<AVP name="Party-To-Charge"/>
+			</AVP>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type"/>
+				<AVP name="Transaction-Data-Name"/>
+				<AVP name="Transaction-Data-Value"  listSep="&#254;"/>
+			</AVP>
+		</AVP>
+		<AVP name="ALU-Specific-Extension">
+			<AVP name="Supplementary-Service-Information_ALU" mapping="list" listSep="&#255;">
+				<AVP name="Service-Type"/>
+				<AVP name="Action"/>
+				<AVP name="Service-Mode"/>
+				<AVP name="Service-ID"/>
+				<AVP name="Associated-Number"/>
+			</AVP>
+			<AVP name="Call-Direction"/>
+			<AVP name="Call-Type"/>
+		</AVP>
+	</Request>
+	
+	<Request name="Event">
+		<Condition key="Accounting-Record-Type" value="1"/>
+		<AVP name="Session-Id"/>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Destination-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Event-Timestamp"/>
+		<AVP name="Service-Context-Id"/>
+		<AVP name="Service-Information">
+			<AVP name="Subscription-Id">
+				<AVP name="Subscription-Id-Type"/>
+				<AVP name="Subscription-Id-Data"/>
+			</AVP>
+			<AVP name="IMS-Information">
+				<AVP name="Event-Type">
+					<AVP name="SIP-Method"/>
+				</AVP>
+				<AVP name="Role-of-Node"/>
+				<AVP name="Node-Functionality"/>
+				<AVP name="User-Session-ID"/>
+				<AVP name="Calling-Party-Address" mapping="list" listSep="&#255;"/>
+				<AVP name="Called-Party-Address"/>
+				<AVP name="Called-Asserted-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="Number-Portability-Routing-Information"/>
+				<AVP name="Requested-Party-Address"/>
+				<AVP name="Time-Stamps">
+					<AVP name="SIP-Request-Timestamp"/>
+					<AVP name="SIP-Response-Timestamp"/>
+					<AVP name="SIP-Request-Timestamp-Fraction"/>
+					<AVP name="SIP-Response-Timestamp-Fraction"/>
+				</AVP>
+				<AVP name="Inter-Operator-Identifier">
+					<AVP name="Originating-IOI"/>
+					<AVP name="Terminating-IOI"/>
+				</AVP>
+				<AVP name="IMS-Charging-Identifier"/>
+				<AVP name="Access-Network-Information"/>
+				<AVP name="Message-Body" mapping="list" listSep="&#255;">
+					<AVP name="Content-Type"/>
+					<AVP name="Content-Length"/>
+					<AVP name="Content-Disposition"/>
+					<AVP name="Originator"/>
+				</AVP>
+				<AVP name="Cause-Code"/>
+			</AVP>
+		</AVP>
+		<AVP name="Ericsson-Service-Information">
+			<AVP name="IMS-Service-Identification" mapping="list" listSep="&#255;"/>
+			<AVP name="MMT-Information">
+				<AVP name="Analyzed-Call-Type"/>
+				<AVP name="Called-Asserted-Identity-Presentation-Status"/>
+				<AVP name="Calling-Party-Address-Presentation-Status"/>
+				<AVP name="Carrier-Select-Routing-Information"/>
+				<AVP name="Conference-Id"/>
+				<AVP name="Dial-Around-Indicator"/>
+				<AVP name="From-Header"/>
+				<AVP name="From-Header-Presentation-Status"/>
+				<AVP name="MSISDN"/>
+				<AVP name="Related-ICID"/>
+				<AVP name="Served-User"/>
+				<AVP name="SCC-Service-Identity" mapping="list" listSep="&#255;"/>
+				<AVP name="SCC-TADS-Decision"/>
+				<AVP name="Service-Number-Type"/>
+				<AVP name="SIP-Ringing-Timestamp"/>
+				<AVP name="SIP-Ringing-Timestamp-Fraction"/>
+				<AVP name="Supplementary-Service-Information" mapping="list" listSep="&#255;">
+					<AVP name="Supplementary-Service-Identity"/>
+					<AVP name="Supplementary-Service-Action"/>
+					<AVP name="Redirecting-Party-Address"/>
+					<AVP name="Routing-Call-Type"/>
+					<AVP name="Common-Policy-Rule-Identity"/>
+					<AVP name="Service-Suppression-Info">
+						<AVP name="Matched-Regular-Expression"/>
+						<AVP name="Services-To-Suppress"/>
+					</AVP>
+				</AVP>
+				<AVP name="Tenant"/>
+				<AVP name="XCON-Id"/>
+			</AVP>
+			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
+				<AVP name="Transaction-Type"/>
+				<AVP name="Transaction-Data-Name"/>
+				<AVP name="Transaction-Data-Value"  listSep="&#254;"/>
+			</AVP>
+		</AVP>
+		<AVP name="ALU-Specific-Extension">
+			<AVP name="Supplementary-Service-Information_ALU" mapping="list" listSep="&#255;">
+				<AVP name="Service-Type"/>
+				<AVP name="Action"/>
+				<AVP name="Service-Mode"/>
+				<AVP name="Service-ID"/>
+				<AVP name="Associated-Number"/>
+			</AVP>
+			<AVP name="Call-Direction"/>
+			<AVP name="Call-Type"/>
+		</AVP>
+	</Request>
+	
+	<Response name="Answer">
+		<AVP name="Session-Id"/>
+		<AVP name="Result-Code"/>
+		<AVP name="Experimental-Result">
+			<AVP name="Vendor-Id"/>
+			<AVP name="Experimental-Result-Code"/>
+		</AVP>
+		<AVP name="Origin-Host"/>
+		<AVP name="Origin-Realm"/>
+		<AVP name="Accounting-Record-Type"/>
+		<AVP name="Accounting-Record-Number"/>
+		<AVP name="Acct-Application-Id"/>
+		<AVP name="Acct-Interim-Interval"/>
+		<AVP name="Event-Timestamp"/>
+	</Response>
+	
+</Protocol>
