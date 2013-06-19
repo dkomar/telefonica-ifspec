@@ -99,9 +99,6 @@ Usage:
           </interOperatorIdentifiers>
 
 
-          <iMS-Charging-Identifier></iMS-Charging-Identifier>
-
-
           <list-Of-SDP-Media-Components>
             <media-Components-List>
               <sIP-Request-Timestamp>031231235959+0000</sIP-Request-Timestamp>
@@ -231,6 +228,7 @@ Usage:
           <session-Id></session-Id>
           <causeForRecordClosing>0</causeForRecordClosing>
           <serviceContextID>11.32275@3gpp.org</serviceContextID>
+          <iMS-Charging-Identifier></iMS-Charging-Identifier>
           <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
           <transit-IOI-List></transit-IOI-List>
         </mMTelRecord>
