@@ -166,18 +166,71 @@ Usage:
       <mMTelServiceRecord>
         <mMTelRecord>
           <recordExtensions>
-            <bW-service-provider>est</bW-service-provider>
+            <bW-service-provider>test</bW-service-provider>
+
+            <!--
+            The E.164 number of the user generating (that is, accountable for) this CDR
+            -->
             <bW-user-Number>test</bW-user-Number>
+
+            <!--
+            Digits as dialed by the user, before pre-translations. As a result, this
+            field reports feature access codes (FAC) used for invoking features such
+            as Last Number Redial or Call Return. When a user must dial an outside
+            access code (for example, 9+) before dialing a number, this access code
+            is reported, as well as the digits dialed thereafter.
+            -->
             <bW-dialed-Digits>test</bW-dialed-Digits>
+
+            <!-- interlat, intralat, emergency: not used -->
+            <!-- private: ? -->
+            <!-- local: desination in own city -->
+            <!-- national: 0[1-9][0-9]* & not local -->
+            <!-- international: 00[1-9]* -->
             <bW-call-Category>test</bW-call-Category>
+
+            <!--
+            This field captures the result of the translations of the calledNumber
+            by the Network Server, as returned in the user part of the contact within
+            the 302 response.
+            -->
             <bW-network-Translated-Number>test</bW-network-Translated-Number>
             <bW-codec>test</bW-codec>
             <bW-access-Callid>test</bW-access-Callid>
+
+            <!--
+            The user's customer group ID.
+            -->
             <bW-group>test</bW-group>
-            <bW-original-Called-Number>est</bW-original-Called-Number>
+
+            <!--
+            When the call has been redirected one or more times, this field reports
+            the first redirecting number. The format follows the same rules as those
+            of the callingNumber (7).
+            -->
+            <bW-original-Called-Number>test</bW-original-Called-Number>
+
+            <!--
+            When the call has been redirected one or more times, this field reports
+            the last redirecting number.  This value is the same as userNumber in
+            an originating CDR generated for a BroadWorks user initiating a redirection
+            (Call Forwarding, Transfer, Simultaneous Ringing, and so on)10.  When
+            the call has been redirected only once, this field is equal to the originalCalledNumber. 
+            -->
             <bW-redirecting-Number>test</bW-redirecting-Number>
+
+            <!--
+            The login ID (including the domain) of the user generating (accountable
+            for) this CDR. The userId field identifies the same user as that reported
+            in the userNumber field.
+            -->
             <bW-userId>test</bW-userId>
+
+            <!--
+            Name of the called party for originating CDRs.
+            -->
             <bW-other-Party-Name>test</bW-other-Party-Name>
+
             <eMM-on-net-flag>test</eMM-on-net-flag>
             <eMM-on-platform-flag>test</eMM-on-platform-flag>
             <eMM-faxmail-flag>test</eMM-faxmail-flag>
