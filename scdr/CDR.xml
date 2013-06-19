@@ -15,8 +15,14 @@ Usage:
           <!-- failures: 83 -->
           <recordType>83</recordType>
 
-          <!-- TEL URI, SIP URI or both of the caller -->
-          <!-- multiple occurences of involvedParty is allowed -->
+          <!--
+          The address or addresses (Public User ID or Public Service ID) of the
+          party requesting a service or initiating a session. This field may hold
+          the SIP URI (according to RFC 3261 [401]), the TEL URI (according to RFC
+          3966 402]) or both the SIP URI and the TEL URI of the calling party. The
+          address is obtained from the P-Asserted-Identity header of a non-REGISTER
+          SIP Request, either initiating a dialog or a standalone transaction.
+          -->
           <list-Of-Calling-Party-Address>
             <involvedParty>
               <tel>tel:+4912312312341234</tel>
@@ -26,27 +32,65 @@ Usage:
             </involvedParty>
           </list-Of-Calling-Party-Address>
 
-          <!-- the called party address in international format of E.164 number in sip-URI or tel-URI -->
-          <!-- CHECK -->
+          <!--
+          In the context of an end-to-end SIP transaction (except for SIP REGISTER
+          and SIP SUBSCRIBE transactions) this field holds the address of the party
+          (Public User ID or Public Service ID) to whom the SIP transaction is posted.
+          The Called Party Address shall be populated with the SIP URI (according
+          to RFC3261 [401]) or TEL URI (according to RFC3966 [402]) contained in
+          the outgoing Request-URI of the request (e.g. after ENUM query or after
+          AS interaction). Called Party Address could also be populated with an
+          URN (according to RFC5031 [407]) for an emergency SIP session.
+          -->
           <called-Party-Address>
             <involvedParty>
               <tel>tel:+49123123123</tel>
             </involvedParty>
           </called-Party-Address>
 
-          <!-- time stamp which indicates the time at which the service was requested (Request-Timestamp from Start ACR) -->
+          <!--
+          This field contains the time stamp which indicates the time at which the
+          service was requested ("SIP request" message) and is present for session
+          related and session unrelated procedures. The content of this item is derived
+          from the SIP-Request-Timestamp AVP as defined in Table 5.8. If the SIP-Request-Timestamp
+          AVP is not supplied by the network entity this field is not present.
+          NOTE: Request-Timestamp from Start ACR
+          -->
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
           <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
 
-          <!-- time stamp which indicates the time at which the service was delivered (Response-Timestamp from start ACR) -->
+          <!--
+          This field holds the time stamp reflecting either:
+          - a successful session set-up: this field holds the start time of a service
+            delivery (session related service)
+          - a delivery of a session unrelated service: the service delivery time stamp
+          - an unsuccessful session set-up and an unsuccessful session unrelated
+            request: this field holds the time the network entity forwards the
+            unsuccessful indication (SIP "RESPONSE" with error codes 3xx, 4xx, 5xx)
+            towards the requesting User direction.
+          The content of this field corresponds to the SIP-Response-Timestamp AVP as defined in Table 5.8.
+          NOTE: Response-Timestamp from start ACR
+          -->
           <serviceDeliveryStartTimeStamp>031231235959+0000</serviceDeliveryStartTimeStamp>
           <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
 
-          <!-- time stamp which indicates the time at which the service delivery was ended ((Request-Timestamp from Stop ACR) -->
+          <!--
+          This field records the time at which the service delivery was terminated.
+          It is Present only in SIP session related case. The content of this field
+          corresponds to the SIP-Request-Timestamp AVP of a received ACR[Stop] message
+          indicating a session termination.
+          NOTE: Request-Timestamp from Stop ACR
+          -->
           <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
           <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
 
-          <!-- multiple occurences of value is allowed -->
+          <!--
+          This list holds the identification of the pair of originating network and
+          terminating network if exchanged via SIP signalling, as recorded in the
+          Inter Operator Identifier (IOI) AVP as described in TS 32.299 [50].  It
+          may occur several times in one CDR. For further information on the IOI
+          exchange via SIP signalling please refer to TS 24.229 [210].
+          -->
           <interOperatorIdentifiers>
             <value>
               <originatingIOI></originatingIOI>
@@ -80,9 +124,10 @@ Usage:
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
 
 
-          <!-- the served party -->
-          <!-- in case of originating leg: the calling party, -->
-          <!-- in case of terminating leg: called party -->
+          <!--
+          This field identifies the charged party. The contents are coded in a similar
+          fashion as for the Subscription-Id AVP in TS 32.299 [50].
+          -->
           <list-of-subscription-ID>
             <subscriptionID>
               <subscriptionIDType>0</subscriptionIDType>
@@ -96,6 +141,18 @@ Usage:
 
           <numberPortabilityRouting></numberPortabilityRouting>
 
+          <!--
+          This field holds the address or addresses (SIP URI and/or TEL URI according
+          to RFC 3261 [401] and RFC 3966 [402] respectively) of the party (Public
+          User ID or Public Service ID) of the finally asserted called party.
+          These address/addresses are obtained from the P-Asserted-Identity SIP header
+          field of the 2xx responses corresponding to a SIP request either initiating
+          a dialog or a standalone transaction.
+          This field shall be present when the P-Asserted-Identity SIP header field
+          is available in the SIP 2xx response. In case no P-Asserted-Identity is
+          known, this list shall include one item (of type SIP URI) with the value
+          “unknown”.
+          -->
           <list-Of-Called-Asserted-Identity>
             <involvedParty>
               <sip>sip:unknown@unknown</sip>
