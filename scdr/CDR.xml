@@ -108,7 +108,9 @@ Usage:
               <sDP-Media-Components>
                 <sDP-Media-Component>
                   <sDP-Media-Name></sDP-Media-Name>
-                  <sDP-Media-Description></sDP-Media-Description>
+                  <sDP-Media-Description>
+                    <value></value>
+                  </sDP-Media-Description>
                 </sDP-Media-Component>
               </sDP-Media-Components>
               <sDP-Session-Description>

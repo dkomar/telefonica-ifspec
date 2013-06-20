@@ -276,8 +276,14 @@
       <xs:element name="sDP-Media-Component">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
-            <xs:element name="sDP-Media-Name" type="xs:string"/>
-            <xs:element name="sDP-Media-Description" type="xs:string"/>
+            <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Name" type="xs:string"/>
+            <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Description">
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                  <xs:element name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
