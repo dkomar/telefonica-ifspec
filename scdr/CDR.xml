@@ -265,8 +265,10 @@ Usage:
 
           <mMTelInformation>
             <listOfSupplServices>
-              <serviceType>0</serviceType>
-              <serviceMode>0</serviceMode>
+              <SupplService>
+                  <serviceType>0</serviceType>
+                  <serviceMode>0</serviceMode>
+              </SupplService>
             </listOfSupplServices>
           </mMTelInformation>
         </mMTelRecord>
