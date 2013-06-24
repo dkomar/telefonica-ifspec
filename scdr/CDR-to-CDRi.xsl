@@ -78,7 +78,7 @@
 
 <xsl:template match="//mMTelRecord/list-Of-Calling-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty/*">
+	<xsl:for-each select="involvedParty">
 		<xsl:element name="tag">
 			<xsl:attribute name="class">context</xsl:attribute>
 			<xsl:attribute name="tag">6</xsl:attribute>
@@ -89,7 +89,7 @@
 
 <xsl:template match="//mMTelRecord/called-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty/*">
+	<xsl:for-each select="involvedParty">
 		<xsl:element name="tag">
 			<xsl:attribute name="class">context</xsl:attribute>
 			<xsl:attribute name="tag">7</xsl:attribute>
@@ -347,7 +347,7 @@
 
 <xsl:template match="//mMTelRecord/list-Of-Called-Asserted-Identity">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty/*">
+	<xsl:for-each select="involvedParty">
 		<xsl:element name="tag">
 			<xsl:attribute name="class">context</xsl:attribute>
 			<xsl:attribute name="tag">102</xsl:attribute>
@@ -397,7 +397,7 @@
 
 <xsl:template match="//mMTelRecord/requested-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty/*">
+	<xsl:for-each select="involvedParty">
 		<xsl:element name="tag">
 			<xsl:attribute name="class">context</xsl:attribute>
 			<xsl:attribute name="tag">101</xsl:attribute>
@@ -630,6 +630,24 @@
 	<xsl:element name="tag">
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">328</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//involvedParty/sip">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">0</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//involvedParty/tel">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">1</xsl:attribute>
 		<xsl:call-template name="declarations"/>
 	</xsl:element>
 </xsl:template>
