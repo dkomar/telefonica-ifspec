@@ -25,7 +25,7 @@
     </xs:sequence>
     <xs:attribute name="from" use="required">
       <xs:simpleType>
-        <xs:restriction base="xs:string">
+        <xs:restriction base="NonEmptyString-Type">
           <xs:enumeration value="MTAS"/>
           <xs:enumeration value="BWAS"/>
           <xs:enumeration value="S-CSCF"/>
@@ -63,7 +63,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="session-Id" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="session-Id" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="list-Of-Calling-Party-Address">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -90,8 +90,8 @@
             <xs:element name="value">
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                  <xs:element name="originatingIOI" type="xs:string"/>
-                  <xs:element name="terminatingIOI" type="xs:string"/>
+                  <xs:element name="originatingIOI" type="NonEmptyString-Type"/>
+                  <xs:element name="terminatingIOI" type="NonEmptyString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -138,11 +138,11 @@
         </xs:simpleType>
       </xs:element>
 -->
-      <xs:element minOccurs="0" maxOccurs="1" name="iMS-Charging-Identifier" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="iMS-Charging-Identifier" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceReasonReturnCode" type="xs:integer"/>
       <xs:element minOccurs="0" maxOccurs="1" name="recordExtensions" type="recordExtensions-Type"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="Access-Network-Information" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Access-Network-Information" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceContextID">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -157,9 +157,9 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="iMSCommunicationServiceIdentifier" type="xs:string"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="numberPortabilityRouting" type="xs:string"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="transit-IOI-List" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="iMSCommunicationServiceIdentifier" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="numberPortabilityRouting" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="transit-IOI-List" type="NonEmptyString-Type"/>
       <!--
       <xs:element name="userLocationInformation">
         <xs:complexType>
@@ -185,7 +185,7 @@
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="1">
                   <xs:element name="serviceSpecificType" type="xs:integer"/>
-                  <xs:element name="serviceSpecificData" type="xs:string"/>
+                  <xs:element name="serviceSpecificData" type="NonEmptyString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -248,7 +248,7 @@
       <xs:element minOccurs="0" maxOccurs="1" name="sDP-Session-Description">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
-            <xs:element name="value" type="xs:string"/>
+            <xs:element name="value" type="NonEmptyString-Type"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -276,11 +276,11 @@
       <xs:element name="sDP-Media-Component">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
-            <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Name" type="xs:string"/>
-            <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Description">
+            <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Name" type="NonEmptyString-Type"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Description">
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                  <xs:element name="value" type="xs:string"/>
+                  <xs:element name="value" type="NonEmptyString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -292,22 +292,22 @@
 
   <xs:complexType name="recordExtensions-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element name="bW-service-provider" type="xs:string"/>
-      <xs:element name="bW-user-Number" type="xs:string"/>
-      <xs:element name="bW-dialed-Digits" type="xs:string"/>
-      <xs:element name="bW-call-Category" type="xs:string"/>
-      <xs:element name="bW-network-Translated-Number" type="xs:string"/>
-      <xs:element name="bW-codec" type="xs:string"/>
-      <xs:element name="bW-access-Callid" type="xs:string"/>
-      <xs:element name="bW-group" type="xs:string"/>
-      <xs:element name="bW-original-Called-Number" type="xs:string"/>
-      <xs:element name="bW-redirecting-Number" type="xs:string"/>
-      <xs:element name="bW-userId" type="xs:string"/>
-      <xs:element name="bW-other-Party-Name" type="xs:string"/>
-      <xs:element name="eMM-on-net-flag" type="xs:string"/>
-      <xs:element name="eMM-on-platform-flag" type="xs:string"/>
-      <xs:element name="eMM-faxmail-flag" type="xs:string"/>
-      <xs:element name="eMM-voicemail-flag" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-service-provider" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-user-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-dialed-Digits" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-call-Category" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-network-Translated-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-codec" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-access-Callid" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-group" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-original-Called-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-redirecting-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-userId" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bW-other-Party-Name" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="eMM-on-net-flag" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="eMM-on-platform-flag" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="eMM-faxmail-flag" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="eMM-voicemail-flag" type="NonEmptyString-Type"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="mMTelInformation-Type">
@@ -631,7 +631,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="subscriptionIDData" type="xs:string"/>
+      <xs:element name="subscriptionIDData" type="NonEmptyString-Type"/>
     </xs:sequence>
   </xs:complexType>
 
