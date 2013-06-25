@@ -79,24 +79,20 @@
 
 <xsl:template match="//mMTelRecord/list-Of-Calling-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">6</xsl:attribute>
-			<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">6</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="//mMTelRecord/called-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">7</xsl:attribute>
-			<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">7</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="//mMTelRecord/serviceRequestTimeStamp">
@@ -131,13 +127,11 @@
 
 <xsl:template match="//mMTelRecord/interOperatorIdentifiers">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="value">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">14</xsl:attribute>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">14</xsl:attribute>
 		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="//mMTelRecord/causeForRecordClosing">
@@ -209,141 +203,19 @@
 
 <xsl:template match="//mMTelRecord/list-Of-SDP-Media-Components">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="media-Components-List">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">21</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/sIP-Request-Timestamp">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
-		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">0</xsl:attribute>
+		<xsl:attribute name="tag">21</xsl:attribute>
 		<xsl:call-template name="declarations"/>
 	</xsl:element>
 </xsl:template>
 
-<xsl:template match="//media-Components-List/sIP-Response-Timestamp">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="conv">timestamp</xsl:attribute>
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">1</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/sDP-Media-Components">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="sDP-Media-Component">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">2</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
-</xsl:template>
-
-<xsl:template match="//sDP-Media-Component/sDP-Media-Name">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">0</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-<xsl:template match="//sDP-Media-Component/sDP-Media-Description">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="value">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">1</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/sDP-Session-Description">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="value">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">4</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/mediaInitiatorParty">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">5</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/sIP-Request-Timestamp-Fraction">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="conv">integer</xsl:attribute>
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">6</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-
-<xsl:template match="//media-Components-List/sIP-Response-Timestamp-Fraction">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="conv">integer</xsl:attribute>
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">7</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-<xsl:template match="//media-Components-List/sDP-Type">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">5</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
 
 <xsl:template match="//mMTelRecord/list-of-subscription-ID">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="subscriptionID">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">31</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
-</xsl:template>
-
-<xsl:template match="//subscriptionID/subscriptionIDType">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
 		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">0</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-	</xsl:element>
-</xsl:template>
-
-<xsl:template match="//subscriptionID/subscriptionIDData">
-	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:element name="tag">
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">1</xsl:attribute>
+		<xsl:attribute name="tag">31</xsl:attribute>
 		<xsl:call-template name="declarations"/>
 	</xsl:element>
 </xsl:template>
@@ -359,13 +231,11 @@
 
 <xsl:template match="//mMTelRecord/list-Of-Called-Asserted-Identity">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">102</xsl:attribute>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">102</xsl:attribute>
 		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="//mMTelRecord/serviceReasonReturnCode">
@@ -397,25 +267,20 @@
 
 <xsl:template match="//mMTelRecord/serviceSpecificInfo">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="value">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">100</xsl:attribute>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">100</xsl:attribute>
 		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	</xsl:element>
 </xsl:template>
-
 
 <xsl:template match="//mMTelRecord/requested-Party-Address">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="involvedParty">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">101</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">101</xsl:attribute>
+	<xsl:call-template name="declarations"/>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="//mMTelRecord/mMTelInformation">
@@ -430,16 +295,24 @@
 <!-- mMTelInformation -->
 <xsl:template match="//mMTelInformation/listOfSupplServices">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
-	<xsl:for-each select="SupplService">
-		<xsl:element name="tag">
-			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">0</xsl:attribute>
-		<xsl:call-template name="declarations"/>
-		</xsl:element>
-	</xsl:for-each>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">0</xsl:attribute>
+	<xsl:call-template name="declarations"/>
+	</xsl:element>
 </xsl:template>
 
 <!-- listOfSupplServices/* -->
+
+<xsl:template match="//listOfSupplServices/SupplService">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">17</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
 <xsl:template match="//listOfSupplServices/SupplService/serviceType">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
@@ -458,7 +331,16 @@
 	</xsl:element>
 </xsl:template>
 
-<!-- interOperatorIdentifiers -->
+<!-- InterOperatorIdentifiers -->
+
+<xsl:template match="//interOperatorIdentifiers/value">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">16</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
 
 <xsl:template match="//interOperatorIdentifiers/value/originatingIOI">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
@@ -480,6 +362,15 @@
 
 
 <!-- serviceSpecificInfo/* -->
+
+<xsl:template match="//serviceSpecificInfo/value">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">16</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
 
 <xsl:template match="//serviceSpecificInfo/value/serviceSpecificData">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
@@ -646,6 +537,12 @@
 	</xsl:element>
 </xsl:template>
 
+<!-- InvolvedParty ::= CHOICE -->
+<xsl:template match="//involvedParty">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:apply-templates/>
+</xsl:template>
+
 <xsl:template match="//involvedParty/sip">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
@@ -656,6 +553,171 @@
 </xsl:template>
 
 <xsl:template match="//involvedParty/tel">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">1</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<!-- media-Components-List -->
+
+<xsl:template match="//list-Of-SDP-Media-Components/media-Components-List">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">16</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sIP-Request-Timestamp">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">0</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sIP-Response-Timestamp">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">1</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sDP-Media-Components">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">2</xsl:attribute>
+	<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sDP-Session-Description">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">4</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//sDP-Session-Description/value">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">25</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/mediaInitiatorParty">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">5</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sIP-Request-Timestamp-Fraction">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">6</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sIP-Response-Timestamp-Fraction">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">7</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//media-Components-List/sDP-Type">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">5</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<!-- sDP-Media-Components -->
+
+<xsl:template match="//sDP-Media-Components/sDP-Media-Component">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">16</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//sDP-Media-Component/sDP-Media-Name">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">0</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//sDP-Media-Component/sDP-Media-Description">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">1</xsl:attribute>
+	<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//sDP-Media-Description/value">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">25</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+
+<!-- subscriptionID -->
+
+<xsl:template match="//subscriptionID">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">17</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+
+<xsl:template match="//subscriptionID/subscriptionIDType">
+	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
+	<xsl:element name="tag">
+		<xsl:attribute name="class">context</xsl:attribute>
+		<xsl:attribute name="tag">0</xsl:attribute>
+		<xsl:call-template name="declarations"/>
+	</xsl:element>
+</xsl:template>
+
+<xsl:template match="//subscriptionID/subscriptionIDData">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
 		<xsl:attribute name="class">context</xsl:attribute>
@@ -685,7 +747,7 @@
 
 <xsl:template match="node()">
 	<xsl:comment>
-		<xsl:text>WARNING: untreated element</xsl:text>
+		<xsl:text>WARNING: untreated element </xsl:text>
 		<xsl:value-of select="name()"/>
 	</xsl:comment>
 </xsl:template>
