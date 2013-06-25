@@ -284,8 +284,8 @@ Usage:
           <!-- If empty, content populated by MM with random string -->
           <session-Id></session-Id>
           <causeForRecordClosing>0</causeForRecordClosing>
-          <serviceContextID>11.32275@3gpp.org</serviceContextID>
           <iMS-Charging-Identifier></iMS-Charging-Identifier>
+          <serviceContextID>11.32275@3gpp.org</serviceContextID>
           <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
           <transit-IOI-List></transit-IOI-List>
         </mMTelRecord>

@@ -45,7 +45,7 @@
   </xs:complexType>
 
   <xs:complexType name="MMTelRecord">
-    <xs:all>
+    <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="recordType" type="recordType-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="role-of-Node">
         <xs:simpleType>
@@ -207,7 +207,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="mMTelInformation" type="mMTelInformation-Type"/>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
 
 
@@ -219,7 +219,7 @@
   </xs:complexType>
 
   <xs:complexType name="media-Components-List-Type">
-    <xs:all minOccurs="1" maxOccurs="1">
+    <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element minOccurs="1" maxOccurs="1" name="sIP-Request-Timestamp" type="TimeStamp"/>
       <xs:element minOccurs="0" maxOccurs="1" name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element minOccurs="1" maxOccurs="1" name="sIP-Response-Timestamp" type="TimeStamp"/>
@@ -268,7 +268,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="SDP-Media-Components-Type">
