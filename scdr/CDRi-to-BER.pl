@@ -24,7 +24,7 @@ sub recursive_find () {
         if ($element->hasAttribute("conv"))
         {
             my $func = $element->getAttribute("conv");
-            $value = &{"conv_to_".$func}($element->textContent);
+            $value = &{"encode_value_".$func}($element->textContent);
         }
         else
         {
@@ -40,11 +40,6 @@ sub recursive_find () {
     return $value;
 }
 
-sub conv_to_integer()
-{
-    $_ = shift;
-    return pack "N", $_;
-}
 
 my $result = &recursive_find(($doc->findnodes("/tag"))[0]);
 

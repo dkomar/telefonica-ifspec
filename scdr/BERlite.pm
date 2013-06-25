@@ -32,5 +32,22 @@ sub encode_length {
 	return pack('CN', 0x84, $len) if $len < 1<<32;
 	die "encode_length is not prepared for such a length";
 }
+sub encode_value_integer {
+	my $val = shift;
+
+	return pack('C', $val) if $val < 1<<8;
+	return pack('n', $val) if $val < 1<<12;
+	return pack('Cn',($val>>16), ($val&0xFFFF)) if $val < 1<<24;
+	return pack('N', $val) if $val < 1<<32;
+	die "encode_value_integer is not prepared for such a length";
+}
+
+sub encode_value_timestamp {
+	my $val = shift;
+
+	$val =~ /^([0-9]{12})([+-])([0-9]{4})$/;
+
+	return pack 'H12AH4', $1, $2, $3;
+}
 
 return 1;

@@ -60,6 +60,7 @@
 <xsl:template match="//mMTelRecord/role-of-Node">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">3</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -101,6 +102,7 @@
 <xsl:template match="//mMTelRecord/serviceRequestTimeStamp">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">9</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -110,6 +112,7 @@
 <xsl:template match="//mMTelRecord/serviceDeliveryStartTimeStamp">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">10</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -119,6 +122,7 @@
 <xsl:template match="//mMTelRecord/serviceDeliveryEndTimeStamp">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">11</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -139,6 +143,7 @@
 <xsl:template match="//mMTelRecord/causeForRecordClosing">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">17</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -175,6 +180,7 @@
 <xsl:template match="//mMTelRecord/serviceRequestTimeStampFraction">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">37</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -184,6 +190,7 @@
 <xsl:template match="//mMTelRecord/serviceDeliveryStartTimeStampFraction">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">38</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -193,6 +200,7 @@
 <xsl:template match="//mMTelRecord/serviceDeliveryEndTimeStampFraction">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">39</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -213,6 +221,7 @@
 <xsl:template match="//media-Components-List/sIP-Request-Timestamp">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">0</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -222,6 +231,7 @@
 <xsl:template match="//media-Components-List/sIP-Response-Timestamp">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">timestamp</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">1</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -282,6 +292,7 @@
 <xsl:template match="//media-Components-List/sIP-Request-Timestamp-Fraction">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">6</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -292,6 +303,7 @@
 <xsl:template match="//media-Components-List/sIP-Response-Timestamp-Fraction">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">7</xsl:attribute>
 		<xsl:call-template name="declarations"/>
