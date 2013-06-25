@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Usage:
 - indentation required! 2 spaces, no tab characters!
@@ -50,10 +50,10 @@ Usage:
 
           <!--
           This field contains the time stamp which indicates the time at which the
-          service was requested ("SIP request" message) and is present for session
+          service was requested ("SIPrequest"message) and is present for session
           related and session unrelated procedures. The content of this item is derived
           from the SIP-Request-Timestamp AVP as defined in Table 5.8. If the SIP-Request-Timestamp
-          AVP is not supplied by the network entity this field is not present.
+          AVP is not supplied by the networkentity this field is not present.
           NOTE: Request-Timestamp from Start ACR
           -->
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
@@ -87,9 +87,9 @@ Usage:
           <!--
           This list holds the identification of the pair of originating network and
           terminating network if exchanged via SIP signalling, as recorded in the
-          Inter Operator Identifier (IOI) AVP as described in TS 32.299 [50].  It
+          Inter Operator Identifier (IOI) AVP as described in TS 32.299[50].  It
           may occur several times in one CDR. For further information on the IOI
-          exchange via SIP signalling please refer to TS 24.229 [210].
+          exchange via SIP signalling please refer to TS 24.229[210].
           -->
           <interOperatorIdentifiers>
             <value>
@@ -125,7 +125,7 @@ Usage:
 
           <!--
           This field identifies the charged party. The contents are coded in a similar
-          fashion as for the Subscription-Id AVP in TS 32.299 [50].
+          fashion as for the Subscription-Id AVP in TS32.299 [50].
           -->
           <list-of-subscription-ID>
             <subscriptionID>
@@ -150,7 +150,7 @@ Usage:
           This field shall be present when the P-Asserted-Identity SIP header field
           is available in the SIP 2xx response. In case no P-Asserted-Identity is
           known, this list shall include one item (of type SIP URI) with the value
-          “unknown”.
+          unknown.
           -->
           <list-Of-Called-Asserted-Identity>
             <involvedParty>
