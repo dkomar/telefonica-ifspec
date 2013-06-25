@@ -433,7 +433,7 @@
 	<xsl:for-each select="SupplService">
 		<xsl:element name="tag">
 			<xsl:attribute name="class">context</xsl:attribute>
-			<xsl:attribute name="tag">110</xsl:attribute>
+			<xsl:attribute name="tag">0</xsl:attribute>
 		<xsl:call-template name="declarations"/>
 		</xsl:element>
 	</xsl:for-each>
