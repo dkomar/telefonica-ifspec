@@ -277,7 +277,7 @@
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
             <xs:element minOccurs="1" maxOccurs="1" name="sDP-Media-Name" type="NonEmptyString-Type"/>
-            <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Description">
+            <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Descriptions">
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="unbounded">
                   <xs:element name="value" type="NonEmptyString-Type"/>
