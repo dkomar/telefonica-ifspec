@@ -79,11 +79,8 @@
         </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceRequestTimeStamp" type="TimeStamp"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="serviceRequestTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryStartTimeStamp" type="TimeStamp"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryStartTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryEndTimeStamp" type="TimeStamp"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryEndTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="interOperatorIdentifiers">
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -159,6 +156,9 @@
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="iMSCommunicationServiceIdentifier" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="numberPortabilityRouting" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="serviceRequestTimeStampFraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryStartTimeStampFraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="serviceDeliveryEndTimeStampFraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="transit-IOI-List" type="NonEmptyString-Type"/>
       <!--
       <xs:element name="userLocationInformation">
