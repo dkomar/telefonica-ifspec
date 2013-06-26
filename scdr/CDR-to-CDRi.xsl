@@ -241,6 +241,7 @@
 <xsl:template match="//mMTelRecord/serviceReasonReturnCode">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">23</xsl:attribute>
 		<xsl:call-template name="declarations"/>
