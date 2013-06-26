@@ -652,7 +652,7 @@
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
 		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">5</xsl:attribute>
+		<xsl:attribute name="tag">8</xsl:attribute>
 		<xsl:call-template name="declarations"/>
 	</xsl:element>
 </xsl:template>
