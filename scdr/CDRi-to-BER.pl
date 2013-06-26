@@ -3,7 +3,7 @@ require "BERlite.pm";
 use Data::Dumper;
 
 # load
-open my $fh, '<', 'tmp.xml';
+open my $fh, '<', $ARGV[0];
 binmode $fh; # drop all PerlIO layers possibly created by a use open pragma
 $doc = XML::LibXML->load_xml(IO => $fh);
 close $fh;

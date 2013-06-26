@@ -25,7 +25,7 @@ sub encode_ident {
 sub encode_length {
 	my $len = shift;
 
-	return pack('C', $len)        if $len < (1<<7 - 1);
+	return pack('C', $len)        if $len < 1<<7;
 	return pack('CC', 0x81, $len) if $len < 1<<8;
 	return pack('Cn', 0x82, $len) if $len < 1<<16;
 	return pack('CCn',0x83, ($len>>16), ($len&0xFFFF)) if $len < 1<<24;
