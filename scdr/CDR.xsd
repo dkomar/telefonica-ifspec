@@ -298,7 +298,7 @@
       <xs:element minOccurs="1" maxOccurs="1" name="bW-call-Category" type="NonEmptyString-Type"/>
       <xs:element minOccurs="1" maxOccurs="1" name="bW-network-Translated-Number" type="NonEmptyString-Type"/>
       <xs:element minOccurs="1" maxOccurs="1" name="bW-codec" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-access-Callid" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-access-Callid" type="NonEmptyString-Type"/>
       <xs:element minOccurs="1" maxOccurs="1" name="bW-group" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="bW-original-Called-Number" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="bW-redirecting-Number" type="NonEmptyString-Type"/>
