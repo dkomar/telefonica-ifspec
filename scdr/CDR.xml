@@ -6,7 +6,7 @@ Usage:
 <callcase name="whatever" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CDR.xsd">
   <CDR callpartid="1">
     <!-- the responsible node for this CDR, values: MTAS, BWAS, S-CSCF, E-CSCF, ngIN-AS -->
-    <layer from="common">
+    <layer>
       <mMTelServiceRecord>
         <mMTelRecord>
 

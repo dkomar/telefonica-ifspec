@@ -14,7 +14,7 @@
   <!-- the <CDR> element -->
   <xs:complexType name="XMLCDRType">
     <xs:sequence>
-      <xs:element name="layer" type="XMLLayerType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="layer" type="XMLLayerType" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
     <xs:attribute name="callpartid" type="NonEmptyString-Type" use="required"/>
   </xs:complexType>
@@ -23,19 +23,6 @@
     <xs:sequence>
       <xs:element name="mMTelServiceRecord" type="MMTelServiceRecord" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="from" use="required">
-      <xs:simpleType>
-        <xs:restriction base="NonEmptyString-Type">
-          <xs:enumeration value="MTAS"/>
-          <xs:enumeration value="BWAS"/>
-          <xs:enumeration value="S-CSCF"/>
-          <xs:enumeration value="E-CSCF"/>
-          <xs:enumeration value="ngIN"/>
-          <xs:enumeration value="common"/>
-          <xs:enumeration value="fixed"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="MMTelServiceRecord">
