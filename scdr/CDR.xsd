@@ -86,9 +86,9 @@
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
             <xs:element name="value">
               <xs:complexType>
-                <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                  <xs:element name="originatingIOI" type="NonEmptyString-Type"/>
-                  <xs:element name="terminatingIOI" type="NonEmptyString-Type"/>
+                <xs:sequence minOccurs="1" maxOccurs="1">
+                  <xs:element minOccurs="0" maxOccurs="1" name="originatingIOI" type="NonEmptyString-Type"/>
+                  <xs:element minOccurs="0" maxOccurs="1" name="terminatingIOI" type="NonEmptyString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
