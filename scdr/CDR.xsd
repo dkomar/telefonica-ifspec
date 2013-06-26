@@ -221,9 +221,7 @@
   <xs:complexType name="media-Components-List-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element minOccurs="1" maxOccurs="1" name="sIP-Request-Timestamp" type="TimeStamp"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element minOccurs="1" maxOccurs="1" name="sIP-Response-Timestamp" type="TimeStamp"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element minOccurs="0" maxOccurs="1" name="sDP-Media-Components" type="SDP-Media-Components-Type"/>
 <!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="mediaInitiatorFlag">
@@ -252,6 +250,8 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Request-Timestamp-Fraction" type="MilliSecondsType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="sIP-Response-Timestamp-Fraction" type="MilliSecondsType"/>
       <xs:element name="sDP-Type">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
