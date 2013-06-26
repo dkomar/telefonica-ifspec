@@ -15,6 +15,11 @@ Usage:
           <!-- failures: 83 -->
           <recordType>83</recordType>
 
+          <!-- 0 for originating, 1 for terminating -->
+          <role-of-Node>0</role-of-Node>
+          <!-- If empty, content populated by MM with random string -->
+          <session-Id>do not fill</session-Id>
+
           <!--
           The address or addresses (Public User ID or Public Service ID) of the
           party requesting a service or initiating a session. This field may hold
@@ -57,7 +62,6 @@ Usage:
           NOTE: Request-Timestamp from Start ACR
           -->
           <serviceRequestTimeStamp>031231235959+0000</serviceRequestTimeStamp>
-          <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
 
           <!--
           This field holds the time stamp reflecting either:
@@ -72,7 +76,6 @@ Usage:
           NOTE: Response-Timestamp from start ACR
           -->
           <serviceDeliveryStartTimeStamp>031231235959+0000</serviceDeliveryStartTimeStamp>
-          <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
 
           <!--
           This field records the time at which the service delivery was terminated.
@@ -82,7 +85,6 @@ Usage:
           NOTE: Request-Timestamp from Stop ACR
           -->
           <serviceDeliveryEndTimeStamp>031231235959+0000</serviceDeliveryEndTimeStamp>
-          <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
 
           <!--
           This list holds the identification of the pair of originating network and
@@ -93,80 +95,38 @@ Usage:
           -->
           <interOperatorIdentifiers>
             <value>
-              <originatingIOI></originatingIOI>
-              <terminatingIOI></terminatingIOI>
+              <originatingIOI>fill</originatingIOI>
+              <terminatingIOI>fill</terminatingIOI>
             </value>
           </interOperatorIdentifiers>
 
+          <causeForRecordClosing>0</causeForRecordClosing>
+
+          <iMS-Charging-Identifier>do not fill</iMS-Charging-Identifier>
 
           <list-Of-SDP-Media-Components>
             <media-Components-List>
               <sIP-Request-Timestamp>031231235959+0000</sIP-Request-Timestamp>
-              <sIP-Request-Timestamp-Fraction>234</sIP-Request-Timestamp-Fraction>
               <sIP-Response-Timestamp>031231235959+0000</sIP-Response-Timestamp>
-              <sIP-Response-Timestamp-Fraction>575</sIP-Response-Timestamp-Fraction>
               <sDP-Media-Components>
                 <sDP-Media-Component>
-                  <sDP-Media-Name></sDP-Media-Name>
+                  <sDP-Media-Name>fill</sDP-Media-Name>
                   <sDP-Media-Descriptions>
-                    <value></value>
+                    <value>fill</value>
                   </sDP-Media-Descriptions>
                 </sDP-Media-Component>
               </sDP-Media-Components>
               <sDP-Session-Description>
-                <value></value>
+                <value>fill</value>
               </sDP-Session-Description>
+              <sIP-Request-Timestamp-Fraction>234</sIP-Request-Timestamp-Fraction>
+              <sIP-Response-Timestamp-Fraction>575</sIP-Response-Timestamp-Fraction>
               <sDP-Type>0</sDP-Type>
             </media-Components-List>
           </list-Of-SDP-Media-Components>
 
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
 
-
-          <!--
-          This field identifies the charged party. The contents are coded in a similar
-          fashion as for the Subscription-Id AVP in TS32.299 [50].
-          -->
-          <list-of-subscription-ID>
-            <subscriptionID>
-              <subscriptionIDType>0</subscriptionIDType>
-              <subscriptionIDData><!-- MSISDN (not tel: uri!)--></subscriptionIDData>
-            </subscriptionID>
-            <subscriptionID>
-              <subscriptionIDType>2</subscriptionIDType>
-              <subscriptionIDData><!-- SIP URI (sip:.*) --></subscriptionIDData>
-            </subscriptionID>
-          </list-of-subscription-ID>
-
-          <numberPortabilityRouting></numberPortabilityRouting>
-
-          <!--
-          This field holds the address or addresses (SIP URI and/or TEL URI according
-          to RFC 3261 [401] and RFC 3966 [402] respectively) of the party (Public
-          User ID or Public Service ID) of the finally asserted called party.
-          These address/addresses are obtained from the P-Asserted-Identity SIP header
-          field of the 2xx responses corresponding to a SIP request either initiating
-          a dialog or a standalone transaction.
-          This field shall be present when the P-Asserted-Identity SIP header field
-          is available in the SIP 2xx response. In case no P-Asserted-Identity is
-          known, this list shall include one item (of type SIP URI) with the value
-          unknown.
-          -->
-          <list-Of-Called-Asserted-Identity>
-            <involvedParty>
-              <sip>sip:unknown@unknown</sip>
-            </involvedParty>
-          </list-Of-Called-Asserted-Identity>
-
-        </mMTelRecord>
-      </mMTelServiceRecord>
-    </layer>
-
-
-
-    <layer from="BWAS">
-      <mMTelServiceRecord>
-        <mMTelRecord>
           <recordExtensions>
             <bW-service-provider>test</bW-service-provider>
 
@@ -240,16 +200,60 @@ Usage:
           </recordExtensions>
 
 
-          <Access-Network-Information></Access-Network-Information>
+          <Access-Network-Information>fill</Access-Network-Information>
 
-        </mMTelRecord>
-      </mMTelServiceRecord>
-    </layer>
+          <serviceContextID>11.32275@3gpp.org</serviceContextID>
 
-    <layer from="MTAS">
-      <mMTelServiceRecord>
-        <mMTelRecord>
-          <Access-Network-Information></Access-Network-Information>
+          <!--
+          This field identifies the charged party. The contents are coded in a similar
+          fashion as for the Subscription-Id AVP in TS32.299 [50].
+          -->
+          <list-of-subscription-ID>
+            <subscriptionID>
+              <subscriptionIDType>0</subscriptionIDType>
+              <subscriptionIDData>fill</subscriptionIDData>
+            </subscriptionID>
+            <subscriptionID>
+              <subscriptionIDType>2</subscriptionIDType>
+              <subscriptionIDData>fill</subscriptionIDData>
+            </subscriptionID>
+          </list-of-subscription-ID>
+
+          <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
+
+          <numberPortabilityRouting>fill</numberPortabilityRouting>
+
+          <serviceRequestTimeStampFraction>239</serviceRequestTimeStampFraction>
+          <serviceDeliveryStartTimeStampFraction>923</serviceDeliveryStartTimeStampFraction>
+          <serviceDeliveryEndTimeStampFraction>129</serviceDeliveryEndTimeStampFraction>
+
+          <transit-IOI-List>fill</transit-IOI-List>
+
+          <!-- multiple occurences of value is allowed -->
+          <!-- Presence: Populated only for mVoLTE call cases, during Fixed calls, entire structure is absent -->
+          <serviceSpecificInfo>
+            <value>
+              <serviceSpecificType>160</serviceSpecificType>
+              <serviceSpecificData>fill</serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>192</serviceSpecificType>
+              <serviceSpecificData>fill</serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>193</serviceSpecificType>
+              <serviceSpecificData>fill</serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>194</serviceSpecificType>
+              <serviceSpecificData>fill</serviceSpecificData>
+            </value>
+            <value>
+              <serviceSpecificType>195</serviceSpecificType>
+              <serviceSpecificData>fill</serviceSpecificData>
+            </value>
+          </serviceSpecificInfo>
+
           <!--
           This field holds the address of the party (Public User ID or Public Service ID) to whom the SIP
           transaction was originally posted. The Requested Party Address shall be populated with the SIP URI
@@ -263,6 +267,25 @@ Usage:
             </involvedParty>
           </requested-Party-Address>
 
+          <!--
+          This field holds the address or addresses (SIP URI and/or TEL URI according
+          to RFC 3261 [401] and RFC 3966 [402] respectively) of the party (Public
+          User ID or Public Service ID) of the finally asserted called party.
+          These address/addresses are obtained from the P-Asserted-Identity SIP header
+          field of the 2xx responses corresponding to a SIP request either initiating
+          a dialog or a standalone transaction.
+          This field shall be present when the P-Asserted-Identity SIP header field
+          is available in the SIP 2xx response. In case no P-Asserted-Identity is
+          known, this list shall include one item (of type SIP URI) with the value
+          unknown.
+          -->
+          <list-Of-Called-Asserted-Identity>
+            <involvedParty>
+              <sip>sip:unknown@unknown</sip>
+            </involvedParty>
+          </list-Of-Called-Asserted-Identity>
+
+
           <mMTelInformation>
             <listOfSupplServices>
               <SupplService>
@@ -271,56 +294,10 @@ Usage:
               </SupplService>
             </listOfSupplServices>
           </mMTelInformation>
-        </mMTelRecord>
-      </mMTelServiceRecord>
-    </layer>
 
-    <!-- NO CHANGE -->
-    <layer from="fixed">
-      <mMTelServiceRecord>
-        <mMTelRecord>
-          <!-- 0 for originating, 1 for terminating -->
-          <role-of-Node>0</role-of-Node>
-          <!-- If empty, content populated by MM with random string -->
-          <session-Id></session-Id>
-          <causeForRecordClosing>0</causeForRecordClosing>
-          <iMS-Charging-Identifier></iMS-Charging-Identifier>
-          <serviceContextID>11.32275@3gpp.org</serviceContextID>
-          <iMSCommunicationServiceIdentifier>urn-7:3gpp-service.ims.icsi.mmtel</iMSCommunicationServiceIdentifier>
-          <transit-IOI-List></transit-IOI-List>
-        </mMTelRecord>
-      </mMTelServiceRecord>
-    </layer>
-
-    <layer from="ngIN">
-      <mMTelServiceRecord>
-        <mMTelRecord>
-          <!-- multiple occurences of value is allowed -->
-          <!-- Presence: Populated only for mVoLTE call cases, during Fixed calls, entire structure is absent -->
-          <serviceSpecificInfo>
-            <value>
-              <serviceSpecificType>160</serviceSpecificType>
-              <serviceSpecificData><!-- Zoning MOC Result Code--></serviceSpecificData>
-            </value>
-            <value>
-              <serviceSpecificType>192</serviceSpecificType>
-              <serviceSpecificData><!-- VPN MOC Result Code --></serviceSpecificData>
-            </value>
-            <value>
-              <serviceSpecificType>193</serviceSpecificType>
-              <serviceSpecificData><!-- VPN MFC Result Code --></serviceSpecificData>
-            </value>
-            <value>
-              <serviceSpecificType>194</serviceSpecificType>
-              <serviceSpecificData><!-- PBXLink OC Result Code --></serviceSpecificData>
-            </value>
-            <value>
-              <serviceSpecificType>195</serviceSpecificType>
-              <serviceSpecificData><!-- PBXLink FC Result Code --></serviceSpecificData>
-            </value>
-          </serviceSpecificInfo>
         </mMTelRecord>
       </mMTelServiceRecord>
     </layer>
   </CDR>
 </callcase>
+
