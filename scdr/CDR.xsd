@@ -414,11 +414,6 @@
                 <xs:documentation>Advice of Charge (AoC)</xs:documentation>
               </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="26221">
-              <xs:annotation>
-                <xs:documentation>Communication Diversion Fixed To Mobile</xs:documentation>
-              </xs:annotation>
-            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -498,6 +493,11 @@
             <xs:enumeration value="14">
               <xs:annotation>
                 <xs:documentation>Advice of Charge -E (AoC-E)</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="26221">
+              <xs:annotation>
+                <xs:documentation>Communication Diversion Fixed To Mobile</xs:documentation>
               </xs:annotation>
             </xs:enumeration>
           </xs:restriction>
