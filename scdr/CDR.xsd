@@ -552,6 +552,7 @@
   <xs:simpleType name="recordType-Type">
     <xs:restriction base="xs:integer">
       <xs:enumeration value="83"/>
+      <xs:enumeration value="70"/>
     </xs:restriction>
   </xs:simpleType>
 
