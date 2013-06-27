@@ -121,7 +121,7 @@ Usage:
               </sDP-Session-Description>
               <sIP-Request-Timestamp-Fraction>234</sIP-Request-Timestamp-Fraction>
               <sIP-Response-Timestamp-Fraction>575</sIP-Response-Timestamp-Fraction>
-              <sDP-Type>0</sDP-Type>
+              <sDP-Type>1</sDP-Type>
             </media-Components-List>
           </list-Of-SDP-Media-Components>
 
