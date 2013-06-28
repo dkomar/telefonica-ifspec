@@ -11,8 +11,7 @@ Usage:
         <mMTelRecord>
 
           <!-- success cases: 83 -->
-          <!-- emergency: 83 -->
-          <!-- failures: 83 -->
+          <!-- emergency: 70 -->
           <recordType>83</recordType>
 
           <!-- 0 for originating, 1 for terminating -->

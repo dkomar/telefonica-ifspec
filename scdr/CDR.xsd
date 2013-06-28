@@ -279,18 +279,18 @@
 
   <xs:complexType name="recordExtensions-Type">
     <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-service-provider" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-user-Number" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-dialed-Digits" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-call-Category" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-network-Translated-Number" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-codec" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-service-provider" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-user-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-dialed-Digits" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-call-Category" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-network-Translated-Number" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-codec" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="bW-access-Callid" type="ToBeFilledString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-group" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-group" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="bW-original-Called-Number" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="bW-redirecting-Number" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-userId" type="NonEmptyString-Type"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="bW-other-Party-Name" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-userId" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="bW-other-Party-Name" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="eMM-on-net-flag" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="eMM-on-platform-flag" type="NonEmptyString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="eMM-faxmail-flag" type="NonEmptyString-Type"/>
