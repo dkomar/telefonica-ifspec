@@ -17,8 +17,9 @@ Usage:
 
           <!-- 0 for originating, 1 for terminating -->
           <role-of-Node>0</role-of-Node>
-          <!-- If empty, content populated by MM with random string -->
-          <session-Id>do not fill</session-Id>
+
+          <!-- If "to-be-filled", content populated by MM with random string -->
+          <session-Id>to-be-filled</session-Id>
 
           <!--
           The address or addresses (Public User ID or Public Service ID) of the
@@ -102,7 +103,8 @@ Usage:
 
           <causeForRecordClosing>0</causeForRecordClosing>
 
-          <iMS-Charging-Identifier>do not fill</iMS-Charging-Identifier>
+          <!-- If "to-be-filled", content populated by MM with random string -->
+          <iMS-Charging-Identifier>to-be-filled</iMS-Charging-Identifier>
 
           <list-Of-SDP-Media-Components>
             <media-Components-List>
@@ -158,7 +160,9 @@ Usage:
             -->
             <bW-network-Translated-Number>test</bW-network-Translated-Number>
             <bW-codec>test</bW-codec>
-            <bW-access-Callid>test</bW-access-Callid>
+
+            <!-- If "to-be-filled", content populated by MM with random string -->
+            <bW-access-Callid>to-be-filled</bW-access-Callid>
 
             <!--
             The user's customer group ID.
