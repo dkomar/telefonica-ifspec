@@ -260,6 +260,7 @@
 <xsl:template match="//mMTelRecord/Access-Network-Information">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">hexstring</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">29</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -376,6 +377,7 @@
 <xsl:template match="//serviceSpecificInfo/value/serviceSpecificData">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">hexstring</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">0</xsl:attribute>
 		<xsl:call-template name="declarations"/>

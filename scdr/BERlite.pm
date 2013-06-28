@@ -50,4 +50,12 @@ sub encode_value_timestamp {
 	return pack 'H12AH4', $1, $2, $3;
 }
 
+sub encode_value_hexstring {
+	my $val = shift;
+
+	$val =~ /^0x([0-9A-F]*)$/;
+
+	return pack 'H', $1;
+}
+
 return 1;
