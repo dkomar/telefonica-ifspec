@@ -126,7 +126,7 @@
       <xs:element minOccurs="0" maxOccurs="1" name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceReasonReturnCode" type="xs:integer"/>
       <xs:element minOccurs="0" maxOccurs="1" name="recordExtensions" type="recordExtensions-Type"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="Access-Network-Information" type="NonEmptyString-Type"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Access-Network-Information" type="HexString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceContextID">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -639,6 +639,12 @@
   <xs:simpleType name="NonEmptyString-Type">
     <xs:restriction base="xs:string">
       <xs:pattern value="..*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexString-Type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0x[0-9A-F]*"/>
     </xs:restriction>
   </xs:simpleType>
 

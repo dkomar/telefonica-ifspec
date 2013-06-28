@@ -204,7 +204,8 @@ Usage:
           </recordExtensions>
 
 
-          <Access-Network-Information>fill</Access-Network-Information>
+          <!-- to be filled -->
+          <Access-Network-Information>0x0102030405060708090A0B0C0D0E0F</Access-Network-Information>
 
           <serviceContextID>11.32275@3gpp.org</serviceContextID>
 
