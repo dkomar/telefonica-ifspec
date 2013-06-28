@@ -50,7 +50,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="session-Id" type="ToBeFilledString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="session-Id" type="ToBeFilledString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="list-Of-Calling-Party-Address">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -122,7 +122,7 @@
         </xs:simpleType>
       </xs:element>
 -->
-      <xs:element minOccurs="0" maxOccurs="1" name="iMS-Charging-Identifier" type="ToBeFilledString-Type"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="iMS-Charging-Identifier" type="ToBeFilledString-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="list-Of-SDP-Media-Components" type="list-Of-SDP-Media-Components-Type"/>
       <xs:element minOccurs="0" maxOccurs="1" name="serviceReasonReturnCode" type="xs:integer"/>
       <xs:element minOccurs="0" maxOccurs="1" name="recordExtensions" type="recordExtensions-Type"/>
