@@ -239,23 +239,23 @@ Usage:
           <serviceSpecificInfo>
             <value>
               <serviceSpecificType>160</serviceSpecificType>
-              <serviceSpecificData>fill</serviceSpecificData>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
               <serviceSpecificType>192</serviceSpecificType>
-              <serviceSpecificData>fill</serviceSpecificData>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
               <serviceSpecificType>193</serviceSpecificType>
-              <serviceSpecificData>fill</serviceSpecificData>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
               <serviceSpecificType>194</serviceSpecificType>
-              <serviceSpecificData>fill</serviceSpecificData>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
               <serviceSpecificType>195</serviceSpecificType>
-              <serviceSpecificData>fill</serviceSpecificData>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
           </serviceSpecificInfo>
 

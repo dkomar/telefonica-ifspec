@@ -172,7 +172,7 @@
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="1">
                   <xs:element name="serviceSpecificType" type="xs:integer"/>
-                  <xs:element name="serviceSpecificData" type="NonEmptyString-Type"/>
+                  <xs:element name="serviceSpecificData" type="HexString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
