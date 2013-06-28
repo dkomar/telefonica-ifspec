@@ -36,7 +36,7 @@ sub encode_value_integer {
 	my $val = shift;
 
 	return pack('C', $val) if $val < 1<<8;
-	return pack('n', $val) if $val < 1<<12;
+	return pack('n', $val) if $val < 1<<16;
 	return pack('Cn',($val>>16), ($val&0xFFFF)) if $val < 1<<24;
 	return pack('N', $val) if $val < 1<<32;
 	die "encode_value_integer is not prepared for such a length";
