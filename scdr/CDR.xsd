@@ -171,8 +171,8 @@
             <xs:element name="value" minOccurs="1" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence minOccurs="1" maxOccurs="1">
-                  <xs:element name="serviceSpecificType" type="xs:integer"/>
-                  <xs:element name="serviceSpecificData" type="HexString-Type"/>
+                  <xs:element minOccurs="1" maxOccurs="1" name="serviceSpecificType" type="xs:integer"/>
+                  <xs:element minOccurs="1" maxOccurs="1" name="serviceSpecificData" type="HexString-Type"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
