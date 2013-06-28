@@ -34,12 +34,20 @@ sub encode_length {
 }
 sub encode_value_integer {
 	my $val = shift;
+	my @octets = ();
+	die "no negative integer support yet" if $val < 0;
 
-	return pack('C', $val) if $val < 1<<8;
-	return pack('n', $val) if $val < 1<<16;
-	return pack('Cn',($val>>16), ($val&0xFFFF)) if $val < 1<<24;
-	return pack('N', $val) if $val < 1<<32;
-	die "encode_value_integer is not prepared for such a length";
+	return pack('C', 0) if $val == 0;
+
+	while ($val > 0) {
+		my $remainder = $val % 256;
+		$val = ($val >> 8);
+		unshift(@octets,$remainder);
+	}
+
+	unshift(@octets, 0) if ($octets[0] & 0x80);
+	return pack('C*', @octets);
+
 }
 
 sub encode_value_timestamp {
