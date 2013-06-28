@@ -654,6 +654,7 @@
 <xsl:template match="//media-Components-List/sDP-Type">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">8</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -714,6 +715,7 @@
 <xsl:template match="//subscriptionID/subscriptionIDType">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">0</xsl:attribute>
 		<xsl:call-template name="declarations"/>
