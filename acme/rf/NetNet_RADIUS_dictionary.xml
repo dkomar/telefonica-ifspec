@@ -159,7 +159,37 @@
 	<VSA type="169" datatype="ipv6addr" name="Acme-Flow-Out-Src-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
 	<VSA type="170" datatype="ipv6addr" name="Acme-Flow-Out-Dst-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
 	<VSA type="171" datatype="string" name="Acme-Session-Forked-Call-Id" mandatory="no" vendorId="9148"/>
-	<!-- DOC: Attributes 200-230 for Custom VSA's -->
+	<VSA type="200" datatype="string" name="Acme-Custom-VSA-200" mandatory="no" vendorId="9148"/>
+	<VSA type="201" datatype="string" name="Acme-Custom-VSA-201" mandatory="no" vendorId="9148"/>
+	<VSA type="202" datatype="string" name="Acme-Custom-VSA-202" mandatory="no" vendorId="9148"/>
+	<VSA type="203" datatype="string" name="Acme-Custom-VSA-203" mandatory="no" vendorId="9148"/>
+	<VSA type="204" datatype="string" name="Acme-Custom-VSA-204" mandatory="no" vendorId="9148"/>
+	<VSA type="205" datatype="string" name="Acme-Custom-VSA-205" mandatory="no" vendorId="9148"/>
+	<VSA type="206" datatype="string" name="Acme-Custom-VSA-206" mandatory="no" vendorId="9148"/>
+	<VSA type="207" datatype="string" name="Acme-Custom-VSA-207" mandatory="no" vendorId="9148"/>
+	<VSA type="208" datatype="string" name="Acme-Custom-VSA-208" mandatory="no" vendorId="9148"/>
+	<VSA type="209" datatype="string" name="Acme-Custom-VSA-209" mandatory="no" vendorId="9148"/>
+	<VSA type="210" datatype="string" name="Acme-Custom-VSA-210" mandatory="no" vendorId="9148"/>
+	<VSA type="211" datatype="string" name="Acme-Custom-VSA-211" mandatory="no" vendorId="9148"/>
+	<VSA type="212" datatype="string" name="Acme-Custom-VSA-212" mandatory="no" vendorId="9148"/>
+	<VSA type="213" datatype="string" name="Acme-Custom-VSA-213" mandatory="no" vendorId="9148"/>
+	<VSA type="214" datatype="string" name="Acme-Custom-VSA-214" mandatory="no" vendorId="9148"/>
+	<VSA type="215" datatype="string" name="Acme-Custom-VSA-215" mandatory="no" vendorId="9148"/>
+	<VSA type="216" datatype="string" name="Acme-Custom-VSA-216" mandatory="no" vendorId="9148"/>
+	<VSA type="217" datatype="string" name="Acme-Custom-VSA-217" mandatory="no" vendorId="9148"/>
+	<VSA type="218" datatype="string" name="Acme-Custom-VSA-218" mandatory="no" vendorId="9148"/>
+	<VSA type="219" datatype="string" name="Acme-Custom-VSA-219" mandatory="no" vendorId="9148"/>
+	<VSA type="220" datatype="string" name="Acme-Custom-VSA-220" mandatory="no" vendorId="9148"/>
+	<VSA type="221" datatype="string" name="Acme-Custom-VSA-221" mandatory="no" vendorId="9148"/>
+	<VSA type="222" datatype="string" name="Acme-Custom-VSA-222" mandatory="no" vendorId="9148"/>
+	<VSA type="223" datatype="string" name="Acme-Custom-VSA-223" mandatory="no" vendorId="9148"/>
+	<VSA type="224" datatype="string" name="Acme-Custom-VSA-224" mandatory="no" vendorId="9148"/>
+	<VSA type="225" datatype="string" name="Acme-Custom-VSA-225" mandatory="no" vendorId="9148"/>
+	<VSA type="226" datatype="string" name="Acme-Custom-VSA-226" mandatory="no" vendorId="9148"/>
+	<VSA type="227" datatype="string" name="Acme-Custom-VSA-227" mandatory="no" vendorId="9148"/>
+	<VSA type="228" datatype="string" name="Acme-Custom-VSA-228" mandatory="no" vendorId="9148"/>
+	<VSA type="229" datatype="string" name="Acme-Custom-VSA-229" mandatory="no" vendorId="9148"/>
+	<VSA type="230" datatype="string" name="Acme-Custom-VSA-230" mandatory="no" vendorId="9148"/>
 	<!-- DOC: VSA 201 - VSA 253 are undocumented -->
 	<VSA type="254" datatype="string" name="Acme-User-Class" mandatory="no" vendorId="9148"/>
 </Protocol>
