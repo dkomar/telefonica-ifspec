@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- based on: Net-Net 4000 Accounting Guide Release Version S-CX6.4.0, Document Number: 400-0015-64 Rev. 1.00 -->
+
 <!-- The IPMM protocol support.-->
 <Protocol name="IPMM" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$CLASSES/cmg/stdapp/radius/validation/RADIUS_addon_schema.xsd">
 	<!-- Standard Radius AVPs 1-100 fields does not have to be specified. -->
