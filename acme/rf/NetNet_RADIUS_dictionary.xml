@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The IPMM protocol support.-->
+<Protocol name="IPMM" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$CLASSES/cmg/stdapp/radius/validation/RADIUS_addon_schema.xsd">
+	<!-- Standard Radius AVPs 1-100 fields does not have to be specified. -->
+
+	<!-- CISCO Vendor (ID=9) specific fields. -->
+	<VSA type="25" datatype="string" name="setupTime" mandatory="no" vendorId="9"/>
+	<VSA type="28" datatype="string" name="connectTime" mandatory="no" vendorId="9"/>
+	<VSA type="29" datatype="string" name="disconnectTime" mandatory="no" vendorId="9"/>
+	<VSA type="30" datatype="string" name="disconnectCause" mandatory="no" vendorId="9"/>
+
+	<!-- ACME Vendor (ID-9148) specific fields. -->
+	<VSA type="1" datatype="string" name="Acme-FlowID_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="2" datatype="string" name="Acme-FlowType_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="3" datatype="string" name="Acme-Session-Ingress-CallId" mandatory="no" vendorId="9148"/>
+	<VSA type="4" datatype="string" name="Acme-Session-Egress-CallID" mandatory="no" vendorId="9148"/>
+	<!-- DOC: VSA 5 - VSA 9 are undocumented -->
+	<VSA type="10" datatype="string" name="Acme-Flow-In-Realm_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="11" datatype="address32" name="Acme-Flow-In-Src-Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="12" datatype="int" name="Acme-Flow-In-Src-Port_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="13" datatype="address32" name="Acme-Flow-In-Dst-Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="14" datatype="int" name="Acme-Flow-In-Dst-Port_FS1_F" mandatory="no" vendorId="9148"/>
+	<!-- DOC: VSA 15 - VSA 19 are undocumented -->
+	<VSA type="20" datatype="string" name="Acme-Flow-Out-Realm_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="21" datatype="address32" name="Acme-Flow-Out-Src-Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="22" datatype="int" name="Acme-Flow-Out-Src-Port_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="23" datatype="address32" name="Acme-Flow-Out-Dst-Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="24" datatype="int" name="Acme-Flow-Out-Dst-Port_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="28" datatype="int" name="Acme-Calling-Octets_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="29" datatype="int" name="Acme-Calling-Packets_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="32" datatype="int" name="Acme-Calling-RTCP-Packets-lost_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="33" datatype="int" name="Acme-Calling-RTCP-Avg-Jitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="34" datatype="int" name="Acme-Calling-RTCP-Avg-Latency_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="35" datatype="int" name="Acme-Calling-RTCP-MaxJitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="36" datatype="int" name="Acme-Calling-RTCP-MaxLatency_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="37" datatype="int" name="Acme-Calling-RTP-Packets-Lost_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="38" datatype="int" name="Acme-Calling-RTP-Avg-Jitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="39" datatype="int" name="Acme-Calling-RTP-MaxJitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="40" datatype="string" name="Acme-Session-Generic-Id" mandatory="no" vendorId="9148"/>
+	<VSA type="41" datatype="string" name="Acme-Session-Ingress-Realm" mandatory="no" vendorId="9148"/>
+	<VSA type="42" datatype="string" name="Acme-Session-Egress-Realm" mandatory="no" vendorId="9148"/>
+	<VSA type="43" datatype="string" name="Acme-Session-Protocol-Type" mandatory="no" vendorId="9148"/>
+	<VSA type="44" datatype="int" name="Acme-Called-Octets_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="45" datatype="int" name="Acme-Called-Packets_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="46" datatype="int" name="Acme-Called-RTCP-Packets-Lost_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="47" datatype="int" name="Acme-Called-RTCP-Avg-Jitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="48" datatype="int" name="Acme-Called-RTCP-Avg-Latency_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="49" datatype="int" name="Acme-Called-RTCP-MaxJitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="50" datatype="int" name="Acme-Called-RTP-MaxLatency_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="51" datatype="int" name="Acme-Called-RTP-Packets-Lost_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="52" datatype="int" name="Acme-Called-RTP-Avg-Jitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="53" datatype="int" name="Acme-Called-RTP-MaxJitter_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="54" datatype="string" name="Acme-Session-Charging-Vector" mandatory="no" vendorId="9148"/>
+	<VSA type="55" datatype="string" name="Acme-Session-Charging-Function-Address" mandatory="no" vendorId="9148"/>
+	<VSA type="56" datatype="string" name="Acme-Firmware-Version" mandatory="no" vendorId="9148"/>
+	<VSA type="57" datatype="string" name="Acme-Local-Time-Zone" mandatory="no" vendorId="9148"/>
+	<VSA type="58" datatype="int" name="Acme-Post-Dial-Delay" mandatory="no" vendorId="9148"/>
+	<VSA type="59" datatype="int" name="Acme-CDR-Sequence-Number" mandatory="no" vendorId="9148"/>
+	<VSA type="60" datatype="int" name="Acme-Session-Disposition" mandatory="no" vendorId="9148"/>
+	<VSA type="61" datatype="int" name="Acme-Disconnect-Initiator" mandatory="no" vendorId="9148"/>
+	<VSA type="62" datatype="int" name="Acme-Disconnect-Cause" mandatory="no" vendorId="9148"/>
+	<VSA type="63" datatype="string" name="Acme-Intermediate_Time" mandatory="no" vendorId="9148"/>
+	<VSA type="64" datatype="string" name="Acme-Primary-Routing-Number" mandatory="no" vendorId="9148"/>
+	<VSA type="65" datatype="string" name="Acme-Originating-Trunk-Group" mandatory="no" vendorId="9148"/>
+	<VSA type="66" datatype="string" name="Acme-Terminating-Trunk-Group" mandatory="no" vendorId="9148"/>
+	<VSA type="67" datatype="string" name="Acme-Originating-Trunk-Context" mandatory="no" vendorId="9148"/>
+	<VSA type="68" datatype="string" name="Acme-Terminating-Trunk-Context" mandatory="no" vendorId="9148"/>
+	<VSA type="69" datatype="string" name="Acme-P-Asserted-ID" mandatory="no" vendorId="9148"/>
+	<VSA type="70" datatype="string" name="Acme-SIP-Diversion" mandatory="no" vendorId="9148"/>
+	<VSA type="71" datatype="int" name="Acme-SIP-Status" mandatory="no" vendorId="9148"/>
+	<!-- DOC: VSA 72 and 73 are marked as unused -->
+	<VSA type="74" datatype="string" name="Acme-Ingress-Local-Addr" mandatory="no" vendorId="9148"/>
+	<VSA type="75" datatype="string" name="Acme-Ingress-Remote-Addr" mandatory="no" vendorId="9148"/>
+	<VSA type="76" datatype="string" name="Acme-Egress-Local-Addr" mandatory="no" vendorId="9148"/>
+	<VSA type="77" datatype="string" name="Acme-Egress-Remote-Addr" mandatory="no" vendorId="9148"/>
+	<VSA type="78" datatype="string" name="Acme-FlowID_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="79" datatype="string" name="Acme-FlowType_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="80" datatype="string" name="Acme-Flow-In-Realm_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="81" datatype="address32" name="Acme-Flow-In-Src-Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="82" datatype="int" name="Acme-Flow-In-Src-Port_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="83" datatype="address32" name="Acme-Flow-In-Dst-Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="84" datatype="int" name="Acme-Flow-In-Dst-Port_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="85" datatype="string" name="Acme-Flow-Out-Realm_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="86" datatype="address32" name="Acme-Flow-Out-Src-Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="87" datatype="int" name="Acme-Flow-Out-Src-Port_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="88" datatype="address32" name="Acme-Flow-Out-Dst-Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="89" datatype="int" name="Acme-Flow-Out-Dst-Port_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="90" datatype="string" name="Acme-FlowID_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="91" datatype="string" name="Acme-FlowType_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="92" datatype="string" name="Acme-Flow-In-Realm_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="93" datatype="address32" name="Acme-Flow-In-Src-Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="94" datatype="int" name="Acme-Flow-In-Src-Port_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="95" datatype="address32" name="Acme-Flow-In-Dst-Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="96" datatype="int" name="Acme-Flow-In-Dst-Port_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="97" datatype="string" name="Acme-Flow-Out-Realm_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="98" datatype="address32" name="Acme-Flow-Out-Src-Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="99" datatype="int" name="Acme-Flow-Out-Src-Port_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="100" datatype="address32" name="Acme-Flow-Out-Dst-Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="101" datatype="int" name="Acme-Flow-Out-Dst-Port_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="102" datatype="int" name="Acme-Calling-Octets_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="103" datatype="int" name="Acme-Calling-Packets_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="104" datatype="int" name="Acme-Calling-RTCP-Packets-Lost_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="105" datatype="int" name="Acme-Calling-RTCP-Avg-Jitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="106" datatype="int" name="Acme-Calling-RTCP-Avg-Latency_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="107" datatype="int" name="Acme-Calling-RTCP-MaxJitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="108" datatype="int" name="Acme-Calling-RTCP-MaxLatency_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="109" datatype="int" name="Acme-Calling-RTP-Packets-Lost_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="110" datatype="int" name="Acme-Calling-RTP-Avg-Jitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="111" datatype="int" name="Acme-Calling-RTP-Avg-MaxJitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="112" datatype="string" name="Acme-FlowID_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="113" datatype="string" name="Acme-FlowType_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="114" datatype="string" name="Acme-Flow-In-Realm_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="115" datatype="address32" name="Acme-Flow-In-Src-Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="116" datatype="int" name="Acme-Flow-In-Src-Port_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="117" datatype="address32" name="Acme-Flow-In-Dst-Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="118" datatype="int" name="Acme-Flow-In-Dst-Port_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="119" datatype="string" name="Acme-Flow-Out-Realm_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="120" datatype="address32" name="Acme-Flow-Out-Src-Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="121" datatype="int" name="Acme-Flow-Out-Src-Port_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="122" datatype="address32" name="Acme-Flow-Out-Dst-Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="123" datatype="int" name="Acme-Flow-Out-Dst-Port_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="124" datatype="int" name="Acme-Called-Octets_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="125" datatype="int" name="Acme-Called-Packets_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="126" datatype="int" name="Acme-Called-RTCP-Packets-Lost_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="127" datatype="int" name="Acme-Called-RTCP-Avg-Jitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="128" datatype="int" name="Acme-Called-RTCP-Avg-Latency_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="129" datatype="int" name="Acme-Called-RTCP-MaxJitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="130" datatype="int" name="Acme-Called-RTCP-MaxLatency_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="131" datatype="int" name="Acme-Called-RTP-Packets-Lost_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="132" datatype="int" name="Acme-Called-RTP-Avg-Jitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="133" datatype="int" name="Acme-Called-RTP-MaxJitter_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="134" datatype="string" name="Acme-Egress-Final-Routing-Number" mandatory="no" vendorId="9148"/>
+	<VSA type="135" datatype="string" name="Acme-Session-Ingress-RPH" mandatory="no" vendorId="9148"/>
+	<VSA type="136" datatype="string" name="Acme-Session-Egress-RPH" mandatory="no" vendorId="9148"/>
+	<VSA type="137" datatype="string" name="Acme-Ingress-Network-Interface-Id" mandatory="no" vendorId="9148"/>
+	<VSA type="138" datatype="int" name="Acme-Ingress-Vlan-Tag-Value" mandatory="no" vendorId="9148"/>
+	<VSA type="139" datatype="string" name="Acme-Egress-Network-Interface-Id" mandatory="no" vendorId="9148"/>
+	<VSA type="140" datatype="int" name="Acme-Egress-Vlan-Tag-Value" mandatory="no" vendorId="9148"/>
+	<VSA type="141" datatype="string" name="Acme-Refer-Call-Transfer-Id" mandatory="no" vendorId="9148"/>
+	<!-- DOC: Attributes 142-150 are reserved for future use. -->
+	<VSA type="151" datatype="int" name="Acme-Calling-R-Factor" mandatory="no" vendorId="9148"/>
+	<VSA type="152" datatype="int" name="Acme-Calling-MOS" mandatory="no" vendorId="9148"/>
+	<VSA type="153" datatype="int" name="Acme-Called-R-Factor" mandatory="no" vendorId="9148"/>
+	<VSA type="154" datatype="int" name="Acme-Called-MOS" mandatory="no" vendorId="9148"/>
+	<!-- DOC: Attributes 155-171 for IPV6 are reserved for future use. -->
+	<!-- DOC: Attributes 200-230 for Custom VSA's -->
+	<!-- DOC: VSA 201 - VSA 253 are undocumented -->
+	<VSA type="254" datatype="string" name="Acme-User-Class" mandatory="no" vendorId="9148"/>
+</Protocol>
