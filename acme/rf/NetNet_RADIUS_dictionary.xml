@@ -190,6 +190,9 @@
 	<VSA type="228" datatype="string" name="Acme-Custom-VSA-228" mandatory="no" vendorId="9148"/>
 	<VSA type="229" datatype="string" name="Acme-Custom-VSA-229" mandatory="no" vendorId="9148"/>
 	<VSA type="230" datatype="string" name="Acme-Custom-VSA-230" mandatory="no" vendorId="9148"/>
-	<!-- DOC: VSA 201 - VSA 253 are undocumented -->
+	<VSA type="231" datatype="string" name="Acme-Flow-Calling-Media-Stop-Time_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="232" datatype="string" name="Acme-Flow-Called-Media-Stop-Time_FS1" mandatory="no" vendorId="9148"/>
+	<VSA type="233" datatype="string" name="Acme-Flow-Calling-Media-Stop-Time_FS2" mandatory="no" vendorId="9148"/>
+	<VSA type="234" datatype="string" name="Acme-Flow-Called-Media-Stop-Time_FS2" mandatory="no" vendorId="9148"/>
 	<VSA type="254" datatype="string" name="Acme-User-Class" mandatory="no" vendorId="9148"/>
 </Protocol>
