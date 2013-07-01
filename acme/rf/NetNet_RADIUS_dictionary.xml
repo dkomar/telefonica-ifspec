@@ -142,7 +142,23 @@
 	<VSA type="152" datatype="int" name="Acme-Calling-MOS" mandatory="no" vendorId="9148"/>
 	<VSA type="153" datatype="int" name="Acme-Called-R-Factor" mandatory="no" vendorId="9148"/>
 	<VSA type="154" datatype="int" name="Acme-Called-MOS" mandatory="no" vendorId="9148"/>
-	<!-- DOC: Attributes 155-171 for IPV6 are reserved for future use. -->
+	<VSA type="155" datatype="ipv6addr" name="Acme-Flow-In-Src-IPv6_Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="156" datatype="ipv6addr" name="Acme-Flow-In-Dst-IPv6_Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="157" datatype="ipv6addr" name="Acme-Flow-Out-Src-IPv6_Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="158" datatype="ipv6addr" name="Acme-Flow-Out-Dst-IPv6_Addr_FS1_F" mandatory="no" vendorId="9148"/>
+	<VSA type="159" datatype="ipv6addr" name="Acme-Flow-In-Src-IPv6_Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="160" datatype="ipv6addr" name="Acme-Flow-In-Dst-IPv6_Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="161" datatype="ipv6addr" name="Acme-Flow-Out-Src-IPv6_Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="162" datatype="ipv6addr" name="Acme-Flow-Out-Dst-IPv6_Addr_FS1_R" mandatory="no" vendorId="9148"/>
+	<VSA type="163" datatype="ipv6addr" name="Acme-Flow-In-Src-IPv6_Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="164" datatype="ipv6addr" name="Acme-Flow-In-Dst-IPv6_Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="165" datatype="ipv6addr" name="Acme-Flow-Out-Src-IPv6_Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="166" datatype="ipv6addr" name="Acme-Flow-Out-Dst-IPv6_Addr_FS2_F" mandatory="no" vendorId="9148"/>
+	<VSA type="167" datatype="ipv6addr" name="Acme-Flow-In-Src-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="168" datatype="ipv6addr" name="Acme-Flow-In-Dst-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="169" datatype="ipv6addr" name="Acme-Flow-Out-Src-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="170" datatype="ipv6addr" name="Acme-Flow-Out-Dst-IPv6_Addr_FS2_R" mandatory="no" vendorId="9148"/>
+	<VSA type="171" datatype="string" name="Acme-Session-Forked-Call-Id" mandatory="no" vendorId="9148"/>
 	<!-- DOC: Attributes 200-230 for Custom VSA's -->
 	<!-- DOC: VSA 201 - VSA 253 are undocumented -->
 	<VSA type="254" datatype="string" name="Acme-User-Class" mandatory="no" vendorId="9148"/>
