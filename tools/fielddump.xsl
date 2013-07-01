@@ -14,11 +14,18 @@
 
 <!-- helper function to dump the path of the node under the cursor -->
 <xsl:template name="printpath">
+	<xsl:variable name="leafavpname" select="@name"/>
 	<xsl:for-each select="ancestor-or-self::*">
 		<xsl:sort select="count(ancestor::*)" order="ascending"/>
+		<xsl:variable name="avpname" select="@name"/>
+		<xsl:variable name="avpvendor" select="/Protocol/AVP_Def[@name=$avpname]/@vendorId"/>
+		<xsl:variable name="avpcode" select="/Protocol/AVP_Def[@name=$avpname]/@code"/>
 		<xsl:choose>
 			<xsl:when test="name() = 'AVP'">
 				<xsl:value-of select="concat('/', @name)"/>
+				<xsl:if test="@mapping"><xsl:text>[*]</xsl:text></xsl:if>
+				<xsl:if test="$leafavpname = $avpname">
+					<xsl:value-of select="concat('{', $avpvendor, ',', $avpcode,'}')"/></xsl:if>
 			</xsl:when>
 			<xsl:when test="name() = 'Request'">
 				<xsl:value-of select="concat(@name, ':')"/>
