@@ -285,6 +285,10 @@
 		<AVP name="User-Session-Id"/>
 		<AVP name="Calling-Party-Address"/>
 		<AVP name="Called-Party-Address"/>
+		<AVP name="Time-Stamps">
+			<AVP name="SIP-Request-Timestamp"/>
+			<AVP name="SIP-Response-Timestamp"/>
+		</AVP>
 		<AVP name="Inter-Operator-Identifier">
 			<AVP name="Originating-IOI"/>
 			<AVP name="Terminating-IOI"/>
