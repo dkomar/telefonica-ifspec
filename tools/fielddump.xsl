@@ -20,12 +20,13 @@
 		<xsl:variable name="avpname" select="@name"/>
 		<xsl:variable name="avpvendor" select="/Protocol/AVP_Def[@name=$avpname]/@vendorId"/>
 		<xsl:variable name="avpcode" select="/Protocol/AVP_Def[@name=$avpname]/@code"/>
+		<xsl:variable name="avptype" select="/Protocol/AVP_Def[@name=$avpname]/@type"/>
 		<xsl:choose>
 			<xsl:when test="name() = 'AVP'">
 				<xsl:value-of select="concat('/', @name)"/>
 				<xsl:if test="@mapping"><xsl:text>[*]</xsl:text></xsl:if>
 				<xsl:if test="$leafavpname = $avpname">
-					<xsl:value-of select="concat('{', $avpvendor, ',', $avpcode,'}')"/></xsl:if>
+					<xsl:value-of select="concat('{', $avpvendor, ',', $avpcode, ',', $avptype, '}')"/></xsl:if>
 			</xsl:when>
 			<xsl:when test="name() = 'Request'">
 				<xsl:value-of select="concat(@name, ':')"/>
