@@ -100,9 +100,9 @@
 	<AVP_Def name="Authentication-Method" code="1261" type="Enumerated" vendorId="193" mandatoryFlag="true">
 		<EnumValue value="0" comment="NOAUTHENTICATION"/>
 		<EnumValue value="1" comment="AKAAUTHENTICATION"/>
-		<EnumValue value="3" comment="NASSBUNDLEDAUTHENTICATION"/>
-		<EnumValue value="4" comment="DIGESTAUTHENTICATION"/>
-		<EnumValue value="5" comment="GIBAAUTHENTICATION"/>
+		<EnumValue value="2" comment="NASSBUNDLEDAUTHENTICATION"/>
+		<EnumValue value="3" comment="DIGESTAUTHENTICATION"/>
+		<EnumValue value="4" comment="SSOAUTHENTICATION"/>
 	</AVP_Def>
 	<AVP_Def name="Transaction-Info" code="1264" type="Grouped" vendorId="193" mandatoryFlag="true"/>
 	<AVP_Def name="Transaction-Type" code="1265" type="Enumerated" vendorId="193" mandatoryFlag="true">
