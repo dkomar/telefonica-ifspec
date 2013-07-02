@@ -1,0 +1,377 @@
+GaFlexi-Acme DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+Address ::= OCTET STRING
+
+Request ::= SEQUENCE {
+	setupTime SetupTime OPTIONAL,
+	connectTime ConnectTime OPTIONAL,
+	disconnectTime DisconnectTime OPTIONAL,
+	disconnectCause DisconnectCause OPTIONAL,
+	acme-FlowID-FS1-F Acme-FlowID-FS1-F OPTIONAL,
+	acme-FlowType-FS1-F Acme-FlowType-FS1-F OPTIONAL,
+	acme-Session-Ingress-CallId Acme-Session-Ingress-CallId OPTIONAL,
+	acme-Session-Egress-CallId Acme-Session-Egress-CallId OPTIONAL,
+	acme-Flow-In-Realm-FS1-F Acme-Flow-In-Realm-FS1-F OPTIONAL,
+	acme-Flow-In-Src-Addr-FS1-F Acme-Flow-In-Src-Addr-FS1-F OPTIONAL,
+	acme-Flow-In-Src-Port-FS1-F Acme-Flow-In-Src-Port-FS1-F OPTIONAL,
+	acme-Flow-In-Dst-Addr-FS1-F Acme-Flow-In-Dst-Addr-FS1-F OPTIONAL,
+	acme-Flow-In-Dst-Port-FS1-F Acme-Flow-In-Dst-Port-FS1-F OPTIONAL,
+	acme-Flow-Out-Realm-FS1-F Acme-Flow-Out-Realm-FS1-F OPTIONAL,
+	acme-Flow-Out-Src-Addr-FS1-F Acme-Flow-Out-Src-Addr-FS1-F OPTIONAL,
+	acme-Flow-Out-Src-Port-FS1-F Acme-Flow-Out-Src-Port-FS1-F OPTIONAL,
+	acme-Flow-Out-Dst-Addr-FS1-F Acme-Flow-Out-Dst-Addr-FS1-F OPTIONAL,
+	acme-Flow-Out-Dst-Port-FS1-F Acme-Flow-Out-Dst-Port-FS1-F OPTIONAL,
+	acme-Calling-Octets-FS1 Acme-Calling-Octets-FS1 OPTIONAL,
+	acme-Calling-Packets-FS1 Acme-Calling-Packets-FS1 OPTIONAL,
+	acme-Calling-RTCP-Packets-Lost-FS1 Acme-Calling-RTCP-Packets-Lost-FS1 OPTIONAL,
+	acme-Calling-RTCP-Avg-Jitter-FS1 Acme-Calling-RTCP-Avg-Jitter-FS1 OPTIONAL,
+	acme-Calling-RTCP-Avg-Latency-FS1 Acme-Calling-RTCP-Avg-Latency-FS1 OPTIONAL,
+	acme-Calling-RTCP-MaxJitter-FS1 Acme-Calling-RTCP-MaxJitter-FS1 OPTIONAL,
+	acme-Calling-RTCP-MaxLatency-FS1 Acme-Calling-RTCP-MaxLatency-FS1 OPTIONAL,
+	acme-Calling-RTP-Packets-Lost-FS1 Acme-Calling-RTP-Packets-Lost-FS1 OPTIONAL,
+	acme-Calling-RTP-Avg-Jitter-FS1 Acme-Calling-RTP-Avg-Jitter-FS1 OPTIONAL,
+	acme-Calling-RTP-MaxJitter-FS1 Acme-Calling-RTP-MaxJitter-FS1 OPTIONAL,
+	acme-Session-Generic-Id Acme-Session-Generic-Id OPTIONAL,
+	acme-Session-Ingress-Realm Acme-Session-Ingress-Realm OPTIONAL,
+	acme-Session-Egress-Realm Acme-Session-Egress-Realm OPTIONAL,
+	acme-Session-Protocol-Type Acme-Session-Protocol-Type OPTIONAL,
+	acme-Called-Octets-FS1 Acme-Called-Octets-FS1 OPTIONAL,
+	acme-Called-Packets-FS1 Acme-Called-Packets-FS1 OPTIONAL,
+	acme-Called-RTCP-Packets-Lost-FS1 Acme-Called-RTCP-Packets-Lost-FS1 OPTIONAL,
+	acme-Called-RTCP-Avg-Jitter-FS1 Acme-Called-RTCP-Avg-Jitter-FS1 OPTIONAL,
+	acme-Called-RTCP-Avg-Latency-FS1 Acme-Called-RTCP-Avg-Latency-FS1 OPTIONAL,
+	acme-Called-RTCP-MaxJitter-FS1 Acme-Called-RTCP-MaxJitter-FS1 OPTIONAL,
+	acme-Called-RTCP-MaxLatency-FS1 Acme-Called-RTCP-MaxLatency-FS1 OPTIONAL,
+	acme-Called-RTP-Packets-Lost-FS1 Acme-Called-RTP-Packets-Lost-FS1 OPTIONAL,
+	acme-Called-RTP-Avg-Jitter-FS1 Acme-Called-RTP-Avg-Jitter-FS1 OPTIONAL,
+	acme-Called-RTP-MaxJitter-FS1 Acme-Called-RTP-MaxJitter-FS1 OPTIONAL,
+	acme-Session-Charging-Vector Acme-Session-Charging-Vector OPTIONAL,
+	acme-Session-Charging-Function-Address Acme-Session-Charging-Function-Address OPTIONAL,
+	acme-Firmware-Version Acme-Firmware-Version OPTIONAL,
+	acme-Local-Time-Zone Acme-Local-Time-Zone OPTIONAL,
+	acme-Post-Dial-Delay Acme-Post-Dial-Delay OPTIONAL,
+	acme-CDR-Sequence-Number Acme-CDR-Sequence-Number OPTIONAL,
+	acme-Session-Disposition Acme-Session-Disposition OPTIONAL,
+	acme-Disconnect-Initiator Acme-Disconnect-Initiator OPTIONAL,
+	acme-Disconnect-Cause Acme-Disconnect-Cause OPTIONAL,
+	acme-Intermediate-Time Acme-Intermediate-Time OPTIONAL,
+	acme-Primary-Routing-Number Acme-Primary-Routing-Number OPTIONAL,
+	acme-Originating-Trunk-Group Acme-Originating-Trunk-Group OPTIONAL,
+	acme-Terminating-Trunk-Group Acme-Terminating-Trunk-Group OPTIONAL,
+	acme-Originating-Trunk-Context Acme-Originating-Trunk-Context OPTIONAL,
+	acme-Terminating-Trunk-Context Acme-Terminating-Trunk-Context OPTIONAL,
+	acme-P-Asserted-ID Acme-P-Asserted-ID OPTIONAL,
+	acme-SIP-Diversion Acme-SIP-Diversion OPTIONAL,
+	acme-SIP-Status Acme-SIP-Status OPTIONAL,
+	acme-Ingress-Local-Addr Acme-Ingress-Local-Addr OPTIONAL,
+	acme-Ingress-Remote-Addr Acme-Ingress-Remote-Addr OPTIONAL,
+	acme-Egress-Local-Addr Acme-Egress-Local-Addr OPTIONAL,
+	acme-Egress-Remote-Addr Acme-Egress-Remote-Addr OPTIONAL,
+	acme-FlowID-FS1-R Acme-FlowID-FS1-R OPTIONAL,
+	acme-FlowType-FS1-R Acme-FlowType-FS1-R OPTIONAL,
+	acme-Flow-In-Realm-FS1-R Acme-Flow-In-Realm-FS1-R OPTIONAL,
+	acme-Flow-In-Src-Addr-FS1-R Acme-Flow-In-Src-Addr-FS1-R OPTIONAL,
+	acme-Flow-In-Src-Port-FS1-R Acme-Flow-In-Src-Port-FS1-R OPTIONAL,
+	acme-Flow-In-Dst-Addr-FS1-R Acme-Flow-In-Dst-Addr-FS1-R OPTIONAL,
+	acme-Flow-In-Dst-Port-FS1-R Acme-Flow-In-Dst-Port-FS1-R OPTIONAL,
+	acme-Flow-Out-Realm-FS1-R Acme-Flow-Out-Realm-FS1-R OPTIONAL,
+	acme-Flow-Out-Src-Addr-FS1-R Acme-Flow-Out-Src-Addr-FS1-R OPTIONAL,
+	acme-Flow-Out-Src-Port-FS1-R Acme-Flow-Out-Src-Port-FS1-R OPTIONAL,
+	acme-Flow-Out-Dst-Addr-FS1-R Acme-Flow-Out-Dst-Addr-FS1-R OPTIONAL,
+	acme-Flow-Out-Dst-Port-FS1-R Acme-Flow-Out-Dst-Port-FS1-R OPTIONAL,
+	acme-FlowID-FS2-F Acme-FlowID-FS2-F OPTIONAL,
+	acme-FlowType-FS2-F Acme-FlowType-FS2-F OPTIONAL,
+	acme-Flow-In-Realm-FS2-F Acme-Flow-In-Realm-FS2-F OPTIONAL,
+	acme-Flow-In-Src-Addr-FS2-F Acme-Flow-In-Src-Addr-FS2-F OPTIONAL,
+	acme-Flow-In-Src-Port-FS2-F Acme-Flow-In-Src-Port-FS2-F OPTIONAL,
+	acme-Flow-In-Dst-Addr-FS2-F Acme-Flow-In-Dst-Addr-FS2-F OPTIONAL,
+	acme-Flow-In-Dst-Port-FS2-F Acme-Flow-In-Dst-Port-FS2-F OPTIONAL,
+	acme-Flow-Out-Realm-FS2-F Acme-Flow-Out-Realm-FS2-F OPTIONAL,
+	acme-Flow-Out-Src-Addr-FS2-F Acme-Flow-Out-Src-Addr-FS2-F OPTIONAL,
+	acme-Flow-Out-Src-Port-FS2-F Acme-Flow-Out-Src-Port-FS2-F OPTIONAL,
+	acme-Flow-Out-Dst-Addr-FS2-F Acme-Flow-Out-Dst-Addr-FS2-F OPTIONAL,
+	acme-Flow-Out-Dst-Port-FS2-F Acme-Flow-Out-Dst-Port-FS2-F OPTIONAL,
+	acme-Calling-Octets-FS2 Acme-Calling-Octets-FS2 OPTIONAL,
+	acme-Calling-Packets-FS2 Acme-Calling-Packets-FS2 OPTIONAL,
+	acme-Calling-RTCP-Packets-Lost-FS2 Acme-Calling-RTCP-Packets-Lost-FS2 OPTIONAL,
+	acme-Calling-RTCP-Avg-Jitter-FS2 Acme-Calling-RTCP-Avg-Jitter-FS2 OPTIONAL,
+	acme-Calling-RTCP-Avg-Latency-FS2 Acme-Calling-RTCP-Avg-Latency-FS2 OPTIONAL,
+	acme-Calling-RTCP-MaxJitter-FS2 Acme-Calling-RTCP-MaxJitter-FS2 OPTIONAL,
+	acme-Calling-RTCP-MaxLatency-FS2 Acme-Calling-RTCP-MaxLatency-FS2 OPTIONAL,
+	acme-Calling-RTP-Packets-Lost-FS2 Acme-Calling-RTP-Packets-Lost-FS2 OPTIONAL,
+	acme-Calling-RTP-Avg-Jitter-FS2 Acme-Calling-RTP-Avg-Jitter-FS2 OPTIONAL,
+	acme-Calling-RTP-MaxJitter-FS2 Acme-Calling-RTP-MaxJitter-FS2 OPTIONAL,
+	acme-FlowID-FS2-R Acme-FlowID-FS2-R OPTIONAL,
+	acme-FlowType-FS2-R Acme-FlowType-FS2-R OPTIONAL,
+	acme-Flow-In-Realm-FS2-R Acme-Flow-In-Realm-FS2-R OPTIONAL,
+	acme-Flow-In-Src-Addr-FS2-R Acme-Flow-In-Src-Addr-FS2-R OPTIONAL,
+	acme-Flow-In-Src-Port-FS2-R Acme-Flow-In-Src-Port-FS2-R OPTIONAL,
+	acme-Flow-In-Dst-Addr-FS2-R Acme-Flow-In-Dst-Addr-FS2-R OPTIONAL,
+	acme-Flow-In-Dst-Port-FS2-R Acme-Flow-In-Dst-Port-FS2-R OPTIONAL,
+	acme-Flow-Out-Realm-FS2-R Acme-Flow-Out-Realm-FS2-R OPTIONAL,
+	acme-Flow-Out-Src-Addr-FS2-R Acme-Flow-Out-Src-Addr-FS2-R OPTIONAL,
+	acme-Flow-Out-Src-Port-FS2-R Acme-Flow-Out-Src-Port-FS2-R OPTIONAL,
+	acme-Flow-Out-Dst-Addr-FS2-R Acme-Flow-Out-Dst-Addr-FS2-R OPTIONAL,
+	acme-Flow-Out-Dst-Port-FS2-R Acme-Flow-Out-Dst-Port-FS2-R OPTIONAL,
+	acme-Called-Octets-FS2 Acme-Called-Octets-FS2 OPTIONAL,
+	acme-Called-Packets-FS2 Acme-Called-Packets-FS2 OPTIONAL,
+	acme-Called-RTCP-Packets-Lost-FS2 Acme-Called-RTCP-Packets-Lost-FS2 OPTIONAL,
+	acme-Called-RTCP-Avg-Jitter-FS2 Acme-Called-RTCP-Avg-Jitter-FS2 OPTIONAL,
+	acme-Called-RTCP-Avg-Latency-FS2 Acme-Called-RTCP-Avg-Latency-FS2 OPTIONAL,
+	acme-Called-RTCP-MaxJitter-FS2 Acme-Called-RTCP-MaxJitter-FS2 OPTIONAL,
+	acme-Called-RTCP-MaxLatency-FS2 Acme-Called-RTCP-MaxLatency-FS2 OPTIONAL,
+	acme-Called-RTP-Packets-Lost-FS2 Acme-Called-RTP-Packets-Lost-FS2 OPTIONAL,
+	acme-Called-RTP-Avg-Jitter-FS2 Acme-Called-RTP-Avg-Jitter-FS2 OPTIONAL,
+	acme-Called-RTP-MaxJitter-FS2 Acme-Called-RTP-MaxJitter-FS2 OPTIONAL,
+	acme-Egress-Final-Routing-Number Acme-Egress-Final-Routing-Number OPTIONAL,
+	acme-Session-Ingress-RPH Acme-Session-Ingress-RPH OPTIONAL,
+	acme-Session-Egress-RPH Acme-Session-Egress-RPH OPTIONAL,
+	acme-Ingress-Network-Interface-Id Acme-Ingress-Network-Interface-Id OPTIONAL,
+	acme-Ingress-Vlan-Tag-Value Acme-Ingress-Vlan-Tag-Value OPTIONAL,
+	acme-Egress-Network-Interface-Id Acme-Egress-Network-Interface-Id OPTIONAL,
+	acme-Egress-Vlan-Tag-Value Acme-Egress-Vlan-Tag-Value OPTIONAL,
+	acme-Refer-Call-Transfer-Id Acme-Refer-Call-Transfer-Id OPTIONAL,
+	acme-Calling-R-Factor Acme-Calling-R-Factor OPTIONAL,
+	acme-Calling-MOS Acme-Calling-MOS OPTIONAL,
+	acme-Called-R-Factor Acme-Called-R-Factor OPTIONAL,
+	acme-Called-MOS Acme-Called-MOS OPTIONAL,
+	acme-Flow-In-Src-IPv6-Addr-FS1-F Acme-Flow-In-Src-IPv6-Addr-FS1-F OPTIONAL,
+	acme-Flow-In-Dst-IPv6-Addr-FS1-F Acme-Flow-In-Dst-IPv6-Addr-FS1-F OPTIONAL,
+	acme-Flow-Out-Src-IPv6-Addr-FS1-F Acme-Flow-Out-Src-IPv6-Addr-FS1-F OPTIONAL,
+	acme-Flow-Out-Dst-IPv6-Addr-FS1-F Acme-Flow-Out-Dst-IPv6-Addr-FS1-F OPTIONAL,
+	acme-Flow-In-Src-IPv6-Addr-FS1-R Acme-Flow-In-Src-IPv6-Addr-FS1-R OPTIONAL,
+	acme-Flow-In-Dst-IPv6-Addr-FS1-R Acme-Flow-In-Dst-IPv6-Addr-FS1-R OPTIONAL,
+	acme-Flow-Out-Src-IPv6-Addr-FS1-R Acme-Flow-Out-Src-IPv6-Addr-FS1-R OPTIONAL,
+	acme-Flow-Out-Dst-IPv6-Addr-FS1-R Acme-Flow-Out-Dst-IPv6-Addr-FS1-R OPTIONAL,
+	acme-Flow-In-Src-IPv6-Addr-FS2-F Acme-Flow-In-Src-IPv6-Addr-FS2-F OPTIONAL,
+	acme-Flow-In-Dst-IPv6-Addr-FS2-F Acme-Flow-In-Dst-IPv6-Addr-FS2-F OPTIONAL,
+	acme-Flow-Out-Src-IPv6-Addr-FS2-F Acme-Flow-Out-Src-IPv6-Addr-FS2-F OPTIONAL,
+	acme-Flow-Out-Dst-IPv6-Addr-FS2-F Acme-Flow-Out-Dst-IPv6-Addr-FS2-F OPTIONAL,
+	acme-Flow-In-Src-IPv6-Addr-FS2-R Acme-Flow-In-Src-IPv6-Addr-FS2-R OPTIONAL,
+	acme-Flow-In-Dst-IPv6-Addr-FS2-R Acme-Flow-In-Dst-IPv6-Addr-FS2-R OPTIONAL,
+	acme-Flow-Out-Src-IPv6-Addr-FS2-R Acme-Flow-Out-Src-IPv6-Addr-FS2-R OPTIONAL,
+	acme-Flow-Out-Dst-IPv6-Addr-FS2-R Acme-Flow-Out-Dst-IPv6-Addr-FS2-R OPTIONAL,
+	acme-Session-Forked-Call-Id Acme-Session-Forked-Call-Id OPTIONAL,
+	acme-Custom-VSA-200 Acme-Custom-VSA-200 OPTIONAL,
+	acme-Custom-VSA-201 Acme-Custom-VSA-201 OPTIONAL,
+	acme-Custom-VSA-202 Acme-Custom-VSA-202 OPTIONAL,
+	acme-Custom-VSA-203 Acme-Custom-VSA-203 OPTIONAL,
+	acme-Custom-VSA-204 Acme-Custom-VSA-204 OPTIONAL,
+	acme-Custom-VSA-205 Acme-Custom-VSA-205 OPTIONAL,
+	acme-Custom-VSA-206 Acme-Custom-VSA-206 OPTIONAL,
+	acme-Custom-VSA-207 Acme-Custom-VSA-207 OPTIONAL,
+	acme-Custom-VSA-208 Acme-Custom-VSA-208 OPTIONAL,
+	acme-Custom-VSA-209 Acme-Custom-VSA-209 OPTIONAL,
+	acme-Custom-VSA-210 Acme-Custom-VSA-210 OPTIONAL,
+	acme-Custom-VSA-211 Acme-Custom-VSA-211 OPTIONAL,
+	acme-Custom-VSA-212 Acme-Custom-VSA-212 OPTIONAL,
+	acme-Custom-VSA-213 Acme-Custom-VSA-213 OPTIONAL,
+	acme-Custom-VSA-214 Acme-Custom-VSA-214 OPTIONAL,
+	acme-Custom-VSA-215 Acme-Custom-VSA-215 OPTIONAL,
+	acme-Custom-VSA-216 Acme-Custom-VSA-216 OPTIONAL,
+	acme-Custom-VSA-217 Acme-Custom-VSA-217 OPTIONAL,
+	acme-Custom-VSA-218 Acme-Custom-VSA-218 OPTIONAL,
+	acme-Custom-VSA-219 Acme-Custom-VSA-219 OPTIONAL,
+	acme-Custom-VSA-220 Acme-Custom-VSA-220 OPTIONAL,
+	acme-Custom-VSA-221 Acme-Custom-VSA-221 OPTIONAL,
+	acme-Custom-VSA-222 Acme-Custom-VSA-222 OPTIONAL,
+	acme-Custom-VSA-223 Acme-Custom-VSA-223 OPTIONAL,
+	acme-Custom-VSA-224 Acme-Custom-VSA-224 OPTIONAL,
+	acme-Custom-VSA-225 Acme-Custom-VSA-225 OPTIONAL,
+	acme-Custom-VSA-226 Acme-Custom-VSA-226 OPTIONAL,
+	acme-Custom-VSA-227 Acme-Custom-VSA-227 OPTIONAL,
+	acme-Custom-VSA-228 Acme-Custom-VSA-228 OPTIONAL,
+	acme-Custom-VSA-229 Acme-Custom-VSA-229 OPTIONAL,
+	acme-Custom-VSA-230 Acme-Custom-VSA-230 OPTIONAL,
+	acme-Flow-Calling-Media-Stop-Time-FS1 Acme-Flow-Calling-Media-Stop-Time-FS1 OPTIONAL,
+	acme-Flow-Called-Media-Stop-Time-FS1 Acme-Flow-Called-Media-Stop-Time-FS1 OPTIONAL,
+	acme-Flow-Calling-Media-Stop-Time-FS2 Acme-Flow-Calling-Media-Stop-Time-FS2 OPTIONAL,
+	acme-Flow-Called-Media-Stop-Time-FS2 Acme-Flow-Called-Media-Stop-Time-FS2 OPTIONAL,
+	acme-User-Class Acme-User-Class OPTIONAL
+}
+SetupTime ::= [294937] OCTET STRING
+ConnectTime ::= [294940] OCTET STRING
+DisconnectTime ::= [294941] OCTET STRING
+DisconnectCause ::= [294942] OCTET STRING
+Acme-FlowID-FS1-F ::= [299761665] OCTET STRING
+Acme-FlowType-FS1-F ::= [299761666] OCTET STRING
+Acme-Session-Ingress-CallId ::= [299761667] OCTET STRING
+Acme-Session-Egress-CallId ::= [299761668] OCTET STRING
+Acme-Flow-In-Realm-FS1-F ::= [299761674] OCTET STRING
+Acme-Flow-In-Src-Addr-FS1-F ::= [299761675] Address
+Acme-Flow-In-Src-Port-FS1-F ::= [299761676] INTEGER
+Acme-Flow-In-Dst-Addr-FS1-F ::= [299761677] Address
+Acme-Flow-In-Dst-Port-FS1-F ::= [299761678] INTEGER
+Acme-Flow-Out-Realm-FS1-F ::= [299761684] OCTET STRING
+Acme-Flow-Out-Src-Addr-FS1-F ::= [299761685] Address
+Acme-Flow-Out-Src-Port-FS1-F ::= [299761686] INTEGER
+Acme-Flow-Out-Dst-Addr-FS1-F ::= [299761687] Address
+Acme-Flow-Out-Dst-Port-FS1-F ::= [299761688] INTEGER
+Acme-Calling-Octets-FS1 ::= [299761692] INTEGER
+Acme-Calling-Packets-FS1 ::= [299761693] INTEGER
+Acme-Calling-RTCP-Packets-Lost-FS1 ::= [299761696] INTEGER
+Acme-Calling-RTCP-Avg-Jitter-FS1 ::= [299761697] INTEGER
+Acme-Calling-RTCP-Avg-Latency-FS1 ::= [299761698] INTEGER
+Acme-Calling-RTCP-MaxJitter-FS1 ::= [299761699] INTEGER
+Acme-Calling-RTCP-MaxLatency-FS1 ::= [299761700] INTEGER
+Acme-Calling-RTP-Packets-Lost-FS1 ::= [299761701] INTEGER
+Acme-Calling-RTP-Avg-Jitter-FS1 ::= [299761702] INTEGER
+Acme-Calling-RTP-MaxJitter-FS1 ::= [299761703] INTEGER
+Acme-Session-Generic-Id ::= [299761704] OCTET STRING
+Acme-Session-Ingress-Realm ::= [299761705] OCTET STRING
+Acme-Session-Egress-Realm ::= [299761706] OCTET STRING
+Acme-Session-Protocol-Type ::= [299761707] OCTET STRING
+Acme-Called-Octets-FS1 ::= [299761708] INTEGER
+Acme-Called-Packets-FS1 ::= [299761709] INTEGER
+Acme-Called-RTCP-Packets-Lost-FS1 ::= [299761710] INTEGER
+Acme-Called-RTCP-Avg-Jitter-FS1 ::= [299761711] INTEGER
+Acme-Called-RTCP-Avg-Latency-FS1 ::= [299761712] INTEGER
+Acme-Called-RTCP-MaxJitter-FS1 ::= [299761713] INTEGER
+Acme-Called-RTCP-MaxLatency-FS1 ::= [299761714] INTEGER
+Acme-Called-RTP-Packets-Lost-FS1 ::= [299761715] INTEGER
+Acme-Called-RTP-Avg-Jitter-FS1 ::= [299761716] INTEGER
+Acme-Called-RTP-MaxJitter-FS1 ::= [299761717] INTEGER
+Acme-Session-Charging-Vector ::= [299761718] OCTET STRING
+Acme-Session-Charging-Function-Address ::= [299761719] OCTET STRING
+Acme-Firmware-Version ::= [299761720] OCTET STRING
+Acme-Local-Time-Zone ::= [299761721] OCTET STRING
+Acme-Post-Dial-Delay ::= [299761722] INTEGER
+Acme-CDR-Sequence-Number ::= [299761723] INTEGER
+Acme-Session-Disposition ::= [299761724] INTEGER
+Acme-Disconnect-Initiator ::= [299761725] INTEGER
+Acme-Disconnect-Cause ::= [299761726] INTEGER
+Acme-Intermediate-Time ::= [299761727] OCTET STRING
+Acme-Primary-Routing-Number ::= [299761728] OCTET STRING
+Acme-Originating-Trunk-Group ::= [299761729] OCTET STRING
+Acme-Terminating-Trunk-Group ::= [299761730] OCTET STRING
+Acme-Originating-Trunk-Context ::= [299761731] OCTET STRING
+Acme-Terminating-Trunk-Context ::= [299761732] OCTET STRING
+Acme-P-Asserted-ID ::= [299761733] OCTET STRING
+Acme-SIP-Diversion ::= [299761734] OCTET STRING
+Acme-SIP-Status ::= [299761735] INTEGER
+Acme-Ingress-Local-Addr ::= [299761738] OCTET STRING
+Acme-Ingress-Remote-Addr ::= [299761739] OCTET STRING
+Acme-Egress-Local-Addr ::= [299761740] OCTET STRING
+Acme-Egress-Remote-Addr ::= [299761741] OCTET STRING
+Acme-FlowID-FS1-R ::= [299761742] OCTET STRING
+Acme-FlowType-FS1-R ::= [299761743] OCTET STRING
+Acme-Flow-In-Realm-FS1-R ::= [299761744] OCTET STRING
+Acme-Flow-In-Src-Addr-FS1-R ::= [299761745] Address
+Acme-Flow-In-Src-Port-FS1-R ::= [299761746] INTEGER
+Acme-Flow-In-Dst-Addr-FS1-R ::= [299761747] Address
+Acme-Flow-In-Dst-Port-FS1-R ::= [299761748] INTEGER
+Acme-Flow-Out-Realm-FS1-R ::= [299761749] OCTET STRING
+Acme-Flow-Out-Src-Addr-FS1-R ::= [299761750] Address
+Acme-Flow-Out-Src-Port-FS1-R ::= [299761751] INTEGER
+Acme-Flow-Out-Dst-Addr-FS1-R ::= [299761752] Address
+Acme-Flow-Out-Dst-Port-FS1-R ::= [299761753] INTEGER
+Acme-FlowID-FS2-F ::= [299761754] OCTET STRING
+Acme-FlowType-FS2-F ::= [299761755] OCTET STRING
+Acme-Flow-In-Realm-FS2-F ::= [299761756] OCTET STRING
+Acme-Flow-In-Src-Addr-FS2-F ::= [299761757] Address
+Acme-Flow-In-Src-Port-FS2-F ::= [299761758] INTEGER
+Acme-Flow-In-Dst-Addr-FS2-F ::= [299761759] Address
+Acme-Flow-In-Dst-Port-FS2-F ::= [299761760] INTEGER
+Acme-Flow-Out-Realm-FS2-F ::= [299761761] OCTET STRING
+Acme-Flow-Out-Src-Addr-FS2-F ::= [299761762] Address
+Acme-Flow-Out-Src-Port-FS2-F ::= [299761763] INTEGER
+Acme-Flow-Out-Dst-Addr-FS2-F ::= [299761764] Address
+Acme-Flow-Out-Dst-Port-FS2-F ::= [299761765] INTEGER
+Acme-Calling-Octets-FS2 ::= [299761766] INTEGER
+Acme-Calling-Packets-FS2 ::= [299761767] INTEGER
+Acme-Calling-RTCP-Packets-Lost-FS2 ::= [299761768] INTEGER
+Acme-Calling-RTCP-Avg-Jitter-FS2 ::= [299761769] INTEGER
+Acme-Calling-RTCP-Avg-Latency-FS2 ::= [299761770] INTEGER
+Acme-Calling-RTCP-MaxJitter-FS2 ::= [299761771] INTEGER
+Acme-Calling-RTCP-MaxLatency-FS2 ::= [299761772] INTEGER
+Acme-Calling-RTP-Packets-Lost-FS2 ::= [299761773] INTEGER
+Acme-Calling-RTP-Avg-Jitter-FS2 ::= [299761774] INTEGER
+Acme-Calling-RTP-MaxJitter-FS2 ::= [299761775] INTEGER
+Acme-FlowID-FS2-R ::= [299761776] OCTET STRING
+Acme-FlowType-FS2-R ::= [299761777] OCTET STRING
+Acme-Flow-In-Realm-FS2-R ::= [299761778] OCTET STRING
+Acme-Flow-In-Src-Addr-FS2-R ::= [299761779] Address
+Acme-Flow-In-Src-Port-FS2-R ::= [299761780] INTEGER
+Acme-Flow-In-Dst-Addr-FS2-R ::= [299761781] Address
+Acme-Flow-In-Dst-Port-FS2-R ::= [299761782] INTEGER
+Acme-Flow-Out-Realm-FS2-R ::= [299761783] OCTET STRING
+Acme-Flow-Out-Src-Addr-FS2-R ::= [299761784] Address
+Acme-Flow-Out-Src-Port-FS2-R ::= [299761785] INTEGER
+Acme-Flow-Out-Dst-Addr-FS2-R ::= [299761786] Address
+Acme-Flow-Out-Dst-Port-FS2-R ::= [299761787] INTEGER
+Acme-Called-Octets-FS2 ::= [299761788] INTEGER
+Acme-Called-Packets-FS2 ::= [299761789] INTEGER
+Acme-Called-RTCP-Packets-Lost-FS2 ::= [299761790] INTEGER
+Acme-Called-RTCP-Avg-Jitter-FS2 ::= [299761791] INTEGER
+Acme-Called-RTCP-Avg-Latency-FS2 ::= [299761792] INTEGER
+Acme-Called-RTCP-MaxJitter-FS2 ::= [299761793] INTEGER
+Acme-Called-RTCP-MaxLatency-FS2 ::= [299761794] INTEGER
+Acme-Called-RTP-Packets-Lost-FS2 ::= [299761795] INTEGER
+Acme-Called-RTP-Avg-Jitter-FS2 ::= [299761796] INTEGER
+Acme-Called-RTP-MaxJitter-FS2 ::= [299761797] INTEGER
+Acme-Egress-Final-Routing-Number ::= [299761798] OCTET STRING
+Acme-Session-Ingress-RPH ::= [299761799] OCTET STRING
+Acme-Session-Egress-RPH ::= [299761800] OCTET STRING
+Acme-Ingress-Network-Interface-Id ::= [299761801] OCTET STRING
+Acme-Ingress-Vlan-Tag-Value ::= [299761802] INTEGER
+Acme-Egress-Network-Interface-Id ::= [299761803] OCTET STRING
+Acme-Egress-Vlan-Tag-Value ::= [299761804] INTEGER
+Acme-Refer-Call-Transfer-Id ::= [299761805] OCTET STRING
+Acme-Calling-R-Factor ::= [299761815] INTEGER
+Acme-Calling-MOS ::= [299761816] INTEGER
+Acme-Called-R-Factor ::= [299761817] INTEGER
+Acme-Called-MOS ::= [299761818] INTEGER
+Acme-Flow-In-Src-IPv6-Addr-FS1-F ::= [299761819] Address
+Acme-Flow-In-Dst-IPv6-Addr-FS1-F ::= [299761820] Address
+Acme-Flow-Out-Src-IPv6-Addr-FS1-F ::= [299761821] Address
+Acme-Flow-Out-Dst-IPv6-Addr-FS1-F ::= [299761822] Address
+Acme-Flow-In-Src-IPv6-Addr-FS1-R ::= [299761823] Address
+Acme-Flow-In-Dst-IPv6-Addr-FS1-R ::= [299761824] Address
+Acme-Flow-Out-Src-IPv6-Addr-FS1-R ::= [299761825] Address
+Acme-Flow-Out-Dst-IPv6-Addr-FS1-R ::= [299761826] Address
+Acme-Flow-In-Src-IPv6-Addr-FS2-F ::= [299761827] Address
+Acme-Flow-In-Dst-IPv6-Addr-FS2-F ::= [299761828] Address
+Acme-Flow-Out-Src-IPv6-Addr-FS2-F ::= [299761829] Address
+Acme-Flow-Out-Dst-IPv6-Addr-FS2-F ::= [299761830] Address
+Acme-Flow-In-Src-IPv6-Addr-FS2-R ::= [299761831] Address
+Acme-Flow-In-Dst-IPv6-Addr-FS2-R ::= [299761832] Address
+Acme-Flow-Out-Src-IPv6-Addr-FS2-R ::= [299761833] Address
+Acme-Flow-Out-Dst-IPv6-Addr-FS2-R ::= [299761834] Address
+Acme-Session-Forked-Call-Id ::= [299761835] OCTET STRING
+Acme-Custom-VSA-200 ::= [299761864] OCTET STRING
+Acme-Custom-VSA-201 ::= [299761865] OCTET STRING
+Acme-Custom-VSA-202 ::= [299761866] OCTET STRING
+Acme-Custom-VSA-203 ::= [299761867] OCTET STRING
+Acme-Custom-VSA-204 ::= [299761868] OCTET STRING
+Acme-Custom-VSA-205 ::= [299761869] OCTET STRING
+Acme-Custom-VSA-206 ::= [299761870] OCTET STRING
+Acme-Custom-VSA-207 ::= [299761871] OCTET STRING
+Acme-Custom-VSA-208 ::= [299761872] OCTET STRING
+Acme-Custom-VSA-209 ::= [299761873] OCTET STRING
+Acme-Custom-VSA-210 ::= [299761874] OCTET STRING
+Acme-Custom-VSA-211 ::= [299761875] OCTET STRING
+Acme-Custom-VSA-212 ::= [299761876] OCTET STRING
+Acme-Custom-VSA-213 ::= [299761877] OCTET STRING
+Acme-Custom-VSA-214 ::= [299761878] OCTET STRING
+Acme-Custom-VSA-215 ::= [299761879] OCTET STRING
+Acme-Custom-VSA-216 ::= [299761880] OCTET STRING
+Acme-Custom-VSA-217 ::= [299761881] OCTET STRING
+Acme-Custom-VSA-218 ::= [299761882] OCTET STRING
+Acme-Custom-VSA-219 ::= [299761883] OCTET STRING
+Acme-Custom-VSA-220 ::= [299761884] OCTET STRING
+Acme-Custom-VSA-221 ::= [299761885] OCTET STRING
+Acme-Custom-VSA-222 ::= [299761886] OCTET STRING
+Acme-Custom-VSA-223 ::= [299761887] OCTET STRING
+Acme-Custom-VSA-224 ::= [299761888] OCTET STRING
+Acme-Custom-VSA-225 ::= [299761889] OCTET STRING
+Acme-Custom-VSA-226 ::= [299761890] OCTET STRING
+Acme-Custom-VSA-227 ::= [299761891] OCTET STRING
+Acme-Custom-VSA-228 ::= [299761892] OCTET STRING
+Acme-Custom-VSA-229 ::= [299761893] OCTET STRING
+Acme-Custom-VSA-230 ::= [299761894] OCTET STRING
+Acme-Flow-Calling-Media-Stop-Time-FS1 ::= [299761895] OCTET STRING
+Acme-Flow-Called-Media-Stop-Time-FS1 ::= [299761896] OCTET STRING
+Acme-Flow-Calling-Media-Stop-Time-FS2 ::= [299761897] OCTET STRING
+Acme-Flow-Called-Media-Stop-Time-FS2 ::= [299761898] OCTET STRING
+Acme-User-Class ::= [299761918] OCTET STRING
+END
