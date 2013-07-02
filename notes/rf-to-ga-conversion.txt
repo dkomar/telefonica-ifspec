@@ -1,0 +1,18 @@
+Steps:
+- generate one Request field with union of all possible attributes (csplit, meld)
+  - csplit MTAS_13.xml /\<Request/ '{*}'
+  - rm xx00
+  - meld xx01 xx04
+  - meld xx02 xx04
+  - meld xx03 xx04
+- translate Ga interface using tools/xmltoasn.xsl
+  - mv xx04 ../ga
+  - cd ../ga
+  - xmlstarlet tr ../../tools/xmltoasn.xsl > xx04.asn1
+- format ASN.1
+  - indent with tabs
+  - remove commas from end of sequences
+  - decapitalize sequence item names
+  - check and eliminate duplicate definitions: grep "::="  | sort | uniq -c | grep -v "^ *1"
+- merge old interface and new interface
+  - meld xx04 GaFlexiMTAS.asn1
