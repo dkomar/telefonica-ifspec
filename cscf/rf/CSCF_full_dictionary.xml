@@ -323,8 +323,8 @@
 			<AVP name="Disconnect-Direction"/>
 		</AVP>
 		<AVP name="SIP-Reason">
-			<AVP name="SIP-Reason-Cause" alias="SIP-Reason-Cause"/>
-			<AVP name="SIP-Reason-Text" alias="SIP-Reason-Text"/>
+			<AVP name="SIP-Reason-Cause"/>
+			<AVP name="SIP-Reason-Text"/>
 		</AVP>
 		<AVP name="GPRS-Roaming-Status"/>
 		<AVP name="SIP-Ringing-Timestamp"/>
