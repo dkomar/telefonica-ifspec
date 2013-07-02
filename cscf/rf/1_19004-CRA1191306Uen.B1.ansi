@@ -321,10 +321,6 @@
 				<AVP name="Transaction-Data-Name"/>
 				<AVP name="Transaction-Data-Value" mapping="list" listSep="&#254;"/>
 			</AVP>
-			<AVP name="SIP-Reason">
-				<AVP name="SIP-Reason-Cause"/>
-				<AVP name="SIP-Reason-Text"/>
-			</AVP>
 			<AVP name="Disconnect-Direction"/>
 		</AVP>
 		<AVP name="SIP-Reason">
