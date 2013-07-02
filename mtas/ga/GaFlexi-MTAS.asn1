@@ -1,0 +1,231 @@
+GaFlexi-MTAS DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+DiameterIdentity ::= OCTET STRING
+Time ::= OCTET STRING
+Address ::= OCTET STRING
+
+Request ::= SEQUENCE {
+	session-Id Session-Id OPTIONAL,
+	origin-Host Origin-Host OPTIONAL,
+	origin-Realm Origin-Realm OPTIONAL,
+	destination-Realm Destination-Realm OPTIONAL,
+	destination-Host Destination-Host OPTIONAL,
+	accounting-Record-Type Accounting-Record-Type OPTIONAL,
+	accounting-Record-Number Accounting-Record-Number OPTIONAL,
+	acct-Application-Id Acct-Application-Id OPTIONAL,
+	acct-Interim-Interval Acct-Interim-Interval OPTIONAL,
+	event-Timestamp Event-Timestamp OPTIONAL,
+	service-Context-Id Service-Context-Id OPTIONAL,
+	service-Information Service-Information OPTIONAL,
+	ericsson-Service-Information Ericsson-Service-Information OPTIONAL,
+	aLU-Specific-Extension ALU-Specific-Extension OPTIONAL,
+	user-Name User-Name OPTIONAL
+}
+Session-Id ::= [263] UTF8String
+Origin-Host ::= [264] DiameterIdentity
+Origin-Realm ::= [296] DiameterIdentity
+Destination-Realm ::= [283] DiameterIdentity
+Destination-Host ::= [293] DiameterIdentity
+Accounting-Record-Type ::= [480] INTEGER
+Accounting-Record-Number ::= [485] INTEGER
+Acct-Application-Id ::= [259] INTEGER
+Acct-Interim-Interval ::= [85] INTEGER
+Event-Timestamp ::= [55] Time
+Service-Context-Id ::= [461] UTF8String
+Service-Information ::= [341279593] SEQUENCE {
+	subscription-Id Subscription-Id OPTIONAL,
+	iMS-Information IMS-Information OPTIONAL,
+	pS-Information PS-Information OPTIONAL
+}
+Subscription-Id ::= [443] SEQUENCE {
+	subscription-Id-Type Subscription-Id-Type OPTIONAL,
+	subscription-Id-Data Subscription-Id-Data OPTIONAL
+}
+Subscription-Id-Type ::= [450] INTEGER
+Subscription-Id-Data ::= [444] UTF8String
+IMS-Information ::= [341279596] SEQUENCE {
+	event-Type Event-Type OPTIONAL,
+	role-of-Node Role-of-Node OPTIONAL,
+	node-Functionality Node-Functionality OPTIONAL,
+	user-Session-ID User-Session-ID OPTIONAL,
+	calling-Party-Address SEQUENCE OF Calling-Party-Address OPTIONAL,
+	called-Party-Address Called-Party-Address OPTIONAL,
+	called-Asserted-Identity SEQUENCE OF Called-Asserted-Identity OPTIONAL,
+	number-Portability-Routing-Information Number-Portability-Routing-Information OPTIONAL,
+	requested-Party-Address Requested-Party-Address OPTIONAL,
+	time-Stamps Time-Stamps OPTIONAL,
+	inter-Operator-Identifier Inter-Operator-Identifier OPTIONAL,
+	iMS-Charging-Identifier IMS-Charging-Identifier OPTIONAL,
+	sDP-Session-Description SEQUENCE OF SDP-Session-Description OPTIONAL,
+	sDP-Media-Component SEQUENCE OF SDP-Media-Component OPTIONAL,
+	access-Network-Information Access-Network-Information OPTIONAL,
+	message-Body SEQUENCE OF Message-Body OPTIONAL,
+	cause-Code Cause-Code OPTIONAL,
+	service-Specific-Info SEQUENCE OF Service-Specific-Info OPTIONAL
+}
+Event-Type ::= [341279543] SEQUENCE {
+	sIP-Method SIP-Method OPTIONAL
+}
+SIP-Method ::= [341279544] UTF8String
+Role-of-Node ::= [341279549] INTEGER
+Node-Functionality ::= [341279582] INTEGER
+User-Session-ID ::= [341279550] UTF8String
+Calling-Party-Address ::= [341279551] UTF8String
+Called-Party-Address ::= [341279552] UTF8String
+Called-Asserted-Identity ::= [341279970] UTF8String
+Number-Portability-Routing-Information ::= [341280744] UTF8String
+Requested-Party-Address ::= [341279971] UTF8String
+Time-Stamps ::= [341279553] SEQUENCE {
+	sIP-Request-Timestamp SIP-Request-Timestamp OPTIONAL,
+	sIP-Response-Timestamp SIP-Response-Timestamp OPTIONAL,
+	sIP-Request-Timestamp-Fraction SIP-Request-Timestamp-Fraction OPTIONAL,
+	sIP-Response-Timestamp-Fraction SIP-Response-Timestamp-Fraction OPTIONAL
+}
+SIP-Request-Timestamp ::= [341279554] Time
+SIP-Response-Timestamp ::= [341279555] Time
+SIP-Request-Timestamp-Fraction ::= [341281021] INTEGER
+SIP-Response-Timestamp-Fraction ::= [341281022] INTEGER
+Inter-Operator-Identifier ::= [341279558] SEQUENCE {
+	originating-IOI Originating-IOI OPTIONAL,
+	terminating-IOI Terminating-IOI OPTIONAL
+}
+Originating-IOI ::= [341279559] UTF8String
+Terminating-IOI ::= [341279560] UTF8String
+IMS-Charging-Identifier ::= [341279561] UTF8String
+SDP-Session-Description ::= [341279562] UTF8String
+SDP-Media-Component ::= [341279563] SEQUENCE {
+	sDP-Media-Name SDP-Media-Name OPTIONAL,
+	sDP-Media-Description SEQUENCE OF SDP-Media-Description OPTIONAL,
+	media-Initiator-Flag Media-Initiator-Flag OPTIONAL,
+	sDP-Type SDP-Type OPTIONAL
+}
+SDP-Media-Name ::= [341279564] UTF8String
+SDP-Media-Description ::= [341279565] UTF8String
+Media-Initiator-Flag ::= [341279602] INTEGER
+SDP-Type ::= [341280756] INTEGER
+Access-Network-Information ::= [341279983] OCTET STRING
+Message-Body ::= [341279609] SEQUENCE {
+	content-Type Content-Type OPTIONAL,
+	content-Length Content-Length OPTIONAL,
+	content-Disposition Content-Disposition OPTIONAL,
+	originator Originator OPTIONAL
+}
+Content-Type ::= [341279546] UTF8String
+Content-Length ::= [341279547] INTEGER
+Content-Disposition ::= [341279548] UTF8String
+Originator ::= [341279584] INTEGER
+Cause-Code ::= [341279581] INTEGER
+Service-Specific-Info ::= [341279969] SEQUENCE {
+	service-Specific-Data Service-Specific-Data OPTIONAL,
+	service-Specific-Type Service-Specific-Type OPTIONAL
+}
+Service-Specific-Data ::= [341279583] UTF8String
+Service-Specific-Type ::= [341279977] INTEGER
+PS-Information ::= [341279594] SEQUENCE {
+	tGPP-MS-TimeZone TGPP-MS-TimeZone OPTIONAL,
+	user-Equipment-Info User-Equipment-Info OPTIONAL
+}
+TGPP-MS-TimeZone ::= [341278743] OCTET STRING
+User-Equipment-Info ::= [458] SEQUENCE {
+	user-Equipment-Info-Type User-Equipment-Info-Type OPTIONAL,
+	user-Equipment-Info-Value User-Equipment-Info-Value OPTIONAL
+}
+User-Equipment-Info-Type ::= [459] INTEGER
+User-Equipment-Info-Value ::= [460] OCTET STRING
+Ericsson-Service-Information ::= [6324509] SEQUENCE {
+	iMS-Service-Identification SEQUENCE OF IMS-Service-Identification OPTIONAL,
+	mMT-Information MMT-Information OPTIONAL,
+	transaction-Info SEQUENCE OF Transaction-Info OPTIONAL
+}
+IMS-Service-Identification ::= [6324508] UTF8String
+MMT-Information ::= [6325285] SEQUENCE {
+	analyzed-Call-Type Analyzed-Call-Type OPTIONAL,
+	called-Asserted-Identity-Presentation-Status Called-Asserted-Identity-Presentation-Status OPTIONAL,
+	calling-Party-Address-Presentation-Status Calling-Party-Address-Presentation-Status OPTIONAL,
+	carrier-Select-Routing-Information Carrier-Select-Routing-Information OPTIONAL,
+	conference-Id Conference-Id OPTIONAL,
+	dial-Around-Indicator Dial-Around-Indicator OPTIONAL,
+	from-Header From-Header OPTIONAL,
+	from-Header-Presentation-Status From-Header-Presentation-Status OPTIONAL,
+	mSISDN MSISDN OPTIONAL,
+	related-ICID Related-ICID OPTIONAL,
+	served-User Served-User OPTIONAL,
+	sCC-Service-Identity SEQUENCE OF SCC-Service-Identity OPTIONAL,
+	sCC-TADS-Decision SCC-TADS-Decision OPTIONAL,
+	service-Number-Type Service-Number-Type OPTIONAL,
+	sIP-Ringing-Timestamp SIP-Ringing-Timestamp OPTIONAL,
+	sIP-Ringing-Timestamp-Fraction SIP-Ringing-Timestamp-Fraction OPTIONAL,
+	supplementary-Service-Information SEQUENCE OF Supplementary-Service-Information OPTIONAL,
+	tenant Tenant OPTIONAL,
+	xCON-Id XCON-Id OPTIONAL,
+	party-To-Charge Party-To-Charge OPTIONAL
+}
+Analyzed-Call-Type ::= [6325527] UTF8String
+Called-Asserted-Identity-Presentation-Status ::= [6325366] INTEGER
+Calling-Party-Address-Presentation-Status ::= [6325365] INTEGER
+Carrier-Select-Routing-Information ::= [341280743] UTF8String
+Conference-Id ::= [6325351] UTF8String
+Dial-Around-Indicator ::= [6325384] UTF8String
+From-Header ::= [6325377] UTF8String
+From-Header-Presentation-Status ::= [6325486] INTEGER
+MSISDN ::= [341279421] UTF8String
+Related-ICID ::= [6325352] UTF8String
+Served-User ::= [6325554] UTF8String
+SCC-Service-Identity ::= [6325538] INTEGER
+SCC-TADS-Decision ::= [6325539] INTEGER
+Service-Number-Type ::= [6325531] INTEGER
+SIP-Ringing-Timestamp ::= [6324562] Time
+SIP-Ringing-Timestamp-Fraction ::= [6325480] INTEGER
+Supplementary-Service-Information ::= [6325353] SEQUENCE {
+	supplementary-Service-Identity Supplementary-Service-Identity OPTIONAL,
+	supplementary-Service-Action Supplementary-Service-Action OPTIONAL,
+	cCMP-User-Info CCMP-User-Info OPTIONAL,
+	redirecting-Party-Address Redirecting-Party-Address OPTIONAL,
+	routing-Call-Type Routing-Call-Type OPTIONAL,
+	common-Policy-Rule-Identity Common-Policy-Rule-Identity OPTIONAL,
+	service-Suppression-Info Service-Suppression-Info OPTIONAL
+}
+Supplementary-Service-Identity ::= [6325354] INTEGER
+Supplementary-Service-Action ::= [6325355] INTEGER
+CCMP-User-Info ::= [6325608] UTF8String
+Redirecting-Party-Address ::= [6325357] UTF8String
+Routing-Call-Type ::= [6325526] UTF8String
+Common-Policy-Rule-Identity ::= [6325532] UTF8String
+Service-Suppression-Info ::= [6325595] SEQUENCE {
+	matched-Regular-Expression Matched-Regular-Expression OPTIONAL,
+	services-To-Suppress Services-To-Suppress OPTIONAL
+}
+Matched-Regular-Expression ::= [6325596] UTF8String
+Services-To-Suppress ::= [6325597] UTF8String
+Tenant ::= [6325604] UTF8String
+XCON-Id ::= [6325570] UTF8String
+Party-To-Charge ::= [6325581] INTEGER
+Transaction-Info ::= [6325488] SEQUENCE {
+	transaction-Type Transaction-Type OPTIONAL,
+	transaction-Data-Name Transaction-Data-Name OPTIONAL,
+	transaction-Data-Value Transaction-Data-Value OPTIONAL
+}
+Transaction-Type ::= [6325489] INTEGER
+Transaction-Data-Name ::= [6325490] UTF8String
+Transaction-Data-Value ::= [6325491] UTF8String
+ALU-Specific-Extension ::= [57376868] SEQUENCE {
+	supplementary-Service-Information_ALU SEQUENCE OF Supplementary-Service-Information_ALU OPTIONAL,
+	call-Direction Call-Direction OPTIONAL,
+	call-Type Call-Type OPTIONAL
+}
+Supplementary-Service-Information_ALU ::= [57376769] SEQUENCE {
+	service-Type Service-Type OPTIONAL,
+	action Action OPTIONAL,
+	service-Mode Service-Mode OPTIONAL,
+	service-ID Service-ID OPTIONAL,
+	associated-Number Associated-Number OPTIONAL
+}
+Service-Type ::= [57376770] INTEGER
+Action ::= [57376771] INTEGER
+Service-Mode ::= [57376772] INTEGER
+Service-ID ::= [57376773] UTF8String
+Associated-Number ::= [57376774] UTF8String
+Call-Direction ::= [57376779] INTEGER
+Call-Type ::= [57376780] INTEGER
+User-Name ::= [1] UTF8String
+END

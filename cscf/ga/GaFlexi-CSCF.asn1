@@ -1,0 +1,144 @@
+GaFlexi-CSCF  { 12 } DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+DiameterIdentity ::= OCTET STRING
+Time ::= OCTET STRING
+Address ::= OCTET STRING
+
+Request ::= SEQUENCE {
+	session-Id Session-Id OPTIONAL,
+	origin-Host Origin-Host OPTIONAL,
+	origin-Realm Origin-Realm OPTIONAL,
+	destination-Realm Destination-Realm OPTIONAL,
+	destination-Host Destination-Host OPTIONAL,
+	accounting-Record-Type Accounting-Record-Type OPTIONAL,
+	accounting-Record-Number Accounting-Record-Number OPTIONAL,
+	acct-Application-Id Acct-Application-Id OPTIONAL,
+	user-Name User-Name OPTIONAL,
+	event-Timestamp Event-Timestamp OPTIONAL,
+	subscription-Id Subscription-Id OPTIONAL,
+	event-Type Event-Type OPTIONAL,
+	role-of-Node Role-of-Node OPTIONAL,
+	user-Session-Id User-Session-Id OPTIONAL,
+	calling-Party-Address Calling-Party-Address OPTIONAL,
+	called-Party-Address Called-Party-Address OPTIONAL,
+	time-Stamps Time-Stamps OPTIONAL,
+	inter-Operator-Identifier Inter-Operator-Identifier OPTIONAL,
+	iMS-Charging-Identifier IMS-Charging-Identifier OPTIONAL,
+	sDP-Session-Description SEQUENCE OF SDP-Session-Description OPTIONAL,
+	sDP-Media-Component SEQUENCE OF SDP-Media-Component OPTIONAL,
+	service-Information Service-Information OPTIONAL,
+	cause Cause OPTIONAL,
+	served-Party-IP-Address Served-Party-IP-Address OPTIONAL,
+	access-Network-Information Access-Network-Information OPTIONAL,
+	carrier-Select-Routing-Information Carrier-Select-Routing-Information OPTIONAL,
+	number-Portability-Routing-Information Number-Portability-Routing-Information OPTIONAL,
+	ericsson-Service-Information Ericsson-Service-Information OPTIONAL,
+	sIP-Reason SIP-Reason OPTIONAL,
+	gPRS-Roaming-Status GPRS-Roaming-Status OPTIONAL,
+	sIP-Ringing-Timestamp SIP-Ringing-Timestamp OPTIONAL,
+	event-NTP-Timestamp Event-NTP-Timestamp OPTIONAL
+}
+Session-Id ::= [263] UTF8String
+Origin-Host ::= [264] DiameterIdentity
+Origin-Realm ::= [296] DiameterIdentity
+Destination-Realm ::= [283] DiameterIdentity
+Destination-Host ::= [293] DiameterIdentity
+Accounting-Record-Type ::= [480] INTEGER
+Accounting-Record-Number ::= [485] INTEGER
+Acct-Application-Id ::= [259] INTEGER
+User-Name ::= [1] UTF8String
+Event-Timestamp ::= [55] Time
+Subscription-Id ::= [443] SEQUENCE {
+	subscription-Id-Type Subscription-Id-Type OPTIONAL,
+	subscription-Id-Data Subscription-Id-Data OPTIONAL
+}
+Subscription-Id-Type ::= [450] INTEGER
+Subscription-Id-Data ::= [444] UTF8String
+Event-Type ::= [341279543] SEQUENCE {
+	sIP-Method SIP-Method OPTIONAL,
+	event Event OPTIONAL,
+	content-Type Content-Type OPTIONAL,
+	content-Length Content-Length OPTIONAL,
+	content-Disposition Content-Disposition OPTIONAL
+}
+SIP-Method ::= [341279544] UTF8String
+Event ::= [341279545] UTF8String
+Content-Type ::= [341279546] UTF8String
+Content-Length ::= [341279547] INTEGER
+Content-Disposition ::= [341279548] UTF8String
+Role-of-Node ::= [341279549] INTEGER
+User-Session-Id ::= [341279550] UTF8String
+Calling-Party-Address ::= [341279551] UTF8String
+Called-Party-Address ::= [341279552] UTF8String
+Time-Stamps ::= [341279553] SEQUENCE {
+	sIP-Request-Timestamp SIP-Request-Timestamp OPTIONAL,
+	sIP-Response-Timestamp SIP-Response-Timestamp OPTIONAL
+}
+SIP-Request-Timestamp ::= [341279554] Time
+SIP-Response-Timestamp ::= [341279555] Time
+Inter-Operator-Identifier ::= [341279558] SEQUENCE {
+	originating-IOI Originating-IOI OPTIONAL,
+	terminating-IOI Terminating-IOI OPTIONAL
+}
+Originating-IOI ::= [341279559] UTF8String
+Terminating-IOI ::= [341279560] UTF8String
+IMS-Charging-Identifier ::= [341279561] UTF8String
+SDP-Session-Description ::= [341279562] UTF8String
+SDP-Media-Component ::= [341279563] SEQUENCE {
+	sDP-Media-Name SDP-Media-Name OPTIONAL,
+	sDP-Media-Description SEQUENCE OF SDP-Media-Description OPTIONAL
+}
+SDP-Media-Name ::= [341279564] UTF8String
+SDP-Media-Description ::= [341279565] UTF8String
+Service-Information ::= [341279593] SEQUENCE {
+	pS-Information PS-Information OPTIONAL
+}
+PS-Information ::= [341279594] SEQUENCE {
+	tGPP-SGSN-MCC-MNC TGPP-SGSN-MCC-MNC OPTIONAL
+}
+TGPP-SGSN-MCC-MNC ::= [341278738] UTF8String
+Cause ::= [341279580] SEQUENCE {
+	cause-Code Cause-Code OPTIONAL,
+	node-Functionality Node-Functionality OPTIONAL
+}
+Cause-Code ::= [341279581] INTEGER
+Node-Functionality ::= [341279582] INTEGER
+Served-Party-IP-Address ::= [341279568] Address
+Access-Network-Information ::= [341279983] OCTET STRING
+Carrier-Select-Routing-Information ::= [341280743] UTF8String
+Number-Portability-Routing-Information ::= [341280744] UTF8String
+Ericsson-Service-Information ::= [6324509] SEQUENCE {
+	iMS-Service-Identification SEQUENCE OF IMS-Service-Identification OPTIONAL,
+	called-Party-Original-Address Called-Party-Original-Address OPTIONAL,
+	dial-Around-Indicator Dial-Around-Indicator OPTIONAL,
+	authentication-Method Authentication-Method OPTIONAL,
+	sIP-Request-Timestamp-Fraction SIP-Request-Timestamp-Fraction OPTIONAL,
+	sIP-Response-Timestamp-Fraction SIP-Response-Timestamp-Fraction OPTIONAL,
+	transaction-Info SEQUENCE OF Transaction-Info OPTIONAL,
+	disconnect-Direction Disconnect-Direction OPTIONAL
+}
+IMS-Service-Identification ::= [6324508] UTF8String
+Called-Party-Original-Address ::= [6324510] UTF8String
+Dial-Around-Indicator ::= [6325384] UTF8String
+Authentication-Method ::= [6325485] INTEGER
+SIP-Request-Timestamp-Fraction ::= [341281021] INTEGER
+SIP-Response-Timestamp-Fraction ::= [341281022] INTEGER
+Transaction-Info ::= [6325488] SEQUENCE {
+	transaction-Type Transaction-Type OPTIONAL,
+	transaction-Data-Name Transaction-Data-Name OPTIONAL,
+	transaction-Data-Value SEQUENCE OF Transaction-Data-Value OPTIONAL
+}
+Transaction-Type ::= [6325489] INTEGER
+Transaction-Data-Name ::= [6325490] UTF8String
+Transaction-Data-Value ::= [6325491] UTF8String
+Disconnect-Direction ::= [6325529] INTEGER
+SIP-Reason ::= [6324559] SEQUENCE {
+	sIP-Reason-Cause SIP-Reason-Cause OPTIONAL,
+	sIP-Reason-Text SIP-Reason-Text OPTIONAL
+}
+SIP-Reason-Cause ::= [6324560] INTEGER
+SIP-Reason-Text ::= [6324561] UTF8String
+GPRS-Roaming-Status ::= [6324557] INTEGER
+SIP-Ringing-Timestamp ::= [6324562] Time
+Event-NTP-Timestamp ::= [6324564] OCTET STRING
+END
