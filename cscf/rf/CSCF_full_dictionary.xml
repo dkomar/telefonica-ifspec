@@ -50,14 +50,14 @@
 	<AVP_Def name="Content-Type" code="826" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Content-Length" code="827" type="Unsigned32" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Content-Disposition" code="828" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
-	<AVP_Def name="Role-of-node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="true">
+	<AVP_Def name="Role-of-Node" code="829" type="Enumerated" vendorId="10415" mandatoryFlag="true">
 		<EnumValue value="0" comment="ORIGINATING_ROLE"/>
 		<EnumValue value="1" comment="TERMINATING_ROLE"/>
 	</AVP_Def>
-	<AVP_Def name="User-Session-ID" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="User-Session-Id" code="830" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Calling-Party-Address" code="831" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Called-Party-Address" code="832" type="UTF8String" vendorId="10415" mandatoryFlag="true"/>
-	<AVP_Def name="Time-stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
+	<AVP_Def name="Time-Stamps" code="833" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="SIP-Request-Timestamp" code="834" type="Time" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="SIP-Response-Timestamp" code="835" type="Time" vendorId="10415" mandatoryFlag="true"/>
 	<AVP_Def name="Inter-Operator-Identifier" code="838" type="Grouped" vendorId="10415" mandatoryFlag="true"/>
@@ -143,11 +143,11 @@
 			<AVP name="Content-Length"/>
 			<AVP name="Content-Disposition"/>
 		</AVP>
-		<AVP name="Role-of-node"/>
-		<AVP name="User-Session-ID"/>
+		<AVP name="Role-of-Node"/>
+		<AVP name="User-Session-Id"/>
 		<AVP name="Calling-Party-Address"/>
 		<AVP name="Called-Party-Address"/>
-		<AVP name="Time-stamps">
+		<AVP name="Time-Stamps">
 			<AVP name="SIP-Request-Timestamp"/>
 			<AVP name="SIP-Response-Timestamp"/>
 		</AVP>
@@ -212,11 +212,11 @@
 			<AVP name="Content-Length"/>
 			<AVP name="Content-Disposition"/>
 		</AVP>
-		<AVP name="Role-of-node"/>
-		<AVP name="User-Session-ID"/>
+		<AVP name="Role-of-Node"/>
+		<AVP name="User-Session-Id"/>
 		<AVP name="Calling-Party-Address"/>
 		<AVP name="Called-Party-Address"/>
-		<AVP name="Time-stamps">
+		<AVP name="Time-Stamps">
 			<AVP name="SIP-Request-Timestamp"/>
 			<AVP name="SIP-Response-Timestamp"/>
 		</AVP>
@@ -281,8 +281,8 @@
 			<AVP name="Content-Length"/>
 			<AVP name="Content-Disposition"/>
 		</AVP>
-		<AVP name="Role-of-node"/>
-		<AVP name="User-Session-ID"/>
+		<AVP name="Role-of-Node"/>
+		<AVP name="User-Session-Id"/>
 		<AVP name="Calling-Party-Address"/>
 		<AVP name="Called-Party-Address"/>
 		<AVP name="Inter-Operator-Identifier">
@@ -355,11 +355,11 @@
 			<AVP name="Content-Length"/>
 			<AVP name="Content-Disposition"/>
 		</AVP>
-		<AVP name="Role-of-node"/>
-		<AVP name="User-Session-ID"/>
+		<AVP name="Role-of-Node"/>
+		<AVP name="User-Session-Id"/>
 		<AVP name="Calling-Party-Address"/>
 		<AVP name="Called-Party-Address"/>
-		<AVP name="Time-stamps">
+		<AVP name="Time-Stamps">
 			<AVP name="SIP-Request-Timestamp"/>
 			<AVP name="SIP-Response-Timestamp"/>
 		</AVP>
