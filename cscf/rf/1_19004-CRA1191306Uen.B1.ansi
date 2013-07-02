@@ -326,6 +326,10 @@
 			</AVP>
 			<AVP name="Disconnect-Direction"/>
 		</AVP>
+		<AVP name="SIP-Reason">
+			<AVP name="SIP-Reason-Cause"/>
+			<AVP name="SIP-Reason-Text"/>
+		</AVP>
 		<AVP name="GPRS-Roaming-Status"/>
 		<AVP name="SIP-Ringing-Timestamp"/>
 		<AVP name="Event-NTP-Timestamp"/>
