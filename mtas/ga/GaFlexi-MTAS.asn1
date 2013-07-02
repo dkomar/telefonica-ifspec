@@ -209,11 +209,11 @@ Transaction-Type ::= [6325489] INTEGER
 Transaction-Data-Name ::= [6325490] UTF8String
 Transaction-Data-Value ::= [6325491] UTF8String
 ALU-Specific-Extension ::= [57376868] SEQUENCE {
-	supplementary-Service-Information_ALU SEQUENCE OF Supplementary-Service-Information_ALU OPTIONAL,
+	supplementary-Service-Information-ALU SEQUENCE OF Supplementary-Service-Information-ALU OPTIONAL,
 	call-Direction Call-Direction OPTIONAL,
 	call-Type Call-Type OPTIONAL
 }
-Supplementary-Service-Information_ALU ::= [57376769] SEQUENCE {
+Supplementary-Service-Information-ALU ::= [57376769] SEQUENCE {
 	service-Type Service-Type OPTIONAL,
 	action Action OPTIONAL,
 	service-Mode Service-Mode OPTIONAL,
