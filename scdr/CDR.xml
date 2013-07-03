@@ -196,10 +196,17 @@ Usage:
             -->
             <bW-other-Party-Name>test</bW-other-Party-Name>
 
-            <eMM-on-net-flag>test</eMM-on-net-flag>
-            <eMM-on-platform-flag>test</eMM-on-platform-flag>
-            <eMM-faxmail-flag>test</eMM-faxmail-flag>
-            <eMM-voicemail-flag>test</eMM-voicemail-flag>
+            <!-- always zero -->
+            <eMM-on-net-flag>0</eMM-on-net-flag>
+
+            <!-- always zero -->
+            <eMM-on-platform-flag>0</eMM-on-platform-flag>
+
+            <!-- set to any of [1..255] if it was a fax call case -->
+            <eMM-faxmail-flag>0</eMM-faxmail-flag>
+
+            <!-- maintained by MM: set to 1 if bW-other-Party-Name is present and it begins with "Voice Portal", otherwise set to 0 -->
+            <eMM-voicemail-flag>0</eMM-voicemail-flag>
           </recordExtensions>
 
 

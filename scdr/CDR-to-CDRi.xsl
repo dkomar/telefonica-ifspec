@@ -506,6 +506,7 @@
 <xsl:template match="//recordExtensions/eMM-on-net-flag">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">325</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -515,6 +516,7 @@
 <xsl:template match="//recordExtensions/eMM-on-platform-flag">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">326</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -524,6 +526,7 @@
 <xsl:template match="//recordExtensions/eMM-faxmail-flag">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">327</xsl:attribute>
 		<xsl:call-template name="declarations"/>
@@ -533,6 +536,7 @@
 <xsl:template match="//recordExtensions/eMM-voicemail-flag">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
+		<xsl:attribute name="conv">integer</xsl:attribute>
 		<xsl:attribute name="class">context</xsl:attribute>
 		<xsl:attribute name="tag">328</xsl:attribute>
 		<xsl:call-template name="declarations"/>
