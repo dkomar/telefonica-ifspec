@@ -63,7 +63,7 @@ sub encode_value_hexstring {
 
 	$val =~ /^0x([0-9A-F]*)$/;
 
-	return pack 'H', $1;
+	return pack 'H*', $1;
 }
 
 return 1;
