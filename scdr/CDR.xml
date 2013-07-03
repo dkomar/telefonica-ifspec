@@ -244,24 +244,24 @@ Usage:
           <!-- Presence: Populated only for mVoLTE call cases, during Fixed calls, entire structure is absent -->
           <serviceSpecificInfo>
             <value>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
               <serviceSpecificType>160</serviceSpecificType>
-              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
               <serviceSpecificType>192</serviceSpecificType>
-              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
               <serviceSpecificType>193</serviceSpecificType>
-              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
+              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
               <serviceSpecificType>194</serviceSpecificType>
-              <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
             </value>
             <value>
-              <serviceSpecificType>195</serviceSpecificType>
               <serviceSpecificData>0x0102030405060708090A0B0C0D0E0F</serviceSpecificData>
+              <serviceSpecificType>195</serviceSpecificType>
             </value>
           </serviceSpecificInfo>
 
