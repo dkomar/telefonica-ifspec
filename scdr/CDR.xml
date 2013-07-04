@@ -128,6 +128,7 @@ Usage:
 
           <serviceReasonReturnCode>0</serviceReasonReturnCode>
 
+          <!-- if BWAS is not interrogated, this block is entirely absent -->
           <recordExtensions>
             <bW-service-provider>test</bW-service-provider>
 
