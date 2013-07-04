@@ -688,8 +688,8 @@
 <xsl:template match="//sDP-Media-Component/sDP-Media-Description">
 	<xsl:comment><xsl:value-of select="name()"/></xsl:comment>
 	<xsl:element name="tag">
-		<xsl:attribute name="class">context</xsl:attribute>
-		<xsl:attribute name="tag">1</xsl:attribute>
+		<xsl:attribute name="class">universal</xsl:attribute>
+		<xsl:attribute name="tag">16</xsl:attribute>
 	<xsl:call-template name="declarations"/>
 	</xsl:element>
 </xsl:template>

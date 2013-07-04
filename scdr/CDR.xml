@@ -112,9 +112,9 @@ Usage:
               <sDP-Media-Components>
                 <sDP-Media-Component>
                   <sDP-Media-Name>fill</sDP-Media-Name>
-                  <sDP-Media-Descriptions>
+                  <sDP-Media-Description>
                     <value>fill</value>
-                  </sDP-Media-Descriptions>
+                  </sDP-Media-Description>
                 </sDP-Media-Component>
               </sDP-Media-Components>
               <sDP-Session-Description>
