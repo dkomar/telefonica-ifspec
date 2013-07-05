@@ -287,7 +287,6 @@
 		<AVP name="Called-Party-Address"/>
 		<AVP name="Time-Stamps">
 			<AVP name="SIP-Request-Timestamp"/>
-			<AVP name="SIP-Response-Timestamp"/>
 		</AVP>
 		<AVP name="Inter-Operator-Identifier">
 			<AVP name="Originating-IOI"/>
@@ -318,7 +317,6 @@
 			<AVP name="Dial-Around-Indicator"/>
 			<AVP name="Authentication-Method"/>
 			<AVP name="SIP-Request-Timestamp-Fraction"/>
-			<AVP name="SIP-Response-Timestamp-Fraction"/>
 			<AVP name="Transaction-Info" mapping="list" listSep="&#255;">
 				<AVP name="Transaction-Type" alias="Type"/>
 				<AVP name="Transaction-Data-Name" alias="Name"/>
