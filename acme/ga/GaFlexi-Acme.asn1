@@ -3,6 +3,76 @@ GaFlexi-Acme DEFINITIONS IMPLICIT TAGS ::= BEGIN
 Address ::= OCTET STRING
 
 Request ::= SEQUENCE {
+	user-Name User-Name OPTIONAL,
+	user-Password User-Password OPTIONAL,
+	cHAP-Password CHAP-Password OPTIONAL,
+	nAS-IP-Address NAS-IP-Address OPTIONAL,
+	nAS-Port NAS-Port OPTIONAL,
+	service-Type Service-Type OPTIONAL,
+	framed-Protocol Framed-Protocol OPTIONAL,
+	framed-IP-Address Framed-IP-Address OPTIONAL,
+	framed-IP-Netmask Framed-IP-Netmask OPTIONAL,
+	framed-Routing Framed-Routing OPTIONAL,
+	filter-Id Filter-Id OPTIONAL,
+	framed-MTU Framed-MTU OPTIONAL,
+	framed-Compression Framed-Compression OPTIONAL,
+	login-IP-Host Login-IP-Host OPTIONAL,
+	login-Service Login-Service OPTIONAL,
+	login-TCP-Port Login-TCP-Port OPTIONAL,
+	reply-Message Reply-Message OPTIONAL,
+	callback-Number Callback-Number OPTIONAL,
+	callback-Id Callback-Id OPTIONAL,
+	framed-Route Framed-Route OPTIONAL,
+	framed-IPX-Network Framed-IPX-Network OPTIONAL,
+	state State OPTIONAL,
+	class Class OPTIONAL,
+	session-Timeout Session-Timeout OPTIONAL,
+	idle-Timeout Idle-Timeout OPTIONAL,
+	termination-Action Termination-Action OPTIONAL,
+	called-Station-Id Called-Station-Id OPTIONAL,
+	calling-Station-Id Calling-Station-Id OPTIONAL,
+	nAS-Identifier NAS-Identifier OPTIONAL,
+	proxy-State Proxy-State OPTIONAL,
+	login-LAT-Service Login-LAT-Service OPTIONAL,
+	login-LAT-Node Login-LAT-Node OPTIONAL,
+	login-LAT-Group Login-LAT-Group OPTIONAL,
+	framed-AppleTalk-Link Framed-AppleTalk-Link OPTIONAL,
+	framed-AppleTalk-Network Framed-AppleTalk-Network OPTIONAL,
+	framed-AppleTalk-Zone Framed-AppleTalk-Zone OPTIONAL,
+	cHAP-Challenge CHAP-Challenge OPTIONAL,
+	nAS-Port-Type NAS-Port-Type OPTIONAL,
+	port-Limit Port-Limit OPTIONAL,
+	login-LAT-Port Login-LAT-Port OPTIONAL,
+	acct-Status-Type Acct-Status-Type OPTIONAL,
+	acct-Delay-Time Acct-Delay-Time OPTIONAL,
+	acct-Input-Octets Acct-Input-Octets OPTIONAL,
+	acct-Output-Octets Acct-Output-Octets OPTIONAL,
+	acct-Session-Id Acct-Session-Id OPTIONAL,
+	acct-Authentic Acct-Authentic OPTIONAL,
+	acct-Session-Time Acct-Session-Time OPTIONAL,
+	acct-Input-Packets Acct-Input-Packets OPTIONAL,
+	acct-Output-Packets Acct-Output-Packets OPTIONAL,
+	acct-Terminate-Cause Acct-Terminate-Cause OPTIONAL,
+	acct-Multi-Session-Id Acct-Multi-Session-Id OPTIONAL,
+	acct-Link-Count Acct-Link-Count OPTIONAL,
+	acct-Input-Gigawords Acct-Input-Gigawords OPTIONAL,
+	acct-Output-Gigawords Acct-Output-Gigawords OPTIONAL,
+	event-Timestamp Event-Timestamp OPTIONAL,
+	aRAP-Password ARAP-Password OPTIONAL,
+	aRAP-Features ARAP-Features OPTIONAL,
+	aRAP-Zone-Access ARAP-Zone-Access OPTIONAL,
+	aRAP-Security ARAP-Security OPTIONAL,
+	aRAP-Security-Data ARAP-Security-Data OPTIONAL,
+	password-Retry Password-Retry OPTIONAL,
+	prompt Prompt OPTIONAL,
+	connect-Info Connect-Info OPTIONAL,
+	configuration-Token Configuration-Token OPTIONAL,
+	eAP-Message EAP-Message OPTIONAL,
+	message-Authenticator Message-Authenticator OPTIONAL,
+	aRAP-Challenge-Response ARAP-Challenge-Response OPTIONAL,
+	acct-Interim-Interval Acct-Interim-Interval OPTIONAL,
+	nAS-Port-Id NAS-Port-Id OPTIONAL,
+	framed-Pool Framed-Pool OPTIONAL,
 	setupTime SetupTime OPTIONAL,
 	connectTime ConnectTime OPTIONAL,
 	disconnectTime DisconnectTime OPTIONAL,
@@ -189,6 +259,76 @@ Request ::= SEQUENCE {
 	acme-Flow-Called-Media-Stop-Time-FS2 Acme-Flow-Called-Media-Stop-Time-FS2 OPTIONAL,
 	acme-User-Class Acme-User-Class OPTIONAL
 }
+User-Name ::= [1] OCTET STRING
+User-Password ::= [2] OCTET STRING
+CHAP-Password ::= [3] OCTET STRING
+NAS-IP-Address ::= [4] Address
+NAS-Port ::= [5] INTEGER
+Service-Type ::= [6] INTEGER
+Framed-Protocol ::= [7] INTEGER
+Framed-IP-Address ::= [8] Address
+Framed-IP-Netmask ::= [9] Address
+Framed-Routing ::= [10] INTEGER
+Filter-Id ::= [11] OCTET STRING
+Framed-MTU ::= [12] INTEGER
+Framed-Compression ::= [13] INTEGER
+Login-IP-Host ::= [14] Address
+Login-Service ::= [15] INTEGER
+Login-TCP-Port ::= [16] INTEGER
+Reply-Message ::= [18] OCTET STRING
+Callback-Number ::= [19] OCTET STRING
+Callback-Id ::= [20] OCTET STRING
+Framed-Route ::= [22] OCTET STRING
+Framed-IPX-Network ::= [23] INTEGER
+State ::= [24] OCTET STRING
+Class ::= [25] OCTET STRING
+Session-Timeout ::= [27] INTEGER
+Idle-Timeout ::= [28] INTEGER
+Termination-Action ::= [29] INTEGER
+Called-Station-Id ::= [30] OCTET STRING
+Calling-Station-Id ::= [31] OCTET STRING
+NAS-Identifier ::= [32] OCTET STRING
+Proxy-State ::= [33] OCTET STRING
+Login-LAT-Service ::= [34] OCTET STRING
+Login-LAT-Node ::= [35] OCTET STRING
+Login-LAT-Group ::= [36] OCTET STRING
+Framed-AppleTalk-Link ::= [37] INTEGER
+Framed-AppleTalk-Network ::= [38] INTEGER
+Framed-AppleTalk-Zone ::= [39] OCTET STRING
+CHAP-Challenge ::= [60] OCTET STRING
+NAS-Port-Type ::= [61] INTEGER
+Port-Limit ::= [62] INTEGER
+Login-LAT-Port ::= [63] OCTET STRING
+Acct-Status-Type ::= [40] INTEGER
+Acct-Delay-Time ::= [41] INTEGER
+Acct-Input-Octets ::= [42] INTEGER
+Acct-Output-Octets ::= [43] INTEGER
+Acct-Session-Id ::= [44] OCTET STRING
+Acct-Authentic ::= [45] INTEGER
+Acct-Session-Time ::= [46] INTEGER
+Acct-Input-Packets ::= [47] INTEGER
+Acct-Output-Packets ::= [48] INTEGER
+Acct-Terminate-Cause ::= [49] INTEGER
+Acct-Multi-Session-Id ::= [50] OCTET STRING
+Acct-Link-Count ::= [51] INTEGER
+Acct-Input-Gigawords ::= [52] INTEGER
+Acct-Output-Gigawords ::= [53] INTEGER
+Event-Timestamp ::= [55] INTEGER
+ARAP-Password ::= [70] OCTET STRING
+ARAP-Features ::= [71] OCTET STRING
+ARAP-Zone-Access ::= [72] INTEGER
+ARAP-Security ::= [73] INTEGER
+ARAP-Security-Data ::= [74] OCTET STRING
+Password-Retry ::= [75] INTEGER
+Prompt ::= [76] INTEGER
+Connect-Info ::= [77] OCTET STRING
+Configuration-Token ::= [78] OCTET STRING
+EAP-Message ::= [79] OCTET STRING
+Message-Authenticator ::= [80] OCTET STRING
+ARAP-Challenge-Response ::= [84] OCTET STRING
+Acct-Interim-Interval ::= [85] INTEGER
+NAS-Port-Id ::= [87] OCTET STRING
+Framed-Pool ::= [88] OCTET STRING
 SetupTime ::= [294937] OCTET STRING
 ConnectTime ::= [294940] OCTET STRING
 DisconnectTime ::= [294941] OCTET STRING

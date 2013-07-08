@@ -10,7 +10,7 @@
 <!-- real deal: if we hit a leaf element in follow mode, print it's path and content -->
 <xsl:template match="/Protocol">
 	<xsl:text>Request ::= SEQUENCE {&#10;</xsl:text>
-	<xsl:for-each select="VSA">
+	<xsl:for-each select="VSA|AVP">
 		<xsl:value-of select="@name"/>
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="@name"/>
@@ -20,7 +20,7 @@
 	<xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="VSA">
+<xsl:template match="VSA|AVP">
 	<xsl:variable name="avpname" select="@name"/>
 	<xsl:value-of select="@name"/>
 	<xsl:text> ::= </xsl:text>

@@ -4,7 +4,81 @@
 
 <!-- The IPMM protocol support.-->
 <Protocol name="IPMM" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$CLASSES/cmg/stdapp/radius/validation/RADIUS_addon_schema.xsd">
-	<!-- Standard Radius AVPs 1-100 fields does not have to be specified. -->
+	<!-- RADIUS Base Protocol -->
+	<AVP type="1" datatype="string" name="User-Name" mandatory="no"/>
+	<AVP type="2" datatype="string" name="User-Password" mandatory="no"/>
+	<AVP type="3" datatype="string" name="CHAP-Password" mandatory="no"/>
+	<AVP type="4" datatype="address32" name="NAS-IP-Address" mandatory="no"/>
+	<AVP type="5" datatype="int" name="NAS-Port" mandatory="no"/>
+	<AVP type="6" datatype="int" name="Service-Type" mandatory="no"/>
+	<AVP type="7" datatype="int" name="Framed-Protocol" mandatory="no"/>
+	<AVP type="8" datatype="address32" name="Framed-IP-Address" mandatory="no"/>
+	<AVP type="9" datatype="address32" name="Framed-IP-Netmask" mandatory="no"/>
+	<AVP type="10" datatype="int" name="Framed-Routing" mandatory="no"/>
+	<AVP type="11" datatype="string" name="Filter-Id" mandatory="no"/>
+	<AVP type="12" datatype="int" name="Framed-MTU" mandatory="no"/>
+	<AVP type="13" datatype="int" name="Framed-Compression" mandatory="no"/>
+	<AVP type="14" datatype="address32" name="Login-IP-Host" mandatory="no"/>
+	<AVP type="15" datatype="int" name="Login-Service" mandatory="no"/>
+	<AVP type="16" datatype="int" name="Login-TCP-Port" mandatory="no"/>
+	<AVP type="18" datatype="string" name="Reply-Message" mandatory="no"/>
+	<AVP type="19" datatype="string" name="Callback-Number" mandatory="no"/>
+	<AVP type="20" datatype="string" name="Callback-Id" mandatory="no"/>
+	<AVP type="22" datatype="string" name="Framed-Route" mandatory="no"/>
+	<AVP type="23" datatype="int" name="Framed-IPX-Network" mandatory="no"/>
+	<AVP type="24" datatype="string" name="State" mandatory="no"/>
+	<AVP type="25" datatype="string" name="Class" mandatory="no"/>
+	<AVP type="27" datatype="int" name="Session-Timeout" mandatory="no"/>
+	<AVP type="28" datatype="int" name="Idle-Timeout" mandatory="no"/>
+	<AVP type="29" datatype="int" name="Termination-Action" mandatory="no"/>
+	<AVP type="30" datatype="string" name="Called-Station-Id" mandatory="no"/>
+	<AVP type="31" datatype="string" name="Calling-Station-Id" mandatory="no"/>
+	<AVP type="32" datatype="string" name="NAS-Identifier" mandatory="no"/>
+	<AVP type="33" datatype="string" name="Proxy-State" mandatory="no"/>
+	<AVP type="34" datatype="string" name="Login-LAT-Service" mandatory="no"/>
+	<AVP type="35" datatype="string" name="Login-LAT-Node" mandatory="no"/>
+	<AVP type="36" datatype="string" name="Login-LAT-Group" mandatory="no"/>
+	<AVP type="37" datatype="int" name="Framed-AppleTalk-Link" mandatory="no"/>
+	<AVP type="38" datatype="int" name="Framed-AppleTalk-Network" mandatory="no"/>
+	<AVP type="39" datatype="string" name="Framed-AppleTalk-Zone" mandatory="no"/>
+	<AVP type="60" datatype="string" name="CHAP-Challenge" mandatory="no"/>
+	<AVP type="61" datatype="int" name="NAS-Port-Type" mandatory="no"/>
+	<AVP type="62" datatype="int" name="Port-Limit" mandatory="no"/>
+	<AVP type="63" datatype="string" name="Login-LAT-Port" mandatory="no"/>
+
+	<!-- RADIUS Accounting-->
+	<AVP type="40" datatype="int" name="Acct-Status-Type" mandatory="no"/>
+	<AVP type="41" datatype="int" name="Acct-Delay-Time" mandatory="no"/>
+	<AVP type="42" datatype="int" name="Acct-Input-Octets" mandatory="no"/>
+	<AVP type="43" datatype="int" name="Acct-Output-Octets" mandatory="no"/>
+	<AVP type="44" datatype="string" name="Acct-Session-Id" mandatory="yes"/>
+	<AVP type="45" datatype="int" name="Acct-Authentic" mandatory="no"/>
+	<AVP type="46" datatype="int" name="Acct-Session-Time" mandatory="no"/>
+	<AVP type="47" datatype="int" name="Acct-Input-Packets" mandatory="no"/>
+	<AVP type="48" datatype="int" name="Acct-Output-Packets" mandatory="no"/>
+	<AVP type="49" datatype="int" name="Acct-Terminate-Cause" mandatory="no"/>
+	<AVP type="50" datatype="string" name="Acct-Multi-Session-Id" mandatory="no"/>
+	<AVP type="51" datatype="int" name="Acct-Link-Count" mandatory="no"/>
+
+	<!-- RADIUS Extensions -->
+	<AVP type="52" datatype="int" name="Acct-Input-Gigawords" mandatory="no"/>
+	<AVP type="53" datatype="int" name="Acct-Output-Gigawords" mandatory="no"/>
+	<AVP type="55" datatype="int" name="Event-Timestamp" mandatory="no"/>
+	<AVP type="70" datatype="string" name="ARAP-Password" mandatory="no"/>
+	<AVP type="71" datatype="string" name="ARAP-Features" mandatory="no"/>
+	<AVP type="72" datatype="int" name="ARAP-Zone-Access" mandatory="no"/>
+	<AVP type="73" datatype="int" name="ARAP-Security" mandatory="no"/>
+	<AVP type="74" datatype="string" name="ARAP-Security-Data" mandatory="no"/>
+	<AVP type="75" datatype="int" name="Password-Retry" mandatory="no"/>
+	<AVP type="76" datatype="int" name="Prompt" mandatory="no"/>
+	<AVP type="77" datatype="string" name="Connect-Info" mandatory="no"/>
+	<AVP type="78" datatype="string" name="Configuration-Token" mandatory="no"/>
+	<AVP type="79" datatype="string" name="EAP-Message" mandatory="no"/>
+	<AVP type="80" datatype="string" name="Message-Authenticator" mandatory="no"/>
+	<AVP type="84" datatype="string" name="ARAP-Challenge-Response" mandatory="no"/>
+	<AVP type="85" datatype="int" name="Acct-Interim-Interval" mandatory="no"/>
+	<AVP type="87" datatype="string" name="NAS-Port-Id" mandatory="no"/>
+	<AVP type="88" datatype="string" name="Framed-Pool" mandatory="no"/>
 
 	<!-- CISCO Vendor (ID=9) specific fields. -->
 	<VSA type="25" datatype="string" name="setupTime" mandatory="no" vendorId="9"/>
