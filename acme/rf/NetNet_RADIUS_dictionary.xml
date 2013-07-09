@@ -81,10 +81,10 @@
 	<AVP type="88" datatype="string" name="Framed-Pool" mandatory="no"/>
 
 	<!-- CISCO Vendor (ID=9) specific fields. -->
-	<VSA type="25" datatype="string" name="setupTime" mandatory="no" vendorId="9"/>
-	<VSA type="28" datatype="string" name="connectTime" mandatory="no" vendorId="9"/>
-	<VSA type="29" datatype="string" name="disconnectTime" mandatory="no" vendorId="9"/>
-	<VSA type="30" datatype="string" name="disconnectCause" mandatory="no" vendorId="9"/>
+	<VSA type="25" datatype="string" name="SetupTime" mandatory="no" vendorId="9"/>
+	<VSA type="28" datatype="string" name="ConnectTime" mandatory="no" vendorId="9"/>
+	<VSA type="29" datatype="string" name="DisconnectTime" mandatory="no" vendorId="9"/>
+	<VSA type="30" datatype="string" name="DisconnectCause" mandatory="no" vendorId="9"/>
 
 	<!-- ACME Vendor (ID-9148) specific fields. -->
 	<VSA type="1" datatype="string" name="Acme-FlowID_FS1_F" mandatory="no" vendorId="9148"/>
