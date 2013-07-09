@@ -53,10 +53,10 @@
 			<xsl:text>INTEGER</xsl:text>
 		</xsl:when>
 		<xsl:when test="$avptype='ipv6addr'">
-			<xsl:text>Address</xsl:text>
+			<xsl:text>Address128</xsl:text>
 		</xsl:when>
 		<xsl:when test="$avptype='address32'">
-			<xsl:text>Address</xsl:text>
+			<xsl:text>Address32</xsl:text>
 		</xsl:when>
 		<xsl:when test="$avptype='string'">
 			<xsl:text>OCTET STRING</xsl:text>
