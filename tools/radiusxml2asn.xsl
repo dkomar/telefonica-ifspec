@@ -59,7 +59,7 @@
 			<xsl:text>Address32</xsl:text>
 		</xsl:when>
 		<xsl:when test="$avptype='string'">
-			<xsl:text>OCTET STRING</xsl:text>
+			<xsl:text>UTF8String</xsl:text>
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:value-of select="$avptype"/>
