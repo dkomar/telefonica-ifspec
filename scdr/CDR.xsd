@@ -503,15 +503,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-<!-- present in Falcon, omitted in Synthetic CDRs
-      <xs:element name="associated-Party-Address">
+      <xs:element minOccurs="0" maxOccurs="1" name="associated-Party-Address">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="1">
             <xs:element name="involvedParty" type="InvolvedParty-Type"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
--->
 <!-- present in Falcon, omitted in Synthetic CDRs
       <xs:element name="serviceId" type="xs:string"/>
 -->

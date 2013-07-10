@@ -303,6 +303,11 @@ Usage:
               <SupplService>
                   <serviceType>0</serviceType>
                   <serviceMode>0</serviceMode>
+                  <associated-Party-Address>
+                    <involvedParty>
+                      <sip>sip:blablabla@domain.de</sip>
+                    </involvedParty>
+                  </associated-Party-Address>
               </SupplService>
             </listOfSupplServices>
           </mMTelInformation>
